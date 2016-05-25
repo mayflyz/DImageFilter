@@ -283,6 +283,88 @@ int  OTSU(unsigned char* pGrayImg , int iWidth , int iHeight)
     return destImg;
 }
 
+/**
+ *  创建直方图
+ */
+- (UIImage *)grayHistImg{
+    const int channels[1]={0};
+    const int histSize[1]={256};
+    float hranges[2]={0,255};
+    const float* ranges[1]={hranges};
+    cv::MatND hist;
+    /**
+     *  计算图像直方图像
+     *  参数1为输入图像的指针。
+     *  nimages：要计算直方图的图像的个数。此函数可以为多图像求直方图，我们通常情况下都只作用于单一图像，所以通常nimages=1。
+     *  channels：图像的通道，它是一个数组，如果是灰度图像则channels[1]={0};如果是彩色图像则channels[3]={0,1,2}；如果是只是求彩色图像第2个通道的直方图，则channels[1]={1};
+     *  mask：是一个遮罩图像用于确定哪些点参与计算，实际应用中是个很好的参数，默认情况我们都设置为一个空图像，即：Mat()。
+     *  hist：计算得到的直方图
+     *  dims：得到的直方图的维数，灰度图像为1维，彩色图像为3维。
+     *  histSize：直方图横坐标的区间数。如果是10，则它会横坐标分为10份，然后统计每个区间的像素点总和。
+     *  ranges：这是一个二维数组，用来指出每个区间的范围。
+     */
+    cv::Mat srcMat = self.CVMat;
+    cv::calcHist(&srcMat, 1, channels, cv::Mat(), hist, 1, histSize, ranges);
+    
+    cv::Mat dstMat = getHistImg(hist);
+    
+    return [[self class] imageWithCVMat:dstMat];
+}
+
+- (UIImage *)colorHistImg{
+    const int channels[3]={0,1,2};
+    const int histSize[3]={256,256,256};
+    float hranges[2]={0,255};
+    const float* ranges[3]={hranges, hranges, hranges};
+    cv::MatND hist;
+    cv::Mat srcMat = self.CVMat;
+    cv::calcHist(&srcMat, 1, channels, cv::Mat(), hist, 1, histSize, ranges);
+    
+    cv::Mat dstMat = getHistImg(hist);
+    
+    return [[self class] imageWithCVMat:dstMat];
+}
+
+cv::Mat getHistImg(const cv::MatND& hist)
+{
+    double maxVal=0;
+    double minVal=0;
+    
+    //找到直方图中的最大值和最小值
+    minMaxLoc(hist,&minVal,&maxVal,0,0);
+    int histSize=hist.rows;
+    cv::Mat histImg(histSize,histSize,CV_8U,cv::Scalar(255));
+    // 设置最大峰值为图像高度的90%
+    int hpt=static_cast<int>(0.9*histSize);
+    
+    for(int h=0;h<histSize;h++)
+    {
+        float binVal=hist.at<float>(h);
+        int intensity=static_cast<int>(binVal*hpt/maxVal);
+        line(histImg,cv::Point(h,histSize),cv::Point(h,histSize-intensity),cv::Scalar::all(0));
+    }
+    
+    return histImg;
+}
+
+- (UIImage *)equalHistImg{
+    IplImage *eqlImage = cvCreateImage(cvGetSize(self.plImage), self.plImage->depth, 3);
+
+    //分别均衡化每个信道
+    IplImage *redImage = cvCreateImage(cvGetSize(self.plImage),self.plImage->depth,1);
+    IplImage *greenImage = cvCreateImage(cvGetSize(self.plImage),self.plImage->depth,1);
+    IplImage *blueImage = cvCreateImage(cvGetSize(self.plImage),self.plImage->depth,1);
+    cvSplit(self.plImage,blueImage,greenImage,redImage,NULL);
+    
+    cvEqualizeHist(redImage,redImage);
+    cvEqualizeHist(greenImage,greenImage);
+    cvEqualizeHist(blueImage,blueImage);
+    //均衡化后的图像
+    cvMerge(blueImage,greenImage,redImage,NULL,eqlImage);
+    
+    return [[self class] imageWIthIplImage:eqlImage];
+}
+
 @end
 
 @implementation UIImage (Filter)

@@ -46,6 +46,12 @@ int  OTSU(unsigned char* pGrayImg , int iWidth , int iHeight);
 - (UIImage *)grayImage;
 
 - (UIImage *)binaryzation;
+
+- (UIImage *)grayHistImg;
+
+- (UIImage *)colorHistImg;
+
+- (UIImage *)equalHistImg;
 @end
 
 /**

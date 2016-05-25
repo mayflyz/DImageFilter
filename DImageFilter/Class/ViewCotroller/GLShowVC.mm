@@ -82,11 +82,21 @@
     UIImage *image = [self.originImg.image bilateralFilter];
     self.dstImg.image = image;
 }
+
 - (IBAction)openEvent:(id)sender {
+    self.tiptitle.text = @"灰度直方图";
+    UIImage *image = [self.originImg.image grayHistImg];
+    self.dstImg.image = image;
 }
 - (IBAction)closeEvent:(id)sender {
+    self.tiptitle.text = @"彩色直方图";
+    UIImage *image = [self.originImg.image colorHistImg];
+    self.dstImg.image = image;
 }
 - (IBAction)topHatEvent:(id)sender {
+    self.tiptitle.text = @"直方图均衡化";
+    UIImage *image = [self.originImg.image equalHistImg];
+    self.dstImg.image = image;
 }
 - (IBAction)blackHatEvent:(id)sender {
 }
