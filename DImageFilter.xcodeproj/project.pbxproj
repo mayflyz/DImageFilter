@@ -18,7 +18,6 @@
 		EAD5AD021CF2A9D8001F89E8 /* UIImage+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD5AD001CF2A9D8001F89E8 /* UIImage+Util.m */; };
 		EAD5AD051CF2AC56001F89E8 /* lena.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EAD5AD041CF2AC56001F89E8 /* lena.jpg */; };
 		EAD5AD081CF2ACAC001F89E8 /* GLDemoListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD5AD071CF2ACAC001F89E8 /* GLDemoListVC.m */; };
-		EAD5AD0E1CF2CEC8001F89E8 /* GLConventVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAD5AD0D1CF2CEC8001F89E8 /* GLConventVC.mm */; };
 		EAD5AD291CF2D45D001F89E8 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD5AD111CF2D45D001F89E8 /* MASCompositeConstraint.m */; };
 		EAD5AD2A1CF2D45D001F89E8 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD5AD141CF2D45D001F89E8 /* MASConstraint.m */; };
 		EAD5AD2B1CF2D45D001F89E8 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD5AD161CF2D45D001F89E8 /* MASConstraintMaker.m */; };
@@ -33,6 +32,18 @@
 		EAD5AD391CF2EC67001F89E8 /* GLShowVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAD5AD371CF2EC67001F89E8 /* GLShowVC.xib */; };
 		EAD5AD3F1CF43DC5001F89E8 /* GLMorphologyVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAD5AD3D1CF43DC5001F89E8 /* GLMorphologyVC.mm */; };
 		EAD5AD401CF43DC5001F89E8 /* GLMorphologyVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAD5AD3E1CF43DC5001F89E8 /* GLMorphologyVC.xib */; };
+		EAD5AD441CF537B4001F89E8 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD5AD431CF537B4001F89E8 /* opencv2.framework */; };
+		EAD5AD9A1CF698D1001F89E8 /* UIImage+FaceRecognizer.mm in Sources */ = {isa = PBXBuildFile; fileRef = EAD5AD991CF698D1001F89E8 /* UIImage+FaceRecognizer.mm */; };
+		EADFAA7D1CFC1DAB007F9307 /* haarcascade_eye_tree_eyeglasses.xml in Resources */ = {isa = PBXBuildFile; fileRef = EADFAA7A1CFC1DAB007F9307 /* haarcascade_eye_tree_eyeglasses.xml */; };
+		EADFAA7E1CFC1DAB007F9307 /* haarcascade_frontalface_alt.xml in Resources */ = {isa = PBXBuildFile; fileRef = EADFAA7B1CFC1DAB007F9307 /* haarcascade_frontalface_alt.xml */; };
+		EADFAA7F1CFC1DAB007F9307 /* haarcascade_frontalface_alt2.xml in Resources */ = {isa = PBXBuildFile; fileRef = EADFAA7C1CFC1DAB007F9307 /* haarcascade_frontalface_alt2.xml */; };
+		EADFAA811CFC22F9007F9307 /* circle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EADFAA801CFC22F9007F9307 /* circle.jpg */; };
+		EADFAA851CFD65FA007F9307 /* GLConventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EADFAA831CFD65FA007F9307 /* GLConventViewController.m */; };
+		EADFAA861CFD65FA007F9307 /* GLConventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EADFAA841CFD65FA007F9307 /* GLConventViewController.xib */; };
+		EAFADD571CFEAF1B005541B4 /* glasses.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFADD551CFEAF1B005541B4 /* glasses.png */; };
+		EAFADD581CFEAF1B005541B4 /* mustache.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFADD561CFEAF1B005541B4 /* mustache.png */; };
+		EAFADD5A1CFEAF36005541B4 /* haarcascade_mcs_mouth.xml in Resources */ = {isa = PBXBuildFile; fileRef = EAFADD591CFEAF36005541B4 /* haarcascade_mcs_mouth.xml */; };
+		EAFADD5C1CFEAF3E005541B4 /* haarcascade_mcs_eyepair_big.xml in Resources */ = {isa = PBXBuildFile; fileRef = EAFADD5B1CFEAF3E005541B4 /* haarcascade_mcs_eyepair_big.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,8 +77,6 @@
 		EAD5AD041CF2AC56001F89E8 /* lena.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lena.jpg; sourceTree = "<group>"; };
 		EAD5AD061CF2ACAC001F89E8 /* GLDemoListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLDemoListVC.h; sourceTree = "<group>"; };
 		EAD5AD071CF2ACAC001F89E8 /* GLDemoListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLDemoListVC.m; sourceTree = "<group>"; };
-		EAD5AD0C1CF2CEC8001F89E8 /* GLConventVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLConventVC.h; sourceTree = "<group>"; };
-		EAD5AD0D1CF2CEC8001F89E8 /* GLConventVC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLConventVC.mm; sourceTree = "<group>"; };
 		EAD5AD101CF2D45D001F89E8 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		EAD5AD111CF2D45D001F89E8 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
 		EAD5AD121CF2D45D001F89E8 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
@@ -99,6 +108,20 @@
 		EAD5AD3C1CF43DC5001F89E8 /* GLMorphologyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMorphologyVC.h; sourceTree = "<group>"; };
 		EAD5AD3D1CF43DC5001F89E8 /* GLMorphologyVC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLMorphologyVC.mm; sourceTree = "<group>"; };
 		EAD5AD3E1CF43DC5001F89E8 /* GLMorphologyVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GLMorphologyVC.xib; sourceTree = "<group>"; };
+		EAD5AD431CF537B4001F89E8 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		EAD5AD981CF698D1001F89E8 /* UIImage+FaceRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FaceRecognizer.h"; sourceTree = "<group>"; };
+		EAD5AD991CF698D1001F89E8 /* UIImage+FaceRecognizer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+FaceRecognizer.mm"; sourceTree = "<group>"; };
+		EADFAA7A1CFC1DAB007F9307 /* haarcascade_eye_tree_eyeglasses.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_eye_tree_eyeglasses.xml; sourceTree = "<group>"; };
+		EADFAA7B1CFC1DAB007F9307 /* haarcascade_frontalface_alt.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_frontalface_alt.xml; sourceTree = "<group>"; };
+		EADFAA7C1CFC1DAB007F9307 /* haarcascade_frontalface_alt2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_frontalface_alt2.xml; sourceTree = "<group>"; };
+		EADFAA801CFC22F9007F9307 /* circle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = circle.jpg; sourceTree = "<group>"; };
+		EADFAA821CFD65FA007F9307 /* GLConventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLConventViewController.h; sourceTree = "<group>"; };
+		EADFAA831CFD65FA007F9307 /* GLConventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLConventViewController.m; sourceTree = "<group>"; };
+		EADFAA841CFD65FA007F9307 /* GLConventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GLConventViewController.xib; sourceTree = "<group>"; };
+		EAFADD551CFEAF1B005541B4 /* glasses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glasses.png; sourceTree = "<group>"; };
+		EAFADD561CFEAF1B005541B4 /* mustache.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mustache.png; sourceTree = "<group>"; };
+		EAFADD591CFEAF36005541B4 /* haarcascade_mcs_mouth.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_mcs_mouth.xml; sourceTree = "<group>"; };
+		EAFADD5B1CFEAF3E005541B4 /* haarcascade_mcs_eyepair_big.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_mcs_eyepair_big.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAD5AD441CF537B4001F89E8 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +209,7 @@
 		EAD5ACE71CF2A951001F89E8 /* extension */ = {
 			isa = PBXGroup;
 			children = (
+				EAD5AD8D1CF59E5B001F89E8 /* Recognizer */,
 				EAD5ACFC1CF2A9D8001F89E8 /* Image */,
 			);
 			path = extension;
@@ -201,8 +226,6 @@
 		EAD5ACEE1CF2A951001F89E8 /* ViewCotroller */ = {
 			isa = PBXGroup;
 			children = (
-				EAD5AD0C1CF2CEC8001F89E8 /* GLConventVC.h */,
-				EAD5AD0D1CF2CEC8001F89E8 /* GLConventVC.mm */,
 				EAD5ACF11CF2A951001F89E8 /* MenuView */,
 				EAD5AD061CF2ACAC001F89E8 /* GLDemoListVC.h */,
 				EAD5AD071CF2ACAC001F89E8 /* GLDemoListVC.m */,
@@ -212,6 +235,9 @@
 				EAD5AD3C1CF43DC5001F89E8 /* GLMorphologyVC.h */,
 				EAD5AD3D1CF43DC5001F89E8 /* GLMorphologyVC.mm */,
 				EAD5AD3E1CF43DC5001F89E8 /* GLMorphologyVC.xib */,
+				EADFAA821CFD65FA007F9307 /* GLConventViewController.h */,
+				EADFAA831CFD65FA007F9307 /* GLConventViewController.m */,
+				EADFAA841CFD65FA007F9307 /* GLConventViewController.xib */,
 			);
 			path = ViewCotroller;
 			sourceTree = "<group>";
@@ -235,6 +261,7 @@
 		EAD5ACF41CF2A951001F89E8 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				EAD5AD431CF537B4001F89E8 /* opencv2.framework */,
 			);
 			path = Framework;
 			sourceTree = "<group>";
@@ -253,6 +280,9 @@
 		EAD5AD031CF2AC56001F89E8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				EAFADD551CFEAF1B005541B4 /* glasses.png */,
+				EAFADD561CFEAF1B005541B4 /* mustache.png */,
+				EADFAA801CFC22F9007F9307 /* circle.jpg */,
 				EAD5AD041CF2AC56001F89E8 /* lena.jpg */,
 			);
 			path = Images;
@@ -288,6 +318,20 @@
 				EAD5AD281CF2D45D001F89E8 /* ViewController+MASAdditions.m */,
 			);
 			path = Masonry;
+			sourceTree = "<group>";
+		};
+		EAD5AD8D1CF59E5B001F89E8 /* Recognizer */ = {
+			isa = PBXGroup;
+			children = (
+				EAFADD5B1CFEAF3E005541B4 /* haarcascade_mcs_eyepair_big.xml */,
+				EAFADD591CFEAF36005541B4 /* haarcascade_mcs_mouth.xml */,
+				EADFAA7A1CFC1DAB007F9307 /* haarcascade_eye_tree_eyeglasses.xml */,
+				EADFAA7B1CFC1DAB007F9307 /* haarcascade_frontalface_alt.xml */,
+				EADFAA7C1CFC1DAB007F9307 /* haarcascade_frontalface_alt2.xml */,
+				EAD5AD981CF698D1001F89E8 /* UIImage+FaceRecognizer.h */,
+				EAD5AD991CF698D1001F89E8 /* UIImage+FaceRecognizer.mm */,
+			);
+			path = Recognizer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,10 +414,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAFADD5A1CFEAF36005541B4 /* haarcascade_mcs_mouth.xml in Resources */,
+				EADFAA861CFD65FA007F9307 /* GLConventViewController.xib in Resources */,
+				EADFAA7E1CFC1DAB007F9307 /* haarcascade_frontalface_alt.xml in Resources */,
 				EAD5AD391CF2EC67001F89E8 /* GLShowVC.xib in Resources */,
 				EAD5AD401CF43DC5001F89E8 /* GLMorphologyVC.xib in Resources */,
 				EAD5ACD11CF2A8E3001F89E8 /* LaunchScreen.storyboard in Resources */,
+				EADFAA7F1CFC1DAB007F9307 /* haarcascade_frontalface_alt2.xml in Resources */,
 				EAD5ACCE1CF2A8E3001F89E8 /* Assets.xcassets in Resources */,
+				EAFADD581CFEAF1B005541B4 /* mustache.png in Resources */,
+				EAFADD5C1CFEAF3E005541B4 /* haarcascade_mcs_eyepair_big.xml in Resources */,
+				EADFAA7D1CFC1DAB007F9307 /* haarcascade_eye_tree_eyeglasses.xml in Resources */,
+				EAFADD571CFEAF1B005541B4 /* glasses.png in Resources */,
+				EADFAA811CFC22F9007F9307 /* circle.jpg in Resources */,
 				EAD5ACCC1CF2A8E3001F89E8 /* Main.storyboard in Resources */,
 				EAD5AD051CF2AC56001F89E8 /* lena.jpg in Resources */,
 			);
@@ -395,11 +448,11 @@
 			files = (
 				EAD5AD381CF2EC67001F89E8 /* GLShowVC.mm in Sources */,
 				EAD5AD2F1CF2D45D001F89E8 /* NSArray+MASAdditions.m in Sources */,
+				EAD5AD9A1CF698D1001F89E8 /* UIImage+FaceRecognizer.mm in Sources */,
 				EAD5AD2E1CF2D45D001F89E8 /* MASViewConstraint.m in Sources */,
 				EAD5ACC91CF2A8E3001F89E8 /* ViewController.m in Sources */,
 				EAD5AD2B1CF2D45D001F89E8 /* MASConstraintMaker.m in Sources */,
 				EAD5AD311CF2D45D001F89E8 /* View+MASAdditions.m in Sources */,
-				EAD5AD0E1CF2CEC8001F89E8 /* GLConventVC.mm in Sources */,
 				EAD5AD2A1CF2D45D001F89E8 /* MASConstraint.m in Sources */,
 				EAD5ACC61CF2A8E3001F89E8 /* AppDelegate.m in Sources */,
 				EAD5AD2D1CF2D45D001F89E8 /* MASViewAttribute.m in Sources */,
@@ -411,6 +464,7 @@
 				EAD5AD021CF2A9D8001F89E8 /* UIImage+Util.m in Sources */,
 				EAD5AD081CF2ACAC001F89E8 /* GLDemoListVC.m in Sources */,
 				EAD5AD321CF2D45D001F89E8 /* ViewController+MASAdditions.m in Sources */,
+				EADFAA851CFD65FA007F9307 /* GLConventViewController.m in Sources */,
 				EAD5ACC31CF2A8E3001F89E8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

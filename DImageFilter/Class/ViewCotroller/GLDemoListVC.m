@@ -8,6 +8,7 @@
 
 #import "GLDemoListVC.h"
 #import "GLShowVC.h"
+#import "GLConventVC.h"
 #import "GLMorphologyVC.h"
 
 @interface GLDemoListVC ()<UITableViewDelegate, UITableViewDataSource>
@@ -30,7 +31,7 @@
     
     self.dataArr = [@[@{@"key" : @"图像转换", @"value" : @1},
                       @{@"key" : @"图像集合操作", @"value" : @2},
-                      @{@"key" : @"图像开闭操作", @"value" : @1}] mutableCopy];
+                      @{@"key" : @"图像开闭操作", @"value" : @3}] mutableCopy];
 }
 
 
@@ -71,7 +72,8 @@
             break;
         case 3:
             {
-            
+                GLConventVC *vc = [[GLConventVC alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
             }
             break;
         default:
