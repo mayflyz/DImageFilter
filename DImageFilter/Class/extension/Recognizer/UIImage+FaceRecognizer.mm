@@ -12,6 +12,12 @@
 
 #import "opencv2/opencv.hpp"
 
+#define File_FrontalFace_alt1       @"haarcascade_frontalface_alt.xml"
+#define File_FrontalFace_alt2       @"haarcascade_frontalface_alt2.xml"
+#define File_Eye_tree_glasses          @"haarcascade_eye_tree_eyeglasses.xml"
+#define File_Mouth              @"haarcascade_mcs_mouth.xml"
+#define File_EyePair_big        @"haarcascade_mcs_eyepair_big.xml"
+
 @implementation UIImage (FaceRecognizer)
 
 - (NSArray *)facePointDetect{
@@ -21,10 +27,13 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         // 添加xml文件
-        NSString* cascadePath = [[NSBundle mainBundle]
-                                 pathForResource:@"haarcascade_frontalface_alt2"
-                                 ofType:@"xml"];
-        faceDetector.load([cascadePath UTF8String]);
+        NSBundle *mainBundle = [NSBundle mainBundle];
+        NSString *facePath = [mainBundle pathForResource:File_FrontalFace_alt2 ofType:nil];
+        NSString *eyePath = [mainBundle pathForResource:File_Eye_tree_glasses ofType:nil];
+        NSString *mouthPath = [mainBundle pathForResource:File_Mouth ofType:nil];
+        faceDetector.load([facePath UTF8String]);
+        faceDetector.load([eyePath UTF8String]);
+        faceDetector.load([mouthPath UTF8String]);
     });
     
     
@@ -63,10 +72,13 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         // 添加xml文件
-        NSString* cascadePath = [[NSBundle mainBundle]
-                                 pathForResource:@"haarcascade_frontalface_alt"
-                                 ofType:@"xml"];
-        faceDetector.load([cascadePath UTF8String]);
+        NSBundle *mainBundle = [NSBundle mainBundle];
+        NSString *facePath = [mainBundle pathForResource:File_FrontalFace_alt2 ofType:nil];
+        NSString *eyePath = [mainBundle pathForResource:File_Eye_tree_glasses ofType:nil];
+        NSString *mouthPath = [mainBundle pathForResource:File_Mouth ofType:nil];
+        faceDetector.load([facePath UTF8String]);
+        faceDetector.load([eyePath UTF8String]);
+        faceDetector.load([mouthPath UTF8String]);
     });
     
     

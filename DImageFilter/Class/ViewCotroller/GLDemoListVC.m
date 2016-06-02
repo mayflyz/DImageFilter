@@ -8,8 +8,8 @@
 
 #import "GLDemoListVC.h"
 #import "GLShowVC.h"
-#import "GLConventVC.h"
 #import "GLMorphologyVC.h"
+#import "GLConventViewController.h"
 
 @interface GLDemoListVC ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -72,7 +72,7 @@
             break;
         case 3:
             {
-                GLConventVC *vc = [[GLConventVC alloc] init];
+                GLConventViewController *vc = [[GLConventViewController alloc] init];
                 [self.navigationController pushViewController:vc animated:YES];
             }
             break;

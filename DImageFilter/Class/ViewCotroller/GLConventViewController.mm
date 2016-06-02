@@ -12,9 +12,10 @@
 #import "UIImage+OpenCV.h"
 #import "UIImage+FaceRecognizer.h"
 
-@interface GLConventViewController ()<>
+@interface GLConventViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
 @end
 
 @implementation GLConventViewController
@@ -23,9 +24,9 @@
     [super viewDidLoad];
     
     //Load image with face
-    UIImage* image = [UIImage imageNamed:@"circle.jpg"];
+    UIImage* image = [UIImage imageNamed:@"lena.jpg"];
     // Show resulting image
-    self.imageView.image = [image circleDetect];
+    self.imageView.image = [image faceDetect];
 
 }
 

@@ -38,7 +38,7 @@
 		EADFAA7E1CFC1DAB007F9307 /* haarcascade_frontalface_alt.xml in Resources */ = {isa = PBXBuildFile; fileRef = EADFAA7B1CFC1DAB007F9307 /* haarcascade_frontalface_alt.xml */; };
 		EADFAA7F1CFC1DAB007F9307 /* haarcascade_frontalface_alt2.xml in Resources */ = {isa = PBXBuildFile; fileRef = EADFAA7C1CFC1DAB007F9307 /* haarcascade_frontalface_alt2.xml */; };
 		EADFAA811CFC22F9007F9307 /* circle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EADFAA801CFC22F9007F9307 /* circle.jpg */; };
-		EADFAA851CFD65FA007F9307 /* GLConventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EADFAA831CFD65FA007F9307 /* GLConventViewController.m */; };
+		EADFAA851CFD65FA007F9307 /* GLConventViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EADFAA831CFD65FA007F9307 /* GLConventViewController.mm */; };
 		EADFAA861CFD65FA007F9307 /* GLConventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EADFAA841CFD65FA007F9307 /* GLConventViewController.xib */; };
 		EAFADD571CFEAF1B005541B4 /* glasses.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFADD551CFEAF1B005541B4 /* glasses.png */; };
 		EAFADD581CFEAF1B005541B4 /* mustache.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFADD561CFEAF1B005541B4 /* mustache.png */; };
@@ -116,7 +116,7 @@
 		EADFAA7C1CFC1DAB007F9307 /* haarcascade_frontalface_alt2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_frontalface_alt2.xml; sourceTree = "<group>"; };
 		EADFAA801CFC22F9007F9307 /* circle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = circle.jpg; sourceTree = "<group>"; };
 		EADFAA821CFD65FA007F9307 /* GLConventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLConventViewController.h; sourceTree = "<group>"; };
-		EADFAA831CFD65FA007F9307 /* GLConventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLConventViewController.m; sourceTree = "<group>"; };
+		EADFAA831CFD65FA007F9307 /* GLConventViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLConventViewController.mm; sourceTree = "<group>"; };
 		EADFAA841CFD65FA007F9307 /* GLConventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GLConventViewController.xib; sourceTree = "<group>"; };
 		EAFADD551CFEAF1B005541B4 /* glasses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glasses.png; sourceTree = "<group>"; };
 		EAFADD561CFEAF1B005541B4 /* mustache.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mustache.png; sourceTree = "<group>"; };
@@ -236,7 +236,7 @@
 				EAD5AD3D1CF43DC5001F89E8 /* GLMorphologyVC.mm */,
 				EAD5AD3E1CF43DC5001F89E8 /* GLMorphologyVC.xib */,
 				EADFAA821CFD65FA007F9307 /* GLConventViewController.h */,
-				EADFAA831CFD65FA007F9307 /* GLConventViewController.m */,
+				EADFAA831CFD65FA007F9307 /* GLConventViewController.mm */,
 				EADFAA841CFD65FA007F9307 /* GLConventViewController.xib */,
 			);
 			path = ViewCotroller;
@@ -464,7 +464,7 @@
 				EAD5AD021CF2A9D8001F89E8 /* UIImage+Util.m in Sources */,
 				EAD5AD081CF2ACAC001F89E8 /* GLDemoListVC.m in Sources */,
 				EAD5AD321CF2D45D001F89E8 /* ViewController+MASAdditions.m in Sources */,
-				EADFAA851CFD65FA007F9307 /* GLConventViewController.m in Sources */,
+				EADFAA851CFD65FA007F9307 /* GLConventViewController.mm in Sources */,
 				EAD5ACC31CF2A8E3001F89E8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
