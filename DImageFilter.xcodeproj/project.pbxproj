@@ -14,6 +14,8 @@
 		EA1F2FF41D040923002EE4D4 /* UIImage+MatOperate.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA1F2FF31D040923002EE4D4 /* UIImage+MatOperate.mm */; };
 		EA1F2FF71D0409AB002EE4D4 /* UIImage+Morphology.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA1F2FF61D0409AB002EE4D4 /* UIImage+Morphology.mm */; };
 		EA1F2FFA1D040A34002EE4D4 /* UIImage+Threshold.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA1F2FF91D040A34002EE4D4 /* UIImage+Threshold.mm */; };
+		EA380D7A1D05622900478A41 /* great.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EA380D791D05622900478A41 /* great.jpg */; };
+		EA380D7C1D0588DB00478A41 /* Histogram_Equalization.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EA380D7B1D0588DB00478A41 /* Histogram_Equalization.jpg */; };
 		EAC873921D01BBFB00021405 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC873911D01BBFB00021405 /* Accelerate.framework */; };
 		EAC873941D01BC0300021405 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC873931D01BC0300021405 /* AssetsLibrary.framework */; };
 		EAC873961D01BC0B00021405 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC873951D01BC0B00021405 /* AVFoundation.framework */; };
@@ -85,6 +87,8 @@
 		EA1F2FF81D040A34002EE4D4 /* UIImage+Threshold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Threshold.h"; sourceTree = "<group>"; };
 		EA1F2FF91D040A34002EE4D4 /* UIImage+Threshold.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+Threshold.mm"; sourceTree = "<group>"; };
 		EA1F2FFB1D040A87002EE4D4 /* UIImage+OpenCV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
+		EA380D791D05622900478A41 /* great.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = great.jpg; sourceTree = "<group>"; };
+		EA380D7B1D0588DB00478A41 /* Histogram_Equalization.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Histogram_Equalization.jpg; sourceTree = "<group>"; };
 		EAC873911D01BBFB00021405 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		EAC873931D01BC0300021405 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		EAC873951D01BC0B00021405 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -336,6 +340,8 @@
 		EAD5AD031CF2AC56001F89E8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				EA380D7B1D0588DB00478A41 /* Histogram_Equalization.jpg */,
+				EA380D791D05622900478A41 /* great.jpg */,
 				EA1F2FEA1D04016D002EE4D4 /* jhtx.jpg */,
 				EAFADD551CFEAF1B005541B4 /* glasses.png */,
 				EAFADD561CFEAF1B005541B4 /* mustache.png */,
@@ -476,10 +482,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAFADD5A1CFEAF36005541B4 /* haarcascade_mcs_mouth.xml in Resources */,
+				EA380D7A1D05622900478A41 /* great.jpg in Resources */,
 				EADFAA861CFD65FA007F9307 /* GLConventViewController.xib in Resources */,
 				EADFAA7E1CFC1DAB007F9307 /* haarcascade_frontalface_alt.xml in Resources */,
 				EAD5AD391CF2EC67001F89E8 /* GLShowVC.xib in Resources */,
 				EAD5AD401CF43DC5001F89E8 /* GLMorphologyVC.xib in Resources */,
+				EA380D7C1D0588DB00478A41 /* Histogram_Equalization.jpg in Resources */,
 				EA1F2FEB1D04016D002EE4D4 /* jhtx.jpg in Resources */,
 				EAD5ACD11CF2A8E3001F89E8 /* LaunchScreen.storyboard in Resources */,
 				EADFAA7F1CFC1DAB007F9307 /* haarcascade_frontalface_alt2.xml in Resources */,

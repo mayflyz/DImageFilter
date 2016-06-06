@@ -53,7 +53,7 @@
 */
 - (IBAction)dilateEvent:(id)sender {
     self.titleInfo.text = @"膨胀操作";
-    UIImage *image = [self.originImg.image dilateOperation];
+    UIImage *image = [self.originImg.image grayHistImg];
     
     self.dstImg.image = image;
 }

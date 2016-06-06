@@ -43,6 +43,10 @@ int  OTSU(unsigned char* pGrayImg , int iWidth , int iHeight);
 - (UIImage *)colorHistImg;
 
 - (UIImage *)equalHistImg;
+/**
+ *  直方图均衡化
+ */
+- (UIImage *)histogramEqualization;
 
 #pragma mark ---------
 
