@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GLMorphologyVC">
@@ -105,6 +105,15 @@
                         <action selector="closeEvent:" destination="-1" eventType="touchUpInside" id="zaF-Ye-Rkt"/>
                     </connections>
                 </button>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="AH3-mY-bE1">
+                    <rect key="frame" x="21" y="138" width="562" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="gKy-5O-Geq"/>
+                    </constraints>
+                    <connections>
+                        <action selector="valueChange:" destination="-1" eventType="valueChanged" id="1tR-qf-BIT"/>
+                    </connections>
+                </slider>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -124,13 +133,16 @@
                 <constraint firstItem="bhP-z6-Ic8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="23" id="Mk3-ft-8yi"/>
                 <constraint firstItem="PW3-xj-eyj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="66" id="OkA-xf-wx2"/>
                 <constraint firstAttribute="bottom" secondItem="qeA-9u-fE5" secondAttribute="bottom" constant="8" id="Uhn-e6-tp4"/>
+                <constraint firstAttribute="trailing" secondItem="AH3-mY-bE1" secondAttribute="trailing" constant="19" id="Vk2-cc-bSS"/>
                 <constraint firstItem="E2k-mi-Du8" firstAttribute="leading" secondItem="08s-Lc-QIb" secondAttribute="trailing" constant="14" id="XIw-y4-xFf"/>
+                <constraint firstItem="AH3-mY-bE1" firstAttribute="top" secondItem="MkQ-Zb-qJ1" secondAttribute="bottom" constant="4" id="Zeb-Xu-NmE"/>
                 <constraint firstItem="08s-Lc-QIb" firstAttribute="leading" secondItem="PW3-xj-eyj" secondAttribute="trailing" constant="13" id="bkd-p4-oeT"/>
                 <constraint firstItem="PW3-xj-eyj" firstAttribute="leading" secondItem="8Zf-pc-O2G" secondAttribute="trailing" constant="8" id="j54-AL-ohO"/>
                 <constraint firstItem="MkQ-Zb-qJ1" firstAttribute="top" secondItem="PW3-xj-eyj" secondAttribute="bottom" constant="8" id="mJr-3R-IsS"/>
                 <constraint firstItem="8Zf-pc-O2G" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="66" id="pRT-O6-wic"/>
+                <constraint firstItem="AH3-mY-bE1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="23" id="pXC-Nk-lIm"/>
             </constraints>
-            <point key="canvasLocation" x="307" y="355"/>
+            <point key="canvasLocation" x="-82" y="440"/>
         </view>
     </objects>
 </document>

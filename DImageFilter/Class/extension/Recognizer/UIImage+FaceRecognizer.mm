@@ -18,6 +18,12 @@
 #define File_Mouth              @"haarcascade_mcs_mouth.xml"
 #define File_EyePair_big        @"haarcascade_mcs_eyepair_big.xml"
 
+static cv::Mat glasses;
+static cv::Mat mustache;
+static cv::CascadeClassifier faceCascade;
+static cv::CascadeClassifier eyesCascade;
+static cv::CascadeClassifier mouthCascade;
+
 @implementation UIImage (FaceRecognizer)
 
 - (NSArray *)facePointDetect{
@@ -67,8 +73,6 @@
         return nil;
     }
     
-    static cv::CascadeClassifier faceDetector;
-    
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         // 添加xml文件
@@ -76,9 +80,9 @@
         NSString *facePath = [mainBundle pathForResource:File_FrontalFace_alt2 ofType:nil];
         NSString *eyePath = [mainBundle pathForResource:File_Eye_tree_glasses ofType:nil];
         NSString *mouthPath = [mainBundle pathForResource:File_Mouth ofType:nil];
-        faceDetector.load([facePath UTF8String]);
-        faceDetector.load([eyePath UTF8String]);
-        faceDetector.load([mouthPath UTF8String]);
+        faceCascade.load([facePath UTF8String]);
+        eyesCascade.load([eyePath UTF8String]);
+        mouthCascade.load([mouthPath UTF8String]);
     });
     
     
@@ -87,7 +91,9 @@
     
     // 检测人脸并储存
     std::vector<cv::Rect>faces;
-    faceDetector.detectMultiScale(gray, faces, 1.1, 2, 0|CV_HAAR_SCALE_IMAGE, cv::Size(30,30));
+    faceCascade.detectMultiScale(gray, faces, 1.1, 2, 0|CV_HAAR_SCALE_IMAGE, cv::Size(30,30));
+
+    
     
     // 在每个人脸上画一个红色四方形
     for(unsigned int i= 0; i < faces.size(); i++)
@@ -102,6 +108,8 @@
     
     return [[self class] imageWithCVMat:faceImage];
 }
+
+
 
 - (UIImage*)circleDetect{
     cv::Mat circleImage, src_gray;

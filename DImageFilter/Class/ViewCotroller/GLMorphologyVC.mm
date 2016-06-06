@@ -31,6 +31,16 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)valueChange:(id)sender {
+    UISlider *slider = (UISlider *)sender;
+    CGFloat value = slider.value;
+    int size = value*50;
+    
+//    self.dstImg.image = [self.originImg.image erosionType:2 size:size];
+//    self.dstImg.image = [self.originImg.image dilationWithType:1 size:size];
+//    self.dstImg.image = [self.originImg.image morphologyWithOperation:4 elementSize:size];
+    self.dstImg.image = [self.originImg.image scharrWithScale:size];
+}
 
 /*
 #pragma mark - Navigation
@@ -50,35 +60,35 @@
 
 - (IBAction)erodeEvent:(id)sender {
     self.titleInfo.text = @"腐蚀操作";
-    UIImage *image = [self.originImg.image erodeOperation];
+    UIImage *image = [self.originImg.image erosionOperation];
     
     self.dstImg.image = image;
 }
 
 - (IBAction)closeEvent:(id)sender {
     self.titleInfo.text = @"闭操作";
-    UIImage *image = [self.originImg.image closeOperation];
+    UIImage *image = [self.originImg.image morphologyWithOperation:1 elementSize:1];
     
     self.dstImg.image = image;
 }
 
 - (IBAction)openEvent:(id)sender {
     self.titleInfo.text = @"开操作";
-    UIImage *image = [self.originImg.image openOperation];
+    UIImage *image = [self.originImg.image morphologyWithOperation:0 elementSize:1];
     
     self.dstImg.image = image;
 }
 
 - (IBAction)blackHatEvent:(id)sender {
     self.titleInfo.text = @"黑帽操作";
-    UIImage *image = [self.originImg.image blackHatOperation];
+    UIImage *image = [self.originImg.image morphologyWithOperation:3 elementSize:1];
     
     self.dstImg.image = image;
 }
 
 - (IBAction)topHatEvent:(id)sender {
     self.titleInfo.text = @"顶帽操作";
-    UIImage *image = [self.originImg.image floodFill];
+    UIImage *image = [self.originImg.image morphologyWithOperation:4 elementSize:1];
     
     self.dstImg.image = image;
 }
