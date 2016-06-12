@@ -60,6 +60,9 @@
 		EAFADD581CFEAF1B005541B4 /* mustache.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFADD561CFEAF1B005541B4 /* mustache.png */; };
 		EAFADD5A1CFEAF36005541B4 /* haarcascade_mcs_mouth.xml in Resources */ = {isa = PBXBuildFile; fileRef = EAFADD591CFEAF36005541B4 /* haarcascade_mcs_mouth.xml */; };
 		EAFADD5C1CFEAF3E005541B4 /* haarcascade_mcs_eyepair_big.xml in Resources */ = {isa = PBXBuildFile; fileRef = EAFADD5B1CFEAF3E005541B4 /* haarcascade_mcs_eyepair_big.xml */; };
+		FE3DCF291D09591100A8C41F /* GLMainTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3DCF281D09591100A8C41F /* GLMainTableVC.m */; settings = {ASSET_TAGS = (); }; };
+		FE51A7C31D0936C4000AF574 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE51A7C21D0936C4000AF574 /* opencv2.framework */; settings = {ASSET_TAGS = (); }; };
+		FE51A7C61D093711000AF574 /* GLImageOperate.mm in Sources */ = {isa = PBXBuildFile; fileRef = FE51A7C51D093711000AF574 /* GLImageOperate.mm */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +162,11 @@
 		EAFADD561CFEAF1B005541B4 /* mustache.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mustache.png; sourceTree = "<group>"; };
 		EAFADD591CFEAF36005541B4 /* haarcascade_mcs_mouth.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_mcs_mouth.xml; sourceTree = "<group>"; };
 		EAFADD5B1CFEAF3E005541B4 /* haarcascade_mcs_eyepair_big.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_mcs_eyepair_big.xml; sourceTree = "<group>"; };
+		FE3DCF271D09591100A8C41F /* GLMainTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMainTableVC.h; sourceTree = "<group>"; };
+		FE3DCF281D09591100A8C41F /* GLMainTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLMainTableVC.m; sourceTree = "<group>"; };
+		FE51A7C21D0936C4000AF574 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		FE51A7C41D093711000AF574 /* GLImageOperate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLImageOperate.h; sourceTree = "<group>"; };
+		FE51A7C51D093711000AF574 /* GLImageOperate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLImageOperate.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +184,7 @@
 				EAC873961D01BC0B00021405 /* AVFoundation.framework in Frameworks */,
 				EAC873941D01BC0300021405 /* AssetsLibrary.framework in Frameworks */,
 				EAC873921D01BBFB00021405 /* Accelerate.framework in Frameworks */,
+				FE51A7C31D0936C4000AF574 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +266,8 @@
 			children = (
 				EAD5AD8D1CF59E5B001F89E8 /* Recognizer */,
 				EAD5ACFC1CF2A9D8001F89E8 /* Image */,
+				FE51A7C41D093711000AF574 /* GLImageOperate.h */,
+				FE51A7C51D093711000AF574 /* GLImageOperate.mm */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -272,6 +283,7 @@
 		EAD5ACEE1CF2A951001F89E8 /* ViewCotroller */ = {
 			isa = PBXGroup;
 			children = (
+				FE3DCF261D0958E800A8C41F /* MainView */,
 				EAD5ACF11CF2A951001F89E8 /* MenuView */,
 				EAD5AD061CF2ACAC001F89E8 /* GLDemoListVC.h */,
 				EAD5AD071CF2ACAC001F89E8 /* GLDemoListVC.m */,
@@ -307,6 +319,7 @@
 		EAD5ACF41CF2A951001F89E8 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				FE51A7C21D0936C4000AF574 /* opencv2.framework */,
 				EAC873A31D01BC4700021405 /* Foundation.framework */,
 				EAC873A11D01BC4200021405 /* UIKit.framework */,
 				EAC8739F1D01BC3B00021405 /* QuartzCore.framework */,
@@ -399,6 +412,15 @@
 				EAD5AD991CF698D1001F89E8 /* UIImage+FaceRecognizer.mm */,
 			);
 			path = Recognizer;
+			sourceTree = "<group>";
+		};
+		FE3DCF261D0958E800A8C41F /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				FE3DCF271D09591100A8C41F /* GLMainTableVC.h */,
+				FE3DCF281D09591100A8C41F /* GLMainTableVC.m */,
+			);
+			path = MainView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -523,8 +545,10 @@
 				EAD5ACC91CF2A8E3001F89E8 /* ViewController.m in Sources */,
 				EAD5AD2B1CF2D45D001F89E8 /* MASConstraintMaker.m in Sources */,
 				EAD5AD311CF2D45D001F89E8 /* View+MASAdditions.m in Sources */,
+				FE3DCF291D09591100A8C41F /* GLMainTableVC.m in Sources */,
 				EAD5AD2A1CF2D45D001F89E8 /* MASConstraint.m in Sources */,
 				EAD5ACC61CF2A8E3001F89E8 /* AppDelegate.m in Sources */,
+				FE51A7C61D093711000AF574 /* GLImageOperate.mm in Sources */,
 				EAD5AD2D1CF2D45D001F89E8 /* MASViewAttribute.m in Sources */,
 				EAD5AD301CF2D45D001F89E8 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				EAD5AD3F1CF43DC5001F89E8 /* GLMorphologyVC.mm in Sources */,
