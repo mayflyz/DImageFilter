@@ -9,17 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface UIImage (Threshold)
-/**
- *  大津法取阈值
- *
- *  @param pImageData 图像数据
- *  @param nWidth     图像宽度
- *  @param nHeight    图像高度
- *  @param nWidthStep 图像行大小
- *
- *  @return 阈值
- */
-int  OTSU(unsigned char* pGrayImg , int iWidth , int iHeight);
 
 - (UIImage *)grayImage;
 

@@ -16,6 +16,8 @@
 		EA1F2FFA1D040A34002EE4D4 /* UIImage+Threshold.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA1F2FF91D040A34002EE4D4 /* UIImage+Threshold.mm */; };
 		EA380D7A1D05622900478A41 /* great.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EA380D791D05622900478A41 /* great.jpg */; };
 		EA380D7C1D0588DB00478A41 /* Histogram_Equalization.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EA380D7B1D0588DB00478A41 /* Histogram_Equalization.jpg */; };
+		EA380D7E1D0599BE00478A41 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA380D7D1D0599BE00478A41 /* opencv2.framework */; };
+		EA380D851D069E3A00478A41 /* GLFaceAnimator.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA380D841D069E3A00478A41 /* GLFaceAnimator.mm */; };
 		EAC873921D01BBFB00021405 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC873911D01BBFB00021405 /* Accelerate.framework */; };
 		EAC873941D01BC0300021405 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC873931D01BC0300021405 /* AssetsLibrary.framework */; };
 		EAC873961D01BC0B00021405 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC873951D01BC0B00021405 /* AVFoundation.framework */; };
@@ -60,9 +62,8 @@
 		EAFADD581CFEAF1B005541B4 /* mustache.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFADD561CFEAF1B005541B4 /* mustache.png */; };
 		EAFADD5A1CFEAF36005541B4 /* haarcascade_mcs_mouth.xml in Resources */ = {isa = PBXBuildFile; fileRef = EAFADD591CFEAF36005541B4 /* haarcascade_mcs_mouth.xml */; };
 		EAFADD5C1CFEAF3E005541B4 /* haarcascade_mcs_eyepair_big.xml in Resources */ = {isa = PBXBuildFile; fileRef = EAFADD5B1CFEAF3E005541B4 /* haarcascade_mcs_eyepair_big.xml */; };
-		FE3DCF291D09591100A8C41F /* GLMainTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3DCF281D09591100A8C41F /* GLMainTableVC.m */; settings = {ASSET_TAGS = (); }; };
-		FE51A7C31D0936C4000AF574 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE51A7C21D0936C4000AF574 /* opencv2.framework */; settings = {ASSET_TAGS = (); }; };
-		FE51A7C61D093711000AF574 /* GLImageOperate.mm in Sources */ = {isa = PBXBuildFile; fileRef = FE51A7C51D093711000AF574 /* GLImageOperate.mm */; settings = {ASSET_TAGS = (); }; };
+		FE3DCF291D09591100A8C41F /* GLMainTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3DCF281D09591100A8C41F /* GLMainTableVC.m */; };
+		FE51A7C61D093711000AF574 /* GLImageOperate.mm in Sources */ = {isa = PBXBuildFile; fileRef = FE51A7C51D093711000AF574 /* GLImageOperate.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,9 @@
 		EA1F2FFB1D040A87002EE4D4 /* UIImage+OpenCV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
 		EA380D791D05622900478A41 /* great.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = great.jpg; sourceTree = "<group>"; };
 		EA380D7B1D0588DB00478A41 /* Histogram_Equalization.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Histogram_Equalization.jpg; sourceTree = "<group>"; };
+		EA380D7D1D0599BE00478A41 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		EA380D831D069E3A00478A41 /* GLFaceAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLFaceAnimator.h; sourceTree = "<group>"; };
+		EA380D841D069E3A00478A41 /* GLFaceAnimator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLFaceAnimator.mm; sourceTree = "<group>"; };
 		EAC873911D01BBFB00021405 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		EAC873931D01BC0300021405 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		EAC873951D01BC0B00021405 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -164,7 +168,6 @@
 		EAFADD5B1CFEAF3E005541B4 /* haarcascade_mcs_eyepair_big.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_mcs_eyepair_big.xml; sourceTree = "<group>"; };
 		FE3DCF271D09591100A8C41F /* GLMainTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMainTableVC.h; sourceTree = "<group>"; };
 		FE3DCF281D09591100A8C41F /* GLMainTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLMainTableVC.m; sourceTree = "<group>"; };
-		FE51A7C21D0936C4000AF574 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		FE51A7C41D093711000AF574 /* GLImageOperate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLImageOperate.h; sourceTree = "<group>"; };
 		FE51A7C51D093711000AF574 /* GLImageOperate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLImageOperate.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -184,7 +187,7 @@
 				EAC873961D01BC0B00021405 /* AVFoundation.framework in Frameworks */,
 				EAC873941D01BC0300021405 /* AssetsLibrary.framework in Frameworks */,
 				EAC873921D01BBFB00021405 /* Accelerate.framework in Frameworks */,
-				FE51A7C31D0936C4000AF574 /* opencv2.framework in Frameworks */,
+				EA380D7E1D0599BE00478A41 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,7 +322,7 @@
 		EAD5ACF41CF2A951001F89E8 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				FE51A7C21D0936C4000AF574 /* opencv2.framework */,
+				EA380D7D1D0599BE00478A41 /* opencv2.framework */,
 				EAC873A31D01BC4700021405 /* Foundation.framework */,
 				EAC873A11D01BC4200021405 /* UIKit.framework */,
 				EAC8739F1D01BC3B00021405 /* QuartzCore.framework */,
@@ -399,6 +402,8 @@
 		EAD5AD8D1CF59E5B001F89E8 /* Recognizer */ = {
 			isa = PBXGroup;
 			children = (
+				EA380D831D069E3A00478A41 /* GLFaceAnimator.h */,
+				EA380D841D069E3A00478A41 /* GLFaceAnimator.mm */,
 				EA1F2FE41D01DEED002EE4D4 /* GLFaceDetector.h */,
 				EA1F2FE51D01DEED002EE4D4 /* GLFaceDetector.mm */,
 				EA1F2FE61D01DEED002EE4D4 /* GLFaceRecognizer.h */,
@@ -541,6 +546,7 @@
 				EAD5AD381CF2EC67001F89E8 /* GLShowVC.mm in Sources */,
 				EAD5AD2F1CF2D45D001F89E8 /* NSArray+MASAdditions.m in Sources */,
 				EAD5AD9A1CF698D1001F89E8 /* UIImage+FaceRecognizer.mm in Sources */,
+				EA380D851D069E3A00478A41 /* GLFaceAnimator.mm in Sources */,
 				EAD5AD2E1CF2D45D001F89E8 /* MASViewConstraint.m in Sources */,
 				EAD5ACC91CF2A8E3001F89E8 /* ViewController.m in Sources */,
 				EAD5AD2B1CF2D45D001F89E8 /* MASConstraintMaker.m in Sources */,

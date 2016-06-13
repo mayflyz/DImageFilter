@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "opencv2/opencv.hpp"
+#import "GLImageOperate.h"
 
 @interface UIImage (MatOperate)
 
