@@ -85,15 +85,27 @@ int  OTSU(unsigned char* pGrayImg , int iWidth , int iHeight);
 
 @end
 
+@interface GLImageOperate (BaseOparetion)
+
++ (Mat)binaryzation:(Mat)srcMat;
+
++ (Mat)binaryzation:(Mat)srcMat threshValue:(int)value;
+
+@end
+
+/**
+ *  边缘检测处理
+ */
 @interface GLImageOperate (edgeDetection)
+//
+//
+//void roberts(IplImage *src,IplImage *dst);
+//
+//void sobel(IplImage *src,IplImage *dst);
+//
+//void prewitt(IplImage *src,IplImage *dst);
+//
+//void kirsch(IplImage *src,IplImage *dst);
 
-
-void roberts(IplImage *src,IplImage *dst);
-
-void sobel(IplImage *src,IplImage *dst);
-
-void prewitt(IplImage *src,IplImage *dst);
-
-void kirsch(IplImage *src,IplImage *dst);
-
++ (Mat)distanceTransform:(Mat)srcMat;
 @end

@@ -57,4 +57,6 @@
 - (UIImage *)LaplaceWithSize:(int)value;
 
 - (UIImage *)scharrWithScale:(int)value;
+
+- (UIImage *)distanceTransform;
 @end

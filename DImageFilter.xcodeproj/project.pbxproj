@@ -16,7 +16,6 @@
 		EA1F2FFA1D040A34002EE4D4 /* UIImage+Threshold.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA1F2FF91D040A34002EE4D4 /* UIImage+Threshold.mm */; };
 		EA380D7A1D05622900478A41 /* great.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EA380D791D05622900478A41 /* great.jpg */; };
 		EA380D7C1D0588DB00478A41 /* Histogram_Equalization.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EA380D7B1D0588DB00478A41 /* Histogram_Equalization.jpg */; };
-		EA380D7E1D0599BE00478A41 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA380D7D1D0599BE00478A41 /* opencv2.framework */; };
 		EA380D851D069E3A00478A41 /* GLFaceAnimator.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA380D841D069E3A00478A41 /* GLFaceAnimator.mm */; };
 		EAC873921D01BBFB00021405 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC873911D01BBFB00021405 /* Accelerate.framework */; };
 		EAC873941D01BC0300021405 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC873931D01BC0300021405 /* AssetsLibrary.framework */; };
@@ -28,6 +27,8 @@
 		EAC873A01D01BC3B00021405 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC8739F1D01BC3B00021405 /* QuartzCore.framework */; };
 		EAC873A21D01BC4200021405 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC873A11D01BC4200021405 /* UIKit.framework */; };
 		EAC873A41D01BC4700021405 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC873A31D01BC4700021405 /* Foundation.framework */; };
+		EACBE8791D0EA39000EB14B6 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACBE8781D0EA39000EB14B6 /* opencv2.framework */; };
+		EACBE87B1D0EA49E00EB14B6 /* hend.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EACBE87A1D0EA49E00EB14B6 /* hend.jpeg */; };
 		EAD5ACC31CF2A8E3001F89E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD5ACC21CF2A8E3001F89E8 /* main.m */; };
 		EAD5ACC61CF2A8E3001F89E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD5ACC51CF2A8E3001F89E8 /* AppDelegate.m */; };
 		EAD5ACC91CF2A8E3001F89E8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD5ACC81CF2A8E3001F89E8 /* ViewController.m */; };
@@ -93,7 +94,6 @@
 		EA1F2FFB1D040A87002EE4D4 /* UIImage+OpenCV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
 		EA380D791D05622900478A41 /* great.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = great.jpg; sourceTree = "<group>"; };
 		EA380D7B1D0588DB00478A41 /* Histogram_Equalization.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Histogram_Equalization.jpg; sourceTree = "<group>"; };
-		EA380D7D1D0599BE00478A41 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		EA380D831D069E3A00478A41 /* GLFaceAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLFaceAnimator.h; sourceTree = "<group>"; };
 		EA380D841D069E3A00478A41 /* GLFaceAnimator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLFaceAnimator.mm; sourceTree = "<group>"; };
 		EAC873911D01BBFB00021405 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -106,6 +106,8 @@
 		EAC8739F1D01BC3B00021405 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		EAC873A11D01BC4200021405 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EAC873A31D01BC4700021405 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EACBE8781D0EA39000EB14B6 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		EACBE87A1D0EA49E00EB14B6 /* hend.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hend.jpeg; sourceTree = "<group>"; };
 		EAD5ACBE1CF2A8E3001F89E8 /* DImageFilter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DImageFilter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAD5ACC21CF2A8E3001F89E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EAD5ACC41CF2A8E3001F89E8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -187,7 +189,7 @@
 				EAC873961D01BC0B00021405 /* AVFoundation.framework in Frameworks */,
 				EAC873941D01BC0300021405 /* AssetsLibrary.framework in Frameworks */,
 				EAC873921D01BBFB00021405 /* Accelerate.framework in Frameworks */,
-				EA380D7E1D0599BE00478A41 /* opencv2.framework in Frameworks */,
+				EACBE8791D0EA39000EB14B6 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,7 +324,7 @@
 		EAD5ACF41CF2A951001F89E8 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				EA380D7D1D0599BE00478A41 /* opencv2.framework */,
+				EACBE8781D0EA39000EB14B6 /* opencv2.framework */,
 				EAC873A31D01BC4700021405 /* Foundation.framework */,
 				EAC873A11D01BC4200021405 /* UIKit.framework */,
 				EAC8739F1D01BC3B00021405 /* QuartzCore.framework */,
@@ -356,6 +358,7 @@
 		EAD5AD031CF2AC56001F89E8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				EACBE87A1D0EA49E00EB14B6 /* hend.jpeg */,
 				EA380D7B1D0588DB00478A41 /* Histogram_Equalization.jpg */,
 				EA380D791D05622900478A41 /* great.jpg */,
 				EA1F2FEA1D04016D002EE4D4 /* jhtx.jpg */,
@@ -524,6 +527,7 @@
 				EADFAA7D1CFC1DAB007F9307 /* haarcascade_eye_tree_eyeglasses.xml in Resources */,
 				EAFADD571CFEAF1B005541B4 /* glasses.png in Resources */,
 				EADFAA811CFC22F9007F9307 /* circle.jpg in Resources */,
+				EACBE87B1D0EA49E00EB14B6 /* hend.jpeg in Resources */,
 				EAD5ACCC1CF2A8E3001F89E8 /* Main.storyboard in Resources */,
 				EAD5AD051CF2AC56001F89E8 /* lena.jpg in Resources */,
 			);
