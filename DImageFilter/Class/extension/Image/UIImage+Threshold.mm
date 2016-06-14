@@ -343,11 +343,4 @@ cv::Mat getHistImg(const cv::MatND& hist)
     
     return [[self class] imageWithCVMat:grad];
 }
-
-- (UIImage *)distanceTransform{
-    cv::Mat binaryMat = [GLImageOperate binaryzation:self.CVMat];
-    cv::Mat dstMat = [GLImageOperate distanceTransform:binaryMat];
-    
-    return [[self class] imageWithCVMat:dstMat];
-}
 @end

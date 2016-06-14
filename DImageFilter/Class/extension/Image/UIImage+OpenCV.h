@@ -13,5 +13,6 @@
 #import "UIImage+Smoothing.h"
 #import "UIImage+Morphology.h"
 #import "UIImage+Threshold.h"
+#import "UIImage+Skeleton.h"
 
 #endif /* UIImage_OpenCV_h */

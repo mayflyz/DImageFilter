@@ -29,6 +29,9 @@
 		EAC873A41D01BC4700021405 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC873A31D01BC4700021405 /* Foundation.framework */; };
 		EACBE8791D0EA39000EB14B6 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACBE8781D0EA39000EB14B6 /* opencv2.framework */; };
 		EACBE87B1D0EA49E00EB14B6 /* hend.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EACBE87A1D0EA49E00EB14B6 /* hend.jpeg */; };
+		EACBE87E1D0F9D5C00EB14B6 /* GLMatSkeleton.mm in Sources */ = {isa = PBXBuildFile; fileRef = EACBE87D1D0F9D5C00EB14B6 /* GLMatSkeleton.mm */; };
+		EACBE8811D0FA50800EB14B6 /* UIImage+Skeleton.mm in Sources */ = {isa = PBXBuildFile; fileRef = EACBE8801D0FA50800EB14B6 /* UIImage+Skeleton.mm */; };
+		EACBE8831D0FD7A300EB14B6 /* qiumo.png in Resources */ = {isa = PBXBuildFile; fileRef = EACBE8821D0FD7A300EB14B6 /* qiumo.png */; };
 		EAD5ACC31CF2A8E3001F89E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD5ACC21CF2A8E3001F89E8 /* main.m */; };
 		EAD5ACC61CF2A8E3001F89E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD5ACC51CF2A8E3001F89E8 /* AppDelegate.m */; };
 		EAD5ACC91CF2A8E3001F89E8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD5ACC81CF2A8E3001F89E8 /* ViewController.m */; };
@@ -108,6 +111,11 @@
 		EAC873A31D01BC4700021405 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EACBE8781D0EA39000EB14B6 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		EACBE87A1D0EA49E00EB14B6 /* hend.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hend.jpeg; sourceTree = "<group>"; };
+		EACBE87C1D0F9D5C00EB14B6 /* GLMatSkeleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMatSkeleton.h; sourceTree = "<group>"; };
+		EACBE87D1D0F9D5C00EB14B6 /* GLMatSkeleton.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLMatSkeleton.mm; sourceTree = "<group>"; };
+		EACBE87F1D0FA50800EB14B6 /* UIImage+Skeleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Skeleton.h"; sourceTree = "<group>"; };
+		EACBE8801D0FA50800EB14B6 /* UIImage+Skeleton.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+Skeleton.mm"; sourceTree = "<group>"; };
+		EACBE8821D0FD7A300EB14B6 /* qiumo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qiumo.png; sourceTree = "<group>"; };
 		EAD5ACBE1CF2A8E3001F89E8 /* DImageFilter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DImageFilter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAD5ACC21CF2A8E3001F89E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EAD5ACC41CF2A8E3001F89E8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -273,6 +281,8 @@
 				EAD5ACFC1CF2A9D8001F89E8 /* Image */,
 				FE51A7C41D093711000AF574 /* GLImageOperate.h */,
 				FE51A7C51D093711000AF574 /* GLImageOperate.mm */,
+				EACBE87C1D0F9D5C00EB14B6 /* GLMatSkeleton.h */,
+				EACBE87D1D0F9D5C00EB14B6 /* GLMatSkeleton.mm */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -351,6 +361,8 @@
 				EA1F2FF61D0409AB002EE4D4 /* UIImage+Morphology.mm */,
 				EA1F2FF81D040A34002EE4D4 /* UIImage+Threshold.h */,
 				EA1F2FF91D040A34002EE4D4 /* UIImage+Threshold.mm */,
+				EACBE87F1D0FA50800EB14B6 /* UIImage+Skeleton.h */,
+				EACBE8801D0FA50800EB14B6 /* UIImage+Skeleton.mm */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -358,6 +370,7 @@
 		EAD5AD031CF2AC56001F89E8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				EACBE8821D0FD7A300EB14B6 /* qiumo.png */,
 				EACBE87A1D0EA49E00EB14B6 /* hend.jpeg */,
 				EA380D7B1D0588DB00478A41 /* Histogram_Equalization.jpg */,
 				EA380D791D05622900478A41 /* great.jpg */,
@@ -530,6 +543,7 @@
 				EACBE87B1D0EA49E00EB14B6 /* hend.jpeg in Resources */,
 				EAD5ACCC1CF2A8E3001F89E8 /* Main.storyboard in Resources */,
 				EAD5AD051CF2AC56001F89E8 /* lena.jpg in Resources */,
+				EACBE8831D0FD7A300EB14B6 /* qiumo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,6 +561,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EACBE87E1D0F9D5C00EB14B6 /* GLMatSkeleton.mm in Sources */,
 				EAD5AD381CF2EC67001F89E8 /* GLShowVC.mm in Sources */,
 				EAD5AD2F1CF2D45D001F89E8 /* NSArray+MASAdditions.m in Sources */,
 				EAD5AD9A1CF698D1001F89E8 /* UIImage+FaceRecognizer.mm in Sources */,
@@ -573,6 +588,7 @@
 				EADFAA851CFD65FA007F9307 /* GLConventViewController.mm in Sources */,
 				EA1F2FFA1D040A34002EE4D4 /* UIImage+Threshold.mm in Sources */,
 				EAD5ACC31CF2A8E3001F89E8 /* main.m in Sources */,
+				EACBE8811D0FA50800EB14B6 /* UIImage+Skeleton.mm in Sources */,
 				EA1F2FF71D0409AB002EE4D4 /* UIImage+Morphology.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.originImg.image = [UIImage imageNamed:@"hend.jpeg"];
+    self.originImg.image = [UIImage imageNamed:@"lena.jpg"];
     
     
 }
@@ -53,7 +53,7 @@
 */
 - (IBAction)dilateEvent:(id)sender {
     self.titleInfo.text = @"膨胀操作";
-    UIImage *image = [self.originImg.image distanceTransform];
+    UIImage *image = [self.originImg.image grayHistImg];
     
     self.dstImg.image = image;
 }

@@ -58,5 +58,5 @@
 
 - (UIImage *)scharrWithScale:(int)value;
 
-- (UIImage *)distanceTransform;
+
 @end
