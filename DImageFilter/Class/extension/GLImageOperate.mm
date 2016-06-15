@@ -328,6 +328,73 @@ int  OTSU(unsigned char* pGrayImg , int iWidth , int iHeight)
 }
 @end
 
+/*==================================================================
+ =  代码内容：最大熵阈值分割
+ =  修改日期:2009-3-3
+ =  作者:crond123
+ =  博客:http://blog.csdn.net/crond123/
+ =   E_Mail:crond123@163.com
+ =  修改：jink2005
+ =  论坛：http://www.aiseminar.com/bbs
+ ====================================================================*/
+int HistogramBins = 256;
+float HistogramRange1[2] = {0,255};
+float *HistogramRange[1] = {&HistogramRange1[0]};
+typedef enum {back,object} entropy_state;
+// 计算当前位置的能量熵
+double caculateCurrentEntropy(CvHistogram * Histogram1, int cur_threshold, entropy_state state)
+{
+    int start,end;
+    if(state == back)
+    {
+        start = 0;
+        end = cur_threshold;
+    }
+    else
+    {
+        start = cur_threshold;
+        end = 256;
+    }
+    int  total = 0;
+    for(int i = start; i < end; i++)
+    {
+//        total += (int)cvQueryHistValue_1D(Histogram1, i);
+    }
+    double cur_entropy = 0.0;
+    for(i = start; i < end; i++)
+    {
+        if((int)cvQueryHistValue_1D(Histogram1,i) == 0)
+            continue;
+        double percentage = cvQueryHistValue_1D(Histogram1, i) / total;
+        cur_entropy += - percentage * logf(percentage); // 能量的定义公式
+    }
+    return cur_entropy;
+}
+// 寻找最大熵阈值并分割
+void MaxEntropy(IplImage *src, IplImage *dst)
+{
+    assert(src != NULL);
+    assert(src->depth == 8 && dst->depth == 8);
+    assert(src->nChannels == 1);
+    CvHistogram * hist  = cvCreateHist(1, &HistogramBins, CV_HIST_ARRAY, HistogramRange);
+    cvCalcHist(&src, hist);
+    double maxentropy = -1.0;
+    int max_index = -1;
+    // 循环测试每个分割点，寻找到最大的阈值分割点
+    for(int i = 0; i < HistogramBins; i++)
+    {
+        double cur_entropy = caculateCurrentEntropy(hist, i, object) + caculateCurrentEntropy(hist, i, back);
+        if(cur_entropy > maxentropy)
+        {
+            maxentropy = cur_entropy;
+            max_index = i;
+        }
+    }
+    cvThreshold(src, dst, (double)max_index, 255, CV_THRESH_BINARY);
+    cvReleaseHist(&hist);
+}
+
+
 @implementation GLImageOperate (BaseOparetion)
 
 + (Mat)binaryzation:(Mat)srcMat{
@@ -381,193 +448,16 @@ int  OTSU(unsigned char* pGrayImg , int iWidth , int iHeight)
 
 @end
 
-@implementation GLImageOperate (edgeDetection)
-//
-////roberts算子求图像梯度提取边缘，输入源图像，输出梯度图，此方法不常用
-//void roberts(IplImage *src,IplImage *dst)
-//{
-//    //为roberts图像申请空间,因为要利用源图像指针中的imageData,因此使用复制方式
-//    dst=cvCloneImage(src);
-//    int x,y,i,w,h;
-//    int temp,temp1;
-//    
-//    uchar* ptr=(uchar*) (dst->imageData );
-//    int ptr1[4]={0};
-//    int indexx[4]={0,1,1,0};
-//    int indexy[4]={0,0,1,1};
-//    w=dst->width;
-//    h=dst->height;
-//    for(y=0;y<h-1;y++)
-//        for(x=0;x<w-1;x++)
-//        {
-//            
-//            for(i=0;i<4;i++)    //取每个2*2矩阵元素的指针      0 | 1
-//            {                   //                             3 | 2
-//                ptr1[i]= *(ptr+(y+indexy[i])*dst->widthStep+x+indexx[i]);
-//                
-//            }
-//            temp=abs(ptr1[0]-ptr1[2]);    //计算2*2矩阵中0和2位置的差，取绝对值temp
-//            temp1=abs(ptr1[1]-ptr1[3]);   //计算2*2矩阵中1和3位置的差，取绝对值temp1
-//            temp=(temp>temp1?temp:temp1); //若temp1>temp,则以temp1的值替换temp
-//            temp= (int)sqrt(float(temp*temp)+float(temp1*temp1));  //输出值
-//            /* if (temp>100)
-//             temp=255;
-//             else temp=0;  */
-//            *(ptr+y*dst->widthStep+x)=temp;    //将输出值存放于dst像素的对应位置
-//        }
-//    
-//    double min_val = 0,max_val = 0;//取图并显示像中的最大最小像素值
-//    cvMinMaxLoc(dst,&min_val,&max_val);
-//    printf("max_val = %f\nmin_val = %f\n",max_val,min_val);
-//    
-//    cvSaveImage("RobertsImg.jpg", dst);//把图像存入文件
-//    cvNamedWindow("robert",1);
-//    cvShowImage("robert",dst);
-//}
-//
-////如果源图像是8位的，为避免溢出，目标图像深度必须是16S，或32位
-//void sobel(IplImage *src,IplImage *dst)
-//{
-//    //为soble微分图像申请空间，创建图片函数
-//    IplImage *pSobelImg_dx = cvCreateImage(cvGetSize(src),32,1);
-//    IplImage *pSobelImg_dy = cvCreateImage(cvGetSize(src),32,1);
-//    IplImage *pSobelImg_dxdy = cvCreateImage(cvGetSize(src), 32,1);
-//    
-//    //用sobel算子计算两个方向的微分
-//    cvSobel(src , pSobelImg_dx, 1, 0, 3);
-//    cvSobel(src , pSobelImg_dy, 0, 1, 3);
-//    
-//    //total gradient = sqrt(horizontal*horizontal+vertical*vertical)
-//    int i,j;
-//    double v1,v2,v;
-//    for (i=0;i<src->height;i++)
-//    {
-//        for (j=0;j<src->width;j++)
-//        {
-//            v1 = cvGetReal2D(pSobelImg_dx,i,j);
-//            v2 = cvGetReal2D(pSobelImg_dy,i,j);
-//            v = sqrt(v1*v1+v2*v2);
-//            /*	if(v>100) v = 255;
-//             else v = 0;*/
-//            cvSetReal2D(pSobelImg_dxdy,i,j,v);
-//        }
-//    }
-//    cvConvertScale(pSobelImg_dxdy,dst);   //将图像转化为8位
-//    double min_val = 0,max_val = 0;//取图并显示像中的最大最小像素值
-//    cvMinMaxLoc(pSobelImg_dxdy,&min_val,&max_val);
-//    printf("max_val = %f\nmin_val = %f\n",max_val,min_val);
-//    
-//    //归一化
-//    cvNormalize(dst,dst,0,255,CV_MINMAX,0);
-//}
-//
-////prewitt算子，模板卷积公式编写，常用方法
-//void prewitt(IplImage *src, IplImage *dst)
-//{
-//    //定义prewitt算子的模板
-//    float prewittx[9] =
-//    {
-//        -1,0,1,
-//        -1,0,1,
-//        -1,0,1
-//    };
-//    float prewitty[9] =
-//    {
-//        1,1,1,
-//        0,0,0,
-//        -1,-1,-1
-//    };
-//    CvMat px;
-//    px = cvMat(3,3,CV_32F,prewittx);
-//    CvMat py;
-//    py = cvMat(3,3,CV_32F,prewitty); //为输出图像申请空间
-//    IplImage *dstx = cvCreateImage(cvGetSize(src),8,1);
-//    IplImage *dsty = cvCreateImage(cvGetSize(src),8,1);  //对图像使用模板，自动填充边界
-//    cvFilter2D(src,dstx,&px,cvPoint(-1,-1));
-//    cvFilter2D(src,dsty,&py,cvPoint(-1,-1));  //计算梯度，范数为2，注意学习指针的使用方法
-//    int i,j,temp;
-//    float tempx,tempy;  //定义为浮点型是为了避免sqrt函数引起歧义
-//    uchar* ptrx = (uchar*) dstx->imageData;
-//    uchar* ptry = (uchar*) dsty->imageData;
-//    for(i = 0;i<src->width;i++)
-//    {
-//        for(j = 0;j<src->height;j++)
-//        {
-//            tempx = ptrx[i+j*dstx->widthStep];   //tempx,tempy表示的是指针所指向的像素
-//            tempy = ptry[i+j*dsty->widthStep];
-//            temp = (int) sqrt(tempx*tempx+tempy*tempy);
-//            /*if(temp>100) temp = 255;
-//             else temp = 0;*/
-//            dst->imageData[i+j*dstx->widthStep] = temp;
-//        }
-//    }
-//    double min_val = 0, max_val = 0;//取图并显示像中的最大最小像素值
-//    cvMinMaxLoc(dst,&min_val,&max_val);
-//    printf("max_val = %f\nmin_val = %f\n",max_val,min_val);
-//    
-//    //计算梯度，范数为1
-//    //cvAdd(dstx,dsty,dst);  
-//    cvSaveImage("PrewittImg.jpg", dst);//把图像存入文件  
-//    cvReleaseImage(&dstx);  
-//    cvReleaseImage(&dsty);  
-//    cvNamedWindow("prewitt",1);  
-//    cvShowImage("prewitt",dst);
-//}
-//
-////Kirsch算子,根据方向的对称性，可以只对前面4个模板进行处理，求最大值。采用求中心像素周围像素梯度，此方法是最好用的方法。
-//void kirsch(IplImage *src,IplImage *dst)
-//{
-//    dst = cvCloneImage(src);
-//    //cvConvert(src,srcMat); //将图像转化成矩阵处理
-//    int x,y;
-//    float a,b,c,d;
-//    float p1,p2,p3,p4,p5,p6,p7,p8,p9;
-//    uchar* ps = (uchar*)src->imageData ; //ps为指向输入图片数据的指针
-//    uchar* pd = (uchar*)dst->imageData ; //pd为指向输出图片数据的指针
-//    int w = dst->width;
-//    int h = dst->height;
-//    int step = dst->widthStep;
-//    
-//    for(x = 0;x<w-2;x++)      //取以（x+1，y+1)为中心的9个邻域像素  1 4 7
-//    {                                                            // 2 5 8
-//        for(y = 0;y<h-2;y++)                                     // 3 6 9
-//        {
-//            p1=ps[y*step+x];
-//            p2=ps[y*step+(x+1)];
-//            p3=ps[y*step+(x+2)];
-//            p4=ps[(y+1)*step+x];
-//            p5=ps[(y+1)*step+(x+1)];
-//            p6=ps[(y+1)*step+(x+2)];
-//            p7=ps[(y+2)*step+x];
-//            p8=ps[(y+2)*step+(x+1)];
-//            p9=ps[(y+2)*step+(x+2)];//得到(i+1,j+1)周围九个点的灰度值
-//            
-//            a = fabs(float(-5*p1-5*p2-5*p3+3*p4+3*p6+3*p7+3*p8+3*p9));    //计算4个方向的梯度值
-//            b = fabs(float(3*p1-5*p2-5*p3+3*p4-5*p6+3*p7+3*p8+3*p9));
-//            c = fabs(float(3*p1+3*p2-5*p3+3*p4-5*p6+3*p7+3*p8-5*p9));
-//            d = fabs(float(3*p1+3*p2+3*p3+3*p4-5*p6+3*p7-5*p8-5*p9));
-//            a = max(a,b);                                         //取各个方向上的最大值作为边缘强度
-//            a = max(a,c);
-//            a = max(a,d);
-//            pd[(y+1)*step+(x+1)] = a;
-//            /*	if(a>100)
-//             {
-//             pd[(y+1)*step+(x+1)]=255;
-//             }
-//             else pd[(y+1)*step+(x+1)]=0;*/
-//        }
-//    }
-//    
-//    double min_val = 0, max_val = 0;//取图并显示像中的最大最小像素值
-//    cvMinMaxLoc(dst,&min_val,&max_val);   
-//    printf("max_val = %f\nmin_val = %f\n",max_val,min_val);
-//    
-//    cvNormalize(dst,dst,0,255,CV_MINMAX); //归一化处理
-//    cvSaveImage("KirschImg.jpg", dst);//把图像存入文件
-//    cvNamedWindow("kirsch",1);
-//    cvShowImage("kirsch",dst);
-//}
+//roberts算子求图像梯度提取边缘，输入源图像，输出梯度图，此方法不常用
 
+//如果源图像是8位的，为避免溢出，目标图像深度必须是16S，或32位
+
+//prewitt算子，模板卷积公式编写，常用方法
+
+//Kirsch算子,根据方向的对称性，可以只对前面4个模板进行处理，求最大值。采用求中心像素周围像素梯度，此方法是最好用的方法。
+
+
+@implementation GLImageOperate (edgeDetection)
 /**
  *  计算输入图像的所有非零元素对其最近零元素的距离
  *
@@ -585,6 +475,51 @@ int  OTSU(unsigned char* pGrayImg , int iWidth , int iHeight)
      */
     distanceTransform(srcMat, dstMat, CV_DIST_L1, 5);
     return dstMat;
+}
+
++ (Mat)prewitt:(Mat)src{
+    Mat gray,Kernelx,Kernely;
+    
+    cvtColor(src, gray, CV_RGB2GRAY);
+    
+    Kernelx = (Mat_<double>(3,3) << 1, 1, 1, 0, 0, 0, -1, -1, -1);
+    Kernely = (Mat_<double>(3,3) << -1, 0, 1, -1, 0, 1, -1, 0, 1);
+    
+    Mat grad_x, grad_y;
+    Mat abs_grad_x, abs_grad_y, grad;
+    
+    filter2D(gray, grad_x, CV_16S , Kernelx, cv::Point(-1,-1));
+    filter2D(gray, grad_y, CV_16S , Kernely, cv::Point(-1,-1));
+    convertScaleAbs( grad_x, abs_grad_x );
+    convertScaleAbs( grad_y, abs_grad_y );
+    
+    addWeighted( abs_grad_x, 0.5, abs_grad_y, 0.5, 0, grad );
+    
+    return grad;
+}
+
+
++ (Mat)roberts:(Mat)src{
+    int pixel[4] = {0};
+    int rows = src.rows - 1;
+    int cols = src.cols - 1;
+    
+    Mat dst;
+    src.copyTo(dst);
+    
+    //M(x,y) = 根号[(z9-z5)平方+（z8-z6)平方]
+    for (int i=0; i<rows; i++) {
+        for (int j=0; j<cols; j++) {
+            pixel[0] = src.at<uchar>(i,j);
+            pixel[1] = src.at<uchar>(i+1,j);
+            pixel[2] = src.at<uchar>(i,j+1);
+            pixel[3] = src.at<uchar>(i+1,j+1);
+            
+            dst.at<uchar>(i,j) = sqrt(double((pixel[0] - pixel[3])*(pixel[0] - pixel[3]) + (pixel[1] - pixel[2])*(pixel[1] - pixel[2])));
+        }
+    }
+    
+    return dst;
 }
 
 @end

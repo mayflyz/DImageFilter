@@ -83,6 +83,7 @@ using namespace cv;
  */
 int  OTSU(unsigned char* pGrayImg , int iWidth , int iHeight);
 
+
 @end
 
 @interface GLImageOperate (BaseOparetion)
@@ -97,15 +98,10 @@ int  OTSU(unsigned char* pGrayImg , int iWidth , int iHeight);
  *  边缘检测处理
  */
 @interface GLImageOperate (edgeDetection)
-//
-//
-//void roberts(IplImage *src,IplImage *dst);
-//
-//void sobel(IplImage *src,IplImage *dst);
-//
-//void prewitt(IplImage *src,IplImage *dst);
-//
-//void kirsch(IplImage *src,IplImage *dst);
+
++ (Mat)prewitt:(Mat)src;
+
++ (Mat)roberts:(Mat)src;
 
 + (Mat)distanceTransform:(Mat)srcMat;
 @end

@@ -343,4 +343,11 @@ cv::Mat getHistImg(const cv::MatND& hist)
     
     return [[self class] imageWithCVMat:grad];
 }
+
+- (UIImage *)scharrWithPrewitt{
+    cv::Mat binaryMat = [GLImageOperate binaryzation:self.CVMat];
+    cv::Mat dst = [GLImageOperate roberts:binaryMat];
+    return [[self class] imageWithCVMat:dst];
+}
+
 @end
