@@ -114,6 +114,221 @@ int  OTSU(unsigned char* pGrayImg , int iWidth , int iHeight)
     return(thresholdValue);
 }
 
+/*======================================================================*/
+/* 迭代法*/
+/*======================================================================*/
+// nMaxIter：最大迭代次数；nDiffRec：使用给定阀值确定的亮区与暗区平均灰度差异值
+int DetectThreshold(IplImage*img, int nMaxIter, int& iDiffRec) //阀值分割：迭代法
+{
+    //图像信息
+    int height = img->height;
+    int width = img->width;
+    int step = img->widthStep/sizeof(uchar);
+    uchar *data = (uchar*)img->imageData;
+    
+    iDiffRec =0;
+    int F[256]={ 0 }; //直方图数组
+    int iTotalGray=0;//灰度值和
+    int iTotalPixel =0;//像素数和
+    Byte bt;//某点的像素值
+    
+    uchar iThrehold,iNewThrehold;//阀值、新阀值
+    uchar iMaxGrayValue=0,iMinGrayValue=255;//原图像中的最大灰度值和最小灰度值
+    uchar iMeanGrayValue1,iMeanGrayValue2;
+    
+    //获取(i,j)的值，存于直方图数组F
+    for(int i=0;i<width;i++)
+    {
+        for(int j=0;j<height;j++)
+        {
+            bt = data[i*step+j];
+            if(bt<iMinGrayValue)
+                iMinGrayValue = bt;
+            if(bt>iMaxGrayValue)
+                iMaxGrayValue = bt;
+            F[bt]++;
+        }
+    }
+    
+    iThrehold =0;//
+    iNewThrehold = (iMinGrayValue+iMaxGrayValue)/2;//初始阀值
+    iDiffRec = iMaxGrayValue - iMinGrayValue;
+    
+    for(int a=0;(abs(iThrehold-iNewThrehold)>0.5)&&a<nMaxIter;a++)//迭代中止条件
+    {
+        iThrehold = iNewThrehold;
+        //小于当前阀值部分的平均灰度值
+        for(int i=iMinGrayValue;i<iThrehold;i++)
+        {
+            iTotalGray += F[i]*i;//F[]存储图像信息
+            iTotalPixel += F[i];
+        }
+        
+        iMeanGrayValue1 = (uchar)(iTotalGray/iTotalPixel);
+        //大于当前阀值部分的平均灰度值
+        iTotalPixel =0;
+        iTotalGray =0;
+        for(int j=iThrehold+1;j<iMaxGrayValue;j++)
+        {
+            iTotalGray += F[j]*j;//F[]存储图像信息
+            iTotalPixel += F[j];
+        }
+        iMeanGrayValue2 = (uchar)(iTotalGray/iTotalPixel);
+        
+        iNewThrehold = (iMeanGrayValue2+iMeanGrayValue1)/2; //新阀值
+        iDiffRec = abs(iMeanGrayValue2 - iMeanGrayValue1);
+    }
+    
+    //cout<<"The Threshold of this Image in imgIteration is:"<<iThrehold<<endl;
+    return iThrehold;
+}
+
+/*============================================================================
+ = 代码内容：最大熵阈值分割
+ ===============================================================================*/
+// 计算当前位置的能量熵
+
+#define cvQueryHistValue_1D( hist, idx0 ) \
+((float)cvGetReal1D( (hist)->bins, (idx0)))
++ (double)caculateCurrentEntropy:(CvHistogram *)histogram currentThreshold:(int)threshold state:(EntropyState)state{
+    int start,end;
+    int total =0;
+    double cur_entropy =0.0;
+    if(state == Back){
+        start =0;
+        end = threshold;
+    }else{
+        start = threshold;
+        end =256;
+    }
+    
+    for(int i=start;i<end;i++){
+        total += (int)cvQueryHistValue_1D(histogram,i);//查询直方块的值 P304
+    }
+    
+    for(int j=start;j<end;j++)
+    {
+        if((int)cvQueryHistValue_1D(histogram,j)==0)
+            continue;
+        double percentage = cvQueryHistValue_1D(histogram,j)/total;
+        /*熵的定义公式*/
+        cur_entropy +=-percentage*logf(percentage);
+        /*根据泰勒展式去掉高次项得到的熵的近似计算公式
+         cur_entropy += percentage*percentage;*/
+    }
+    return cur_entropy;
+}
+
+//寻找最大熵阈值并分割
+//void MaxEntropy(IplImage *src,IplImage *dst)
+//{
+//    assert(src != NULL);
+//    assert(src->depth ==8&& dst->depth ==8);
+//    assert(src->nChannels ==1);
+//    CvHistogram * hist = cvCreateHist(1, &HistogramBins,CV_HIST_ARRAY,HistogramRange);//创建一个指定尺寸的直方图
+//    //参数含义：直方图包含的维数、直方图维数尺寸的数组、直方图的表示格式、方块范围数组、归一化标志
+//    cvCalcHist(&src,hist);//计算直方图
+//    double maxentropy =-1.0;
+//    int max_index =-1;
+//    // 循环测试每个分割点，寻找到最大的阈值分割点
+//    for(int i=0; i < HistogramBins; i++)
+//    {
+//        double cur_entropy = [[self class] caculateCurrentEntropy:]//(hist,i,object)+caculateCurrentEntropy(hist,i,back);
+//        if(cur_entropy>maxentropy)
+//        {
+//            maxentropy = cur_entropy;
+//            max_index = i;
+//        }
+//    }
+//    cvThreshold(src, dst, (double)max_index,255, CV_THRESH_BINARY);
+//    cvReleaseHist(&hist);
+//}
+
++ (int)maxEntropy:(IplImage *)srcImg{
+    /**
+     *  创建直方图
+     *
+     *  @param dims             直方图维数的数目
+     *  @param sizes      直方图维数尺寸的组数
+     *  @param type 直方图的表示格式: CV_HIST_ARRAY 意味着直方图数据表示为多维密集数组 CvMatND; CV_HIST_TREE 意味着直方图数据表示为多维稀疏数组 CvSparseMat.
+     */
+    int hist_size = 256;
+    CvHistogram *hist = cvCreateHist(1, &hist_size, CV_HIST_ARRAY);
+    cvCalcHist(&srcImg, hist);
+    double maxentropy = -1.0;
+    int max_index = -1;
+    // 循环测试每个分割点，寻找到最大的阈值分割点
+    for (int i=0; i < 16; i++) {
+       double backValue = [[self class] caculateCurrentEntropy:hist currentThreshold:i state:Back];
+        double frontValue = [[self class] caculateCurrentEntropy:hist currentThreshold:i state:Object];
+        double cur_entropy = backValue + frontValue;
+        
+        if(cur_entropy>maxentropy){
+            maxentropy = cur_entropy;
+            max_index = i;
+        }
+    }
+    
+    return max_index;
+}
+
++ (int)basicGlobalThrehold:(IplImage *)srcImg{
+    /*基本全局阀值法*/
+//    IplImage *basicImg;
+//    cvCopy(srcImg, basicImg);
+    
+    int pg[256],i,threhold;
+    for (i=0;i<256;i++) pg[i]=0;
+    for (i=0;i<srcImg->imageSize;i++) // 直方图统计
+        pg[(Byte)srcImg->imageData[i]]++;
+    
+    threhold = [[self class] basicGlobalThreshold:pg start:0 end:256];  // 确定阈值
+    
+    return threhold;
+}
+
+/*============================================================================
+ = 代码内容：基本全局阈值法
+ ==============================================================================*/
++ (int)basicGlobalThreshold:(int *)pg start:(int)start end:(int)end{
+    // 基本全局阈值法
+    int i,t,t1,t2,k1,k2;
+    double u,u1,u2;
+    t=0;
+    u=0;
+    for (i=start;i<end;i++)
+    {
+        t+=pg[i];
+        u+=i*pg[i];
+    }
+    k2=(int) (u/t); // 计算此范围灰度的平均值
+    do
+    {
+        k1=k2;
+        t1=0;
+        u1=0;
+        for (i=start;i<=k1;i++)
+        { // 计算低灰度组的累加和
+            t1+=pg[i];
+            u1+=i*pg[i];
+        }
+        t2=t-t1;
+        u2=u-u1;
+        if (t1)
+            u1=u1/t1; // 计算低灰度组的平均值
+        else
+            u1=0;
+        if (t2)
+            u2=u2/t2; // 计算高灰度组的平均值
+        else
+            u2=0;
+        k2=(int) ((u1+u2)/2); // 得到新的阈值估计值
+    }
+    while(k1!=k2); // 数据未稳定，继续
+    //cout<<"The Threshold of this Image in BasicGlobalThreshold is:"<<k1<<endl;
+    return(k1); // 返回阈值
+}
+
 #pragma mark -- edgeDetection
 /**
  *  计算输入图像的所有非零元素对其最近零元素的距离

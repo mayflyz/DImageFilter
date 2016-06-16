@@ -12,6 +12,11 @@
 
 using namespace cv;
 
+typedef NS_ENUM(int, EntropyState) {
+    Back,
+    Object
+};
+
 /**
  *   边缘检测处理
  */
@@ -33,6 +38,25 @@ using namespace cv;
  *  @return 阈值
  */
 int  OTSU(unsigned char* pGrayImg , int iWidth , int iHeight);
+
+/**
+ *  基本全局阀值法
+ *
+ *  @param srcImg 灰度图
+ */
+#warning IplImage copy 存在问题
++ (int)basicGlobalThrehold:(IplImage *)srcImg;
+
++ (int)basicGlobalThreshold:(int *)pg start:(int)start end:(int)end;
+/**
+ *  寻找最大熵阈值并分割
+ *
+ *  @param srcImg 灰度图
+ */
+#error 有误，计算阈值为0
++ (int)maxEntropy:(IplImage *)srcImg;
+
++ (double)caculateCurrentEntropy:(CvHistogram *)histogram currentThreshold:(int)threshold state:(EntropyState)state;
 
 #pragma mark ----
 
