@@ -58,5 +58,7 @@
 
 - (UIImage *)scharrWithScale:(int)value;
 
-- (UIImage *)scharrWithPrewitt;
+- (UIImage *)robertsEdge;
+
+- (UIImage *)prewittEdge;
 @end

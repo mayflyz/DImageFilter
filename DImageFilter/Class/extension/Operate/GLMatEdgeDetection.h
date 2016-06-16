@@ -1,8 +1,8 @@
 //
-//  GLImageOperate.h
+//  GLMatEdgeDetection.h
 //  DImageFilter
 //
-//  Created by tony on 6/9/16.
+//  Created by tony on 6/16/16.
 //  Copyright © 2016 sjtu. All rights reserved.
 //
 
@@ -12,12 +12,16 @@
 
 using namespace cv;
 
-@interface GLImageOperate : NSObject
+/**
+ *   边缘检测处理
+ */
+@interface GLMatEdgeDetection : NSObject
 
++ (Mat)binaryzation:(Mat)srcMat;
 
-+ (Mat)addMatFirst:(Mat)src1 second:(Mat)src2;
++ (Mat)binaryzation:(Mat)srcMat threshValue:(int)value;
 
-#pragma mark ——————————  阈值算法  ——————————
+#pragma mark -------------阈值算法----------------
 /**
  *  大津法取阈值
  *
@@ -30,24 +34,12 @@ using namespace cv;
  */
 int  OTSU(unsigned char* pGrayImg , int iWidth , int iHeight);
 
-@end
-
-@interface GLImageOperate (BaseOparetion)
-
-+ (Mat)binaryzation:(Mat)srcMat;
-
-+ (Mat)binaryzation:(Mat)srcMat threshValue:(int)value;
-
-@end
-
-/**
- *  边缘检测处理
- */
-@interface GLImageOperate (edgeDetection)
+#pragma mark ----
 
 + (Mat)prewitt:(Mat)src;
 
 + (Mat)roberts:(Mat)src;
 
 + (Mat)distanceTransform:(Mat)srcMat;
+
 @end

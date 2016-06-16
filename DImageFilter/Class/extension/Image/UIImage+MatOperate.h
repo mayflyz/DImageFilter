@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "opencv2/opencv.hpp"
-#import "GLImageOperate.h"
+
+#import "GLMatSkeleton.h"
+#import "GLMatTransform.h"
+#import "GLMatEdgeDetection.h"
 
 @interface UIImage (MatOperate)
 

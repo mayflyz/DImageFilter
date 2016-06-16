@@ -12,14 +12,14 @@
 @implementation UIImage (Skeleton)
 
 - (UIImage *)distanceTransform{
-    cv::Mat binaryMat = [GLImageOperate binaryzation:self.CVMat];
-    cv::Mat dstMat = [GLImageOperate distanceTransform:binaryMat];
+    cv::Mat binaryMat = [GLMatEdgeDetection binaryzation:self.CVMat];
+    cv::Mat dstMat = [GLMatEdgeDetection distanceTransform:binaryMat];
     
     return [[self class] imageWithCVMat:dstMat];
 }
 
 - (UIImage *)skeletonByHilditch{
-    cv::Mat binaryMat = [GLImageOperate binaryzation:self.CVMat];
+    cv::Mat binaryMat = [GLMatEdgeDetection binaryzation:self.CVMat];
     cv::Mat dstMat;
     hilditchThin(binaryMat, dstMat);
     
@@ -27,7 +27,7 @@
 }
 
 - (UIImage *)skeletonByRosenfeld{
-    cv::Mat binaryMat = [GLImageOperate binaryzation:self.CVMat];
+    cv::Mat binaryMat = [GLMatEdgeDetection binaryzation:self.CVMat];
     cv::Mat dstMat;
     rosenfeldThin(binaryMat, dstMat);
     
@@ -35,7 +35,7 @@
 }
 
 - (UIImage *)skeletonByMorph{
-    cv::Mat binaryMat = [GLImageOperate binaryzation:self.CVMat];
+    cv::Mat binaryMat = [GLMatEdgeDetection binaryzation:self.CVMat];
     cv::Mat dstMat;
     morphThin(binaryMat, dstMat);
     

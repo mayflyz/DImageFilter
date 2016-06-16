@@ -1,38 +1,62 @@
 //
-//  GLImageOperate.m
+//  GLMatEdgeDetection.m
 //  DImageFilter
 //
-//  Created by tony on 6/9/16.
+//  Created by tony on 6/16/16.
 //  Copyright © 2016 sjtu. All rights reserved.
 //
 
-#import "GLImageOperate.h"
+#import "GLMatEdgeDetection.h"
 
-@implementation GLImageOperate
+@implementation GLMatEdgeDetection
 
-#pragma mark — ——  代数操作  —— —
-+ (Mat)addMatFirst:(Mat)src1 second:(Mat)src2{
-    Mat dstMat;
-    add(src1, src2, dstMat);
++ (Mat)binaryzation:(Mat)srcMat{
+    /*
+     openCV二值化过程：
+     1.Src的UIImage ->  Src的IplImage
+     2.设置Src的IplImage的ImageROI
+     3.创建新的dstImage1的IplImage，并复制Src的IplImage
+     
+     4.dstImage1的IplImage转换成cvMat形式的matImage
+     */
+    cv::Mat matImage = srcMat;
+    cv::Mat greymat;
     
-    return dstMat;
+    //5.cvtColor函数对matImage进行灰度处理, 取得IplImage形式的灰度图像
+    cv::cvtColor(srcMat, greymat, CV_BGR2GRAY); //转换成灰色
+    
+    //6.使用灰度后的IplImage形式图像，用OSTU算法算阈值：threshold
+    IplImage grey = greymat;
+    unsigned char* dataImage = (unsigned char*)grey.imageData;
+    int threshold = OTSU(dataImage, grey.width, grey.height);
+    printf("阈值：%d\n",threshold);
+    
+    return [[self class] binaryzation:srcMat threshValue:threshold];
 }
 
-+ (Mat)MatAddValue:(int)value Mat:(Mat)srcMat{
-    int cols = srcMat.cols;
-    int rows = srcMat.rows;
++ (Mat)binaryzation:(Mat)srcMat threshValue:(int)value{
+    if (value < 0)  value = 0;
+    if (value > 250)    value = 250;
+    /*
+     openCV二值化过程：
+     1.Src的UIImage ->  Src的IplImage
+     2.设置Src的IplImage的ImageROI
+     3.创建新的dstImage1的IplImage，并复制Src的IplImage
+     
+     4.dstImage1的IplImage转换成cvMat形式的matImage
+     */
+    cv::Mat matImage = srcMat;
+    cv::Mat greymat;
     
-    Mat dstMat;
-    for (int i = 0; i < rows; i++) {
-        
-        for (int j=0; j< cols; j++) {
-            
-        }
-    }
+    //5.cvtColor函数对matImage进行灰度处理, 取得IplImage形式的灰度图像
+    cv::cvtColor(matImage, greymat, CV_BGR2GRAY); //转换成灰色
     
-    return dstMat;
+    //7.利用阈值算得新的cvMat形式的图像
+    cv::Mat matBinary;
+    cv::threshold(greymat, matBinary, value, 255, cv::THRESH_BINARY);
+    
+    return matBinary;
 }
-
 
 #pragma mark -------------阈值算法----------------
 /**
@@ -90,71 +114,7 @@ int  OTSU(unsigned char* pGrayImg , int iWidth , int iHeight)
     return(thresholdValue);
 }
 
-@end
-
-@implementation GLImageOperate (BaseOparetion)
-
-+ (Mat)binaryzation:(Mat)srcMat{
-    /*
-     openCV二值化过程：
-     1.Src的UIImage ->  Src的IplImage
-     2.设置Src的IplImage的ImageROI
-     3.创建新的dstImage1的IplImage，并复制Src的IplImage
-     
-     4.dstImage1的IplImage转换成cvMat形式的matImage
-     */
-    cv::Mat matImage = srcMat;
-    cv::Mat greymat;
-    
-    //5.cvtColor函数对matImage进行灰度处理, 取得IplImage形式的灰度图像
-    cv::cvtColor(srcMat, greymat, CV_BGR2GRAY); //转换成灰色
-    
-    //6.使用灰度后的IplImage形式图像，用OSTU算法算阈值：threshold
-    IplImage grey = greymat;
-    unsigned char* dataImage = (unsigned char*)grey.imageData;
-    int threshold = OTSU(dataImage, grey.width, grey.height);
-    printf("阈值：%d\n",threshold);
-    
-    return [[self class] binaryzation:srcMat threshValue:threshold];
-}
-
-+ (Mat)binaryzation:(Mat)srcMat threshValue:(int)value{
-    if (value < 0)  value = 0;
-    if (value > 250)    value = 250;
-    
-    /*
-     openCV二值化过程：
-     1.Src的UIImage ->  Src的IplImage
-     2.设置Src的IplImage的ImageROI
-     3.创建新的dstImage1的IplImage，并复制Src的IplImage
-     
-     4.dstImage1的IplImage转换成cvMat形式的matImage
-     */
-    cv::Mat matImage = srcMat;
-    cv::Mat greymat;
-    
-    //5.cvtColor函数对matImage进行灰度处理, 取得IplImage形式的灰度图像
-    cv::cvtColor(matImage, greymat, CV_BGR2GRAY); //转换成灰色
-    
-    //7.利用阈值算得新的cvMat形式的图像
-    cv::Mat matBinary;
-    cv::threshold(greymat, matBinary, value, 255, cv::THRESH_BINARY);
-    
-    return matBinary;
-}
-
-@end
-
-//roberts算子求图像梯度提取边缘，输入源图像，输出梯度图，此方法不常用
-
-//如果源图像是8位的，为避免溢出，目标图像深度必须是16S，或32位
-
-//prewitt算子，模板卷积公式编写，常用方法
-
-//Kirsch算子,根据方向的对称性，可以只对前面4个模板进行处理，求最大值。采用求中心像素周围像素梯度，此方法是最好用的方法。
-
-
-@implementation GLImageOperate (edgeDetection)
+#pragma mark -- edgeDetection
 /**
  *  计算输入图像的所有非零元素对其最近零元素的距离
  *
@@ -217,4 +177,5 @@ int  OTSU(unsigned char* pGrayImg , int iWidth , int iHeight)
     
     return dst;
 }
+
 @end

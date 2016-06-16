@@ -344,9 +344,15 @@ cv::Mat getHistImg(const cv::MatND& hist)
     return [[self class] imageWithCVMat:grad];
 }
 
-- (UIImage *)scharrWithPrewitt{
-    cv::Mat binaryMat = [GLImageOperate binaryzation:self.CVMat];
-    cv::Mat dst = [GLImageOperate roberts:binaryMat];
+- (UIImage *)robertsEdge{
+    cv::Mat binaryMat = [GLMatEdgeDetection binaryzation:self.CVMat];
+    cv::Mat dst = [GLMatEdgeDetection roberts:binaryMat];
+    return [[self class] imageWithCVMat:dst];
+}
+
+- (UIImage *)prewittEdge{
+    cv::Mat binaryMat = [GLMatEdgeDetection binaryzation:self.CVMat];
+    cv::Mat dst = [GLMatEdgeDetection prewitt:binaryMat];
     return [[self class] imageWithCVMat:dst];
 }
 

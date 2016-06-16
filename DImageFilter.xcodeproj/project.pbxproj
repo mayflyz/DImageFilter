@@ -17,6 +17,9 @@
 		EA380D7A1D05622900478A41 /* great.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EA380D791D05622900478A41 /* great.jpg */; };
 		EA380D7C1D0588DB00478A41 /* Histogram_Equalization.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EA380D7B1D0588DB00478A41 /* Histogram_Equalization.jpg */; };
 		EA380D851D069E3A00478A41 /* GLFaceAnimator.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA380D841D069E3A00478A41 /* GLFaceAnimator.mm */; };
+		EA96F3291D127FE1002567CA /* GLMatSkeleton.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA96F3261D127FE1002567CA /* GLMatSkeleton.mm */; };
+		EA96F32A1D127FE1002567CA /* GLMatTransform.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA96F3281D127FE1002567CA /* GLMatTransform.mm */; };
+		EA96F32D1D128010002567CA /* GLMatEdgeDetection.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA96F32C1D128010002567CA /* GLMatEdgeDetection.mm */; };
 		EAC873921D01BBFB00021405 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC873911D01BBFB00021405 /* Accelerate.framework */; };
 		EAC873941D01BC0300021405 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC873931D01BC0300021405 /* AssetsLibrary.framework */; };
 		EAC873961D01BC0B00021405 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC873951D01BC0B00021405 /* AVFoundation.framework */; };
@@ -29,7 +32,6 @@
 		EAC873A41D01BC4700021405 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC873A31D01BC4700021405 /* Foundation.framework */; };
 		EACBE8791D0EA39000EB14B6 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACBE8781D0EA39000EB14B6 /* opencv2.framework */; };
 		EACBE87B1D0EA49E00EB14B6 /* hend.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EACBE87A1D0EA49E00EB14B6 /* hend.jpeg */; };
-		EACBE87E1D0F9D5C00EB14B6 /* GLMatSkeleton.mm in Sources */ = {isa = PBXBuildFile; fileRef = EACBE87D1D0F9D5C00EB14B6 /* GLMatSkeleton.mm */; };
 		EACBE8811D0FA50800EB14B6 /* UIImage+Skeleton.mm in Sources */ = {isa = PBXBuildFile; fileRef = EACBE8801D0FA50800EB14B6 /* UIImage+Skeleton.mm */; };
 		EACBE8831D0FD7A300EB14B6 /* qiumo.png in Resources */ = {isa = PBXBuildFile; fileRef = EACBE8821D0FD7A300EB14B6 /* qiumo.png */; };
 		EAD5ACC31CF2A8E3001F89E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD5ACC21CF2A8E3001F89E8 /* main.m */; };
@@ -67,7 +69,6 @@
 		EAFADD5A1CFEAF36005541B4 /* haarcascade_mcs_mouth.xml in Resources */ = {isa = PBXBuildFile; fileRef = EAFADD591CFEAF36005541B4 /* haarcascade_mcs_mouth.xml */; };
 		EAFADD5C1CFEAF3E005541B4 /* haarcascade_mcs_eyepair_big.xml in Resources */ = {isa = PBXBuildFile; fileRef = EAFADD5B1CFEAF3E005541B4 /* haarcascade_mcs_eyepair_big.xml */; };
 		FE3DCF291D09591100A8C41F /* GLMainTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3DCF281D09591100A8C41F /* GLMainTableVC.m */; };
-		FE51A7C61D093711000AF574 /* GLImageOperate.mm in Sources */ = {isa = PBXBuildFile; fileRef = FE51A7C51D093711000AF574 /* GLImageOperate.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,12 @@
 		EA380D7B1D0588DB00478A41 /* Histogram_Equalization.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Histogram_Equalization.jpg; sourceTree = "<group>"; };
 		EA380D831D069E3A00478A41 /* GLFaceAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLFaceAnimator.h; sourceTree = "<group>"; };
 		EA380D841D069E3A00478A41 /* GLFaceAnimator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLFaceAnimator.mm; sourceTree = "<group>"; };
+		EA96F3251D127FE1002567CA /* GLMatSkeleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMatSkeleton.h; sourceTree = "<group>"; };
+		EA96F3261D127FE1002567CA /* GLMatSkeleton.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLMatSkeleton.mm; sourceTree = "<group>"; };
+		EA96F3271D127FE1002567CA /* GLMatTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMatTransform.h; sourceTree = "<group>"; };
+		EA96F3281D127FE1002567CA /* GLMatTransform.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLMatTransform.mm; sourceTree = "<group>"; };
+		EA96F32B1D128010002567CA /* GLMatEdgeDetection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMatEdgeDetection.h; sourceTree = "<group>"; };
+		EA96F32C1D128010002567CA /* GLMatEdgeDetection.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLMatEdgeDetection.mm; sourceTree = "<group>"; };
 		EAC873911D01BBFB00021405 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		EAC873931D01BC0300021405 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		EAC873951D01BC0B00021405 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -111,8 +118,6 @@
 		EAC873A31D01BC4700021405 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EACBE8781D0EA39000EB14B6 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		EACBE87A1D0EA49E00EB14B6 /* hend.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hend.jpeg; sourceTree = "<group>"; };
-		EACBE87C1D0F9D5C00EB14B6 /* GLMatSkeleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMatSkeleton.h; sourceTree = "<group>"; };
-		EACBE87D1D0F9D5C00EB14B6 /* GLMatSkeleton.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLMatSkeleton.mm; sourceTree = "<group>"; };
 		EACBE87F1D0FA50800EB14B6 /* UIImage+Skeleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Skeleton.h"; sourceTree = "<group>"; };
 		EACBE8801D0FA50800EB14B6 /* UIImage+Skeleton.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+Skeleton.mm"; sourceTree = "<group>"; };
 		EACBE8821D0FD7A300EB14B6 /* qiumo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qiumo.png; sourceTree = "<group>"; };
@@ -178,8 +183,6 @@
 		EAFADD5B1CFEAF3E005541B4 /* haarcascade_mcs_eyepair_big.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_mcs_eyepair_big.xml; sourceTree = "<group>"; };
 		FE3DCF271D09591100A8C41F /* GLMainTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMainTableVC.h; sourceTree = "<group>"; };
 		FE3DCF281D09591100A8C41F /* GLMainTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLMainTableVC.m; sourceTree = "<group>"; };
-		FE51A7C41D093711000AF574 /* GLImageOperate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLImageOperate.h; sourceTree = "<group>"; };
-		FE51A7C51D093711000AF574 /* GLImageOperate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLImageOperate.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +214,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA96F3241D127FE1002567CA /* Operate */ = {
+			isa = PBXGroup;
+			children = (
+				EA96F3251D127FE1002567CA /* GLMatSkeleton.h */,
+				EA96F3261D127FE1002567CA /* GLMatSkeleton.mm */,
+				EA96F3271D127FE1002567CA /* GLMatTransform.h */,
+				EA96F3281D127FE1002567CA /* GLMatTransform.mm */,
+				EA96F32B1D128010002567CA /* GLMatEdgeDetection.h */,
+				EA96F32C1D128010002567CA /* GLMatEdgeDetection.mm */,
+			);
+			path = Operate;
+			sourceTree = "<group>";
+		};
 		EAD5ACB51CF2A8E3001F89E8 = {
 			isa = PBXGroup;
 			children = (
@@ -277,12 +293,9 @@
 		EAD5ACE71CF2A951001F89E8 /* extension */ = {
 			isa = PBXGroup;
 			children = (
+				EA96F3241D127FE1002567CA /* Operate */,
 				EAD5AD8D1CF59E5B001F89E8 /* Recognizer */,
 				EAD5ACFC1CF2A9D8001F89E8 /* Image */,
-				FE51A7C41D093711000AF574 /* GLImageOperate.h */,
-				FE51A7C51D093711000AF574 /* GLImageOperate.mm */,
-				EACBE87C1D0F9D5C00EB14B6 /* GLMatSkeleton.h */,
-				EACBE87D1D0F9D5C00EB14B6 /* GLMatSkeleton.mm */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -561,19 +574,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EACBE87E1D0F9D5C00EB14B6 /* GLMatSkeleton.mm in Sources */,
 				EAD5AD381CF2EC67001F89E8 /* GLShowVC.mm in Sources */,
+				EA96F32D1D128010002567CA /* GLMatEdgeDetection.mm in Sources */,
 				EAD5AD2F1CF2D45D001F89E8 /* NSArray+MASAdditions.m in Sources */,
 				EAD5AD9A1CF698D1001F89E8 /* UIImage+FaceRecognizer.mm in Sources */,
 				EA380D851D069E3A00478A41 /* GLFaceAnimator.mm in Sources */,
 				EAD5AD2E1CF2D45D001F89E8 /* MASViewConstraint.m in Sources */,
 				EAD5ACC91CF2A8E3001F89E8 /* ViewController.m in Sources */,
+				EA96F3291D127FE1002567CA /* GLMatSkeleton.mm in Sources */,
 				EAD5AD2B1CF2D45D001F89E8 /* MASConstraintMaker.m in Sources */,
+				EA96F32A1D127FE1002567CA /* GLMatTransform.mm in Sources */,
 				EAD5AD311CF2D45D001F89E8 /* View+MASAdditions.m in Sources */,
 				FE3DCF291D09591100A8C41F /* GLMainTableVC.m in Sources */,
 				EAD5AD2A1CF2D45D001F89E8 /* MASConstraint.m in Sources */,
 				EAD5ACC61CF2A8E3001F89E8 /* AppDelegate.m in Sources */,
-				FE51A7C61D093711000AF574 /* GLImageOperate.mm in Sources */,
 				EAD5AD2D1CF2D45D001F89E8 /* MASViewAttribute.m in Sources */,
 				EAD5AD301CF2D45D001F89E8 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				EAD5AD3F1CF43DC5001F89E8 /* GLMorphologyVC.mm in Sources */,
