@@ -114,19 +114,20 @@ int  OTSU(unsigned char* pGrayImg , int iWidth , int iHeight)
     return(thresholdValue);
 }
 
-/*======================================================================*/
-/* 迭代法*/
-/*======================================================================*/
-// nMaxIter：最大迭代次数；nDiffRec：使用给定阀值确定的亮区与暗区平均灰度差异值
-int DetectThreshold(IplImage*img, int nMaxIter, int& iDiffRec) //阀值分割：迭代法
-{
+/**
+ *   迭代法
+ *
+ *  @param srcImg  灰度图像
+ *  @param maxIter 最大迭代次数
+ */
++ (int)detechThreshold:(IplImage *)srcImg maxIterat:(int)maxIter{
     //图像信息
-    int height = img->height;
-    int width = img->width;
-    int step = img->widthStep/sizeof(uchar);
-    uchar *data = (uchar*)img->imageData;
+    int height = srcImg->height;
+    int width = srcImg->width;
+    int step = srcImg->widthStep/sizeof(uchar);
+    uchar *data = (uchar*)srcImg->imageData;
     
-    iDiffRec =0;
+    int iDiffRec =0;       //使用给定阀值确定的亮区与暗区平均灰度差异值, 根据需要返回
     int F[256]={ 0 }; //直方图数组
     int iTotalGray=0;//灰度值和
     int iTotalPixel =0;//像素数和
@@ -137,10 +138,8 @@ int DetectThreshold(IplImage*img, int nMaxIter, int& iDiffRec) //阀值分割：
     uchar iMeanGrayValue1,iMeanGrayValue2;
     
     //获取(i,j)的值，存于直方图数组F
-    for(int i=0;i<width;i++)
-    {
-        for(int j=0;j<height;j++)
-        {
+    for(int i=0;i<width;i++){
+        for(int j=0;j<height;j++){
             bt = data[i*step+j];
             if(bt<iMinGrayValue)
                 iMinGrayValue = bt;
@@ -150,16 +149,14 @@ int DetectThreshold(IplImage*img, int nMaxIter, int& iDiffRec) //阀值分割：
         }
     }
     
-    iThrehold =0;//
+    iThrehold =0;
     iNewThrehold = (iMinGrayValue+iMaxGrayValue)/2;//初始阀值
     iDiffRec = iMaxGrayValue - iMinGrayValue;
     
-    for(int a=0;(abs(iThrehold-iNewThrehold)>0.5)&&a<nMaxIter;a++)//迭代中止条件
-    {
+    for(int a=0;(abs(iThrehold-iNewThrehold)>0.5)&&a<maxIter;a++){      //迭代中止条件
         iThrehold = iNewThrehold;
         //小于当前阀值部分的平均灰度值
-        for(int i=iMinGrayValue;i<iThrehold;i++)
-        {
+        for(int i=iMinGrayValue;i<iThrehold;i++){
             iTotalGray += F[i]*i;//F[]存储图像信息
             iTotalPixel += F[i];
         }
@@ -168,8 +165,7 @@ int DetectThreshold(IplImage*img, int nMaxIter, int& iDiffRec) //阀值分割：
         //大于当前阀值部分的平均灰度值
         iTotalPixel =0;
         iTotalGray =0;
-        for(int j=iThrehold+1;j<iMaxGrayValue;j++)
-        {
+        for(int j=iThrehold+1;j<iMaxGrayValue;j++){
             iTotalGray += F[j]*j;//F[]存储图像信息
             iTotalPixel += F[j];
         }
@@ -179,7 +175,6 @@ int DetectThreshold(IplImage*img, int nMaxIter, int& iDiffRec) //阀值分割：
         iDiffRec = abs(iMeanGrayValue2 - iMeanGrayValue1);
     }
     
-    //cout<<"The Threshold of this Image in imgIteration is:"<<iThrehold<<endl;
     return iThrehold;
 }
 
@@ -220,30 +215,6 @@ int DetectThreshold(IplImage*img, int nMaxIter, int& iDiffRec) //阀值分割：
 }
 
 //寻找最大熵阈值并分割
-//void MaxEntropy(IplImage *src,IplImage *dst)
-//{
-//    assert(src != NULL);
-//    assert(src->depth ==8&& dst->depth ==8);
-//    assert(src->nChannels ==1);
-//    CvHistogram * hist = cvCreateHist(1, &HistogramBins,CV_HIST_ARRAY,HistogramRange);//创建一个指定尺寸的直方图
-//    //参数含义：直方图包含的维数、直方图维数尺寸的数组、直方图的表示格式、方块范围数组、归一化标志
-//    cvCalcHist(&src,hist);//计算直方图
-//    double maxentropy =-1.0;
-//    int max_index =-1;
-//    // 循环测试每个分割点，寻找到最大的阈值分割点
-//    for(int i=0; i < HistogramBins; i++)
-//    {
-//        double cur_entropy = [[self class] caculateCurrentEntropy:]//(hist,i,object)+caculateCurrentEntropy(hist,i,back);
-//        if(cur_entropy>maxentropy)
-//        {
-//            maxentropy = cur_entropy;
-//            max_index = i;
-//        }
-//    }
-//    cvThreshold(src, dst, (double)max_index,255, CV_THRESH_BINARY);
-//    cvReleaseHist(&hist);
-//}
-
 + (int)maxEntropy:(IplImage *)srcImg{
     /**
      *  创建直方图
@@ -258,7 +229,7 @@ int DetectThreshold(IplImage*img, int nMaxIter, int& iDiffRec) //阀值分割：
     double maxentropy = -1.0;
     int max_index = -1;
     // 循环测试每个分割点，寻找到最大的阈值分割点
-    for (int i=0; i < 16; i++) {
+    for (int i=0; i < hist_size; i++) {
        double backValue = [[self class] caculateCurrentEntropy:hist currentThreshold:i state:Back];
         double frontValue = [[self class] caculateCurrentEntropy:hist currentThreshold:i state:Object];
         double cur_entropy = backValue + frontValue;

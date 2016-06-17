@@ -44,7 +44,6 @@ int  OTSU(unsigned char* pGrayImg , int iWidth , int iHeight);
  *
  *  @param srcImg 灰度图
  */
-#warning IplImage copy 存在问题
 + (int)basicGlobalThrehold:(IplImage *)srcImg;
 
 + (int)basicGlobalThreshold:(int *)pg start:(int)start end:(int)end;
@@ -53,11 +52,14 @@ int  OTSU(unsigned char* pGrayImg , int iWidth , int iHeight);
  *
  *  @param srcImg 灰度图
  */
-#error 有误，计算阈值为0
 + (int)maxEntropy:(IplImage *)srcImg;
 
 + (double)caculateCurrentEntropy:(CvHistogram *)histogram currentThreshold:(int)threshold state:(EntropyState)state;
 
+/**
+ *  迭代法
+ */
++ (int)detechThreshold:(IplImage *)srcImg maxIterat:(int)maxIter;
 #pragma mark ----
 
 + (Mat)prewitt:(Mat)src;

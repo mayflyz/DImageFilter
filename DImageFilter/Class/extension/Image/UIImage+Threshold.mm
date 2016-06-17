@@ -60,6 +60,46 @@
     return [self binaryzationWithThresh:threshold];
 }
 
+- (UIImage *)binaryzationWithMaxEntropy{
+    cv::Mat matImage = self.CVMat;
+    cv::Mat greymat;
+    
+    cv::cvtColor(self.CVMat, greymat, CV_BGR2GRAY); //转换成灰色
+    
+    //6.使用灰度后的IplImage形式图像，用OSTU算法算阈值：threshold
+    IplImage grey = greymat;
+    int threshold = [GLMatEdgeDetection maxEntropy:&grey];
+    printf("阈值：%d\n",threshold);
+    
+    return [self binaryzationWithThresh:threshold];
+}
+
+- (UIImage *)binaryzationWithWithGlobalThrehold{
+    cv::Mat matImage = self.CVMat;
+    cv::Mat greymat;
+    
+    cv::cvtColor(self.CVMat, greymat, CV_BGR2GRAY); //转换成灰色
+    
+    IplImage grey = greymat;
+    int threshold = [GLMatEdgeDetection basicGlobalThrehold:&grey];
+    printf("阈值：%d\n",threshold);
+    
+    return [self binaryzationWithThresh:threshold];
+}
+
+- (UIImage *)binaryzationWithWithDetech{
+    cv::Mat matImage = self.CVMat;
+    cv::Mat greymat;
+    
+    cv::cvtColor(self.CVMat, greymat, CV_BGR2GRAY); //转换成灰色
+    
+    IplImage grey = greymat;
+    int threshold = [GLMatEdgeDetection detechThreshold:&grey maxIterat:100];
+    printf("阈值：%d\n",threshold);
+    
+    return [self binaryzationWithThresh:threshold];
+}
+
 - (UIImage *)binaryzationWithThresh:(int)value{
     UIImage *destImg;
     if (value < 0)  value = 0;

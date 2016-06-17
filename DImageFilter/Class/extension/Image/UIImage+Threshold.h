@@ -18,6 +18,21 @@
 - (UIImage *)binaryzation;
 
 /**
+ *  寻找最大熵阈值
+ */
+- (UIImage *)binaryzationWithMaxEntropy;
+
+/**
+ *  基本全局阈值法生成二值图像
+ */
+- (UIImage *)binaryzationWithWithGlobalThrehold;
+
+/**
+ *  迭代法生成二值图像
+ */
+- (UIImage *)binaryzationWithWithDetech;
+
+/**
  *  使用自定义阈值作为分隔
  *
  *  @param value 使用阈值
