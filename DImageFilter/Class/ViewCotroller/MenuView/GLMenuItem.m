@@ -13,9 +13,6 @@
 @property (nonatomic, strong) UIImageView *menuImgView;
 @property (nonatomic, strong) UILabel *subLineInfo;
 
-@property (nonatomic, strong) id target;
-@property (nonatomic, assign) SEL action;
-
 @end
 
 @implementation GLMenuItem
@@ -29,6 +26,9 @@
 
 - (instancetype)initWithFrame:(CGRect)frame withImage:(UIImage *)image title:(NSString *)title{
     if (self = [super initWithFrame:frame]) {
+        [self addSubview:self.menuImgView];
+        [self addSubview:self.subLineInfo];
+        
         [self setMenuImage:image];
         [self setTitleInfo:title];
     }

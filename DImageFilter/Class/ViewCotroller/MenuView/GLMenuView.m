@@ -11,6 +11,8 @@
 
 @interface GLMenuView ()<GLMenuItemDelegate>
 
+@property (nonatomic, strong) UIScrollView *subMenuScrollView;
+
 @end
 
 @implementation GLMenuView

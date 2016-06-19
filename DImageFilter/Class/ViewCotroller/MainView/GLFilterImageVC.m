@@ -12,6 +12,16 @@
 
 #import "GLMenuView.h"
 
+typedef NS_ENUM(NSInteger, OperateType) {
+    GraySplitR = 10001,
+    GraySplitG = 10002,
+    GraySplitB = 10003,
+    GrayMaxValue = 10004,
+    GrayAVG = 10005,    //平均值法
+    GrayWeightAVG = 10006,    //加权平均值法
+    Binary,
+};
+
 @interface GLFilterImageVC ()
 
 @property (weak, nonatomic) IBOutlet UIView *headerView;
@@ -29,7 +39,7 @@
     // Do any additional setup after loading the view from its nib.
 //    {"title":, "subMenu":{"title":,"imageName":,@"operateType":}}
     
-    _menuView = [[GLMenuView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.bounds), CGRectGetWidth(self.view.bounds), 70) menuArr:[self menuDataSourceInit]];
+    _menuView = [[GLMenuView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.bounds) - 100, CGRectGetWidth(self.view.bounds), 100) menuArr:[self menuDataSourceInit]];
     [self.view addSubview:self.menuView];
     
     _filterImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.headerView.bottom, self.view.width, self.view.height - self.headerView.height - self.menuView.height)];
@@ -45,12 +55,12 @@
 - (NSMutableArray *)menuDataSourceInit{
     NSDictionary *greyMenu =  @{@"title" : @"灰度化",
                                 @"subMenu" : @[
-                                        @{@"title" : @"分量法R",@"imageName":@"",@"operateType":@(1)},
-                                        @{@"title" : @"分量法G",@"imageName":@"",@"operateType":@(1)},
-                                        @{@"title" : @"分量法B",@"imageName":@"",@"operateType":@(1)},
-                                        @{@"title" : @"最大值法",@"imageName":@"",@"operateType":@(1)},
-                                        @{@"title" : @"平均值法",@"imageName":@"",@"operateType":@(1)},
-                                        @{@"title" : @"加权平均法",@"imageName":@"",@"operateType":@(1)}
+                                        @{@"title" : @"分量法R",@"imageName":@"",@"operateType":@(GraySplitR)},
+                                        @{@"title" : @"分量法G",@"imageName":@"",@"operateType":@(GraySplitG)},
+                                        @{@"title" : @"分量法B",@"imageName":@"",@"operateType":@(GraySplitB)},
+                                        @{@"title" : @"最大值法",@"imageName":@"",@"operateType":@(GrayMaxValue)},
+                                        @{@"title" : @"平均值法",@"imageName":@"",@"operateType":@(GrayAVG)},
+                                        @{@"title" : @"加权平均法",@"imageName":@"",@"operateType":@(GrayWeightAVG)}
                                         ]};
     NSDictionary *binMenu = @{@"title" : @"二值化",
                               @"subMenu" :@[
