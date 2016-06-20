@@ -31,6 +31,7 @@
         
         [self setMenuImage:image];
         [self setTitleInfo:title];
+        [self addGestureEvent];
     }
     
     return self;

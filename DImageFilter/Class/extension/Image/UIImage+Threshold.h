@@ -17,6 +17,9 @@
  */
 - (UIImage *)binaryzation;
 
+//0——R分量，1——G分量，2——B分量，3——最大值法，4——平均值法，5——加权平均值法
+- (UIImage *)grayImageWithType:(int)type;
+
 /**
  *  寻找最大熵阈值
  */

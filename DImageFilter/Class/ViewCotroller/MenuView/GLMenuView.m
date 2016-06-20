@@ -65,7 +65,7 @@
     for (int i=0; i<[subMenu count]; i++) {
         NSDictionary *itemDic = [subMenu objectAtIndex:i];
         NSString *imgName = [itemDic objectForKey:@"imageName"];
-        UIImage *menuImg = [UIImage imageNamed:(imgName ? imgName : @"")];
+        UIImage *menuImg = [UIImage imageNamed:(imgName.length > 0 ? imgName : @"icon_menu")];
         GLMenuItem *item = [[GLMenuItem alloc] initWithFrame:CGRectMake(i*menuWidth, 0, menuWidth, CGRectGetHeight(self.bounds) - 30) withImage:menuImg title:[itemDic objectForKey:@"title"]];
         item.itemInfo = itemDic;
         item.delegate = self;
@@ -76,7 +76,9 @@
 #pragma mark -- GLMenuItemDelegate
 - (void)menuItemSelect:(id)itemInfo{
     if ([itemInfo isKindOfClass:[NSDictionary class]]) {
-        
+        if (self.delegate && [self.delegate respondsToSelector:@selector(menuItemSelect:)]) {
+            [self.delegate menuItemSelect:itemInfo];
+        }
     }
 }
 @end

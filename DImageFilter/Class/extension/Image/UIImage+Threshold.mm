@@ -23,6 +23,12 @@
     return grayImage;
 }
 
+- (UIImage *)grayImageWithType:(int)type{
+    IplImage *image = [GLMatTransform grayMat:*(self.plImage) type:type];
+    
+    return [[self class] imageWIthIplImage:image];
+}
+
 /**
  *  二值化
  *  ************************************************

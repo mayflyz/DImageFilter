@@ -13,6 +13,10 @@
 using namespace cv;
 
 @interface GLMatTransform : NSObject
+
+//0——R分量，1——G分量，2——B分量，3——平均值法，4——加权平均值法
++ (IplImage *)grayMat:(IplImage)srcImg type:(int)type;
+
 /**
  *  改变突变对比度与亮度
  *

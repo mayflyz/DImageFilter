@@ -11,6 +11,7 @@
 #import "UIView+Frame.h"
 
 #import "GLMenuView.h"
+#import "UIImage+OpenCV.h"
 
 typedef NS_ENUM(NSInteger, OperateType) {
     GraySplitR = 10001,
@@ -22,7 +23,7 @@ typedef NS_ENUM(NSInteger, OperateType) {
     Binary,
 };
 
-@interface GLFilterImageVC ()
+@interface GLFilterImageVC ()<GLMenuItemDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 
@@ -40,6 +41,7 @@ typedef NS_ENUM(NSInteger, OperateType) {
 //    {"title":, "subMenu":{"title":,"imageName":,@"operateType":}}
     
     _menuView = [[GLMenuView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.bounds) - 100, CGRectGetWidth(self.view.bounds), 100) menuArr:[self menuDataSourceInit]];
+    _menuView.delegate = self;
     [self.view addSubview:self.menuView];
     
     _filterImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.headerView.bottom, self.view.width, self.view.height - self.headerView.height - self.menuView.height)];
@@ -50,6 +52,32 @@ typedef NS_ENUM(NSInteger, OperateType) {
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark ---GLMenuItemDelegate
+- (void)menuItemSelect:(id)menuInfo{
+    if ([menuInfo isKindOfClass:[NSDictionary class]]) {
+        NSDictionary *value = (NSDictionary *)menuInfo;
+        NSInteger operateType = [[value objectForKey:@"operateType"] integerValue];
+        UIImage *dstImage;
+        switch (operateType) {
+            case GraySplitR:
+            case GraySplitG:
+            case GraySplitB:
+            case GrayMaxValue:
+            case GrayAVG:
+            case GrayWeightAVG:
+            {
+                int type = (operateType%10 - 1);
+                dstImage = [self.originImg grayImageWithType:type];
+            }
+                break;
+            default:
+                break;
+        }
+        
+        self.filterImageView.image = dstImage;
+    }
 }
 
 - (NSMutableArray *)menuDataSourceInit{

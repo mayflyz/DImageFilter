@@ -68,42 +68,43 @@
 		EAFADD581CFEAF1B005541B4 /* mustache.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFADD561CFEAF1B005541B4 /* mustache.png */; };
 		EAFADD5A1CFEAF36005541B4 /* haarcascade_mcs_mouth.xml in Resources */ = {isa = PBXBuildFile; fileRef = EAFADD591CFEAF36005541B4 /* haarcascade_mcs_mouth.xml */; };
 		EAFADD5C1CFEAF3E005541B4 /* haarcascade_mcs_eyepair_big.xml in Resources */ = {isa = PBXBuildFile; fileRef = EAFADD5B1CFEAF3E005541B4 /* haarcascade_mcs_eyepair_big.xml */; };
-		FED89CCF1D16619800A17A7A /* SCAudioConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89C8D1D16619800A17A7A /* SCAudioConfiguration.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CD01D16619800A17A7A /* SCMediaTypeConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89C8F1D16619800A17A7A /* SCMediaTypeConfiguration.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CD11D16619800A17A7A /* SCPhotoConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89C911D16619800A17A7A /* SCPhotoConfiguration.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CD21D16619800A17A7A /* SCVideoConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89C931D16619800A17A7A /* SCVideoConfiguration.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CD31D16619800A17A7A /* SCContext.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89C961D16619800A17A7A /* SCContext.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CD41D16619800A17A7A /* SCFilterImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89C981D16619800A17A7A /* SCFilterImageView.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CD51D16619800A17A7A /* SCImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89C9A1D16619800A17A7A /* SCImageView.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CD61D16619800A17A7A /* SCSwipeableFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89C9C1D16619800A17A7A /* SCSwipeableFilterView.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CD71D16619800A17A7A /* SCFilter+UIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89C9F1D16619800A17A7A /* SCFilter+UIImage.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CD81D16619800A17A7A /* SCFilter+VideoComposition.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CA11D16619800A17A7A /* SCFilter+VideoComposition.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CD91D16619800A17A7A /* SCFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CA31D16619800A17A7A /* SCFilter.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CDA1D16619800A17A7A /* SCFilterAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CA51D16619800A17A7A /* SCFilterAnimation.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CDB1D16619800A17A7A /* SCPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CA81D16619800A17A7A /* SCPlayer.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CDC1D16619800A17A7A /* SCVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CAA1D16619800A17A7A /* SCVideoPlayerView.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CDD1D16619800A17A7A /* SCRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CAD1D16619800A17A7A /* SCRecorder.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CDE1D16619800A17A7A /* SCRecordSession.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CB01D16619800A17A7A /* SCRecordSession.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CDF1D16619800A17A7A /* SCRecordSessionSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CB31D16619800A17A7A /* SCRecordSessionSegment.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CE01D16619800A17A7A /* NSURL+SCSaveToCameraRoll.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CB71D16619800A17A7A /* NSURL+SCSaveToCameraRoll.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CE11D16619800A17A7A /* SCAssetExportSession.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CB91D16619800A17A7A /* SCAssetExportSession.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CE21D16619800A17A7A /* SCAudioTools.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CBB1D16619800A17A7A /* SCAudioTools.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CE31D16619800A17A7A /* SCIOPixelBuffers.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CBD1D16619800A17A7A /* SCIOPixelBuffers.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CE41D16619800A17A7A /* SCProcessingQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CBF1D16619800A17A7A /* SCProcessingQueue.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CE51D16619800A17A7A /* SCRecorderTools.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CC11D16619800A17A7A /* SCRecorderTools.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CE61D16619800A17A7A /* SCSampleBufferHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CC31D16619800A17A7A /* SCSampleBufferHolder.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CE71D16619800A17A7A /* SCSaveToCameraRollOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CC51D16619800A17A7A /* SCSaveToCameraRollOperation.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CE81D16619800A17A7A /* SCWeakSelectorTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CC71D16619800A17A7A /* SCWeakSelectorTarget.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CE91D16619800A17A7A /* UIImage+SCSaveToCameraRoll.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CC91D16619800A17A7A /* UIImage+SCSaveToCameraRoll.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CEA1D16619800A17A7A /* SCRecorderFocusTargetView.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CCC1D16619800A17A7A /* SCRecorderFocusTargetView.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CEB1D16619800A17A7A /* SCRecorderToolsView.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CCE1D16619800A17A7A /* SCRecorderToolsView.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CEF1D16621E00A17A7A /* GLMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CED1D16621E00A17A7A /* GLMainVC.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CF01D16621E00A17A7A /* GLMainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FED89CEE1D16621E00A17A7A /* GLMainVC.xib */; settings = {ASSET_TAGS = (); }; };
-		FED89CF41D16737500A17A7A /* GLFilterImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CF21D16737500A17A7A /* GLFilterImageVC.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CF51D16737500A17A7A /* GLFilterImageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FED89CF31D16737500A17A7A /* GLFilterImageVC.xib */; settings = {ASSET_TAGS = (); }; };
-		FED89CF81D1673BD00A17A7A /* GLMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CF71D1673BD00A17A7A /* GLMenuView.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CFB1D167D0800A17A7A /* GLMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CFA1D167D0800A17A7A /* GLMenuItem.m */; settings = {ASSET_TAGS = (); }; };
-		FED89CFF1D168D2A00A17A7A /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CFE1D168D2A00A17A7A /* UIView+Frame.m */; settings = {ASSET_TAGS = (); }; };
+		FECCE5B41D18401800A3FB91 /* icon_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = FECCE5B31D18401800A3FB91 /* icon_menu.png */; };
+		FED89CCF1D16619800A17A7A /* SCAudioConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89C8D1D16619800A17A7A /* SCAudioConfiguration.m */; };
+		FED89CD01D16619800A17A7A /* SCMediaTypeConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89C8F1D16619800A17A7A /* SCMediaTypeConfiguration.m */; };
+		FED89CD11D16619800A17A7A /* SCPhotoConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89C911D16619800A17A7A /* SCPhotoConfiguration.m */; };
+		FED89CD21D16619800A17A7A /* SCVideoConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89C931D16619800A17A7A /* SCVideoConfiguration.m */; };
+		FED89CD31D16619800A17A7A /* SCContext.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89C961D16619800A17A7A /* SCContext.m */; };
+		FED89CD41D16619800A17A7A /* SCFilterImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89C981D16619800A17A7A /* SCFilterImageView.m */; };
+		FED89CD51D16619800A17A7A /* SCImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89C9A1D16619800A17A7A /* SCImageView.m */; };
+		FED89CD61D16619800A17A7A /* SCSwipeableFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89C9C1D16619800A17A7A /* SCSwipeableFilterView.m */; };
+		FED89CD71D16619800A17A7A /* SCFilter+UIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89C9F1D16619800A17A7A /* SCFilter+UIImage.m */; };
+		FED89CD81D16619800A17A7A /* SCFilter+VideoComposition.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CA11D16619800A17A7A /* SCFilter+VideoComposition.m */; };
+		FED89CD91D16619800A17A7A /* SCFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CA31D16619800A17A7A /* SCFilter.m */; };
+		FED89CDA1D16619800A17A7A /* SCFilterAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CA51D16619800A17A7A /* SCFilterAnimation.m */; };
+		FED89CDB1D16619800A17A7A /* SCPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CA81D16619800A17A7A /* SCPlayer.m */; };
+		FED89CDC1D16619800A17A7A /* SCVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CAA1D16619800A17A7A /* SCVideoPlayerView.m */; };
+		FED89CDD1D16619800A17A7A /* SCRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CAD1D16619800A17A7A /* SCRecorder.m */; };
+		FED89CDE1D16619800A17A7A /* SCRecordSession.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CB01D16619800A17A7A /* SCRecordSession.m */; };
+		FED89CDF1D16619800A17A7A /* SCRecordSessionSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CB31D16619800A17A7A /* SCRecordSessionSegment.m */; };
+		FED89CE01D16619800A17A7A /* NSURL+SCSaveToCameraRoll.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CB71D16619800A17A7A /* NSURL+SCSaveToCameraRoll.m */; };
+		FED89CE11D16619800A17A7A /* SCAssetExportSession.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CB91D16619800A17A7A /* SCAssetExportSession.m */; };
+		FED89CE21D16619800A17A7A /* SCAudioTools.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CBB1D16619800A17A7A /* SCAudioTools.m */; };
+		FED89CE31D16619800A17A7A /* SCIOPixelBuffers.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CBD1D16619800A17A7A /* SCIOPixelBuffers.m */; };
+		FED89CE41D16619800A17A7A /* SCProcessingQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CBF1D16619800A17A7A /* SCProcessingQueue.m */; };
+		FED89CE51D16619800A17A7A /* SCRecorderTools.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CC11D16619800A17A7A /* SCRecorderTools.m */; };
+		FED89CE61D16619800A17A7A /* SCSampleBufferHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CC31D16619800A17A7A /* SCSampleBufferHolder.m */; };
+		FED89CE71D16619800A17A7A /* SCSaveToCameraRollOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CC51D16619800A17A7A /* SCSaveToCameraRollOperation.m */; };
+		FED89CE81D16619800A17A7A /* SCWeakSelectorTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CC71D16619800A17A7A /* SCWeakSelectorTarget.m */; };
+		FED89CE91D16619800A17A7A /* UIImage+SCSaveToCameraRoll.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CC91D16619800A17A7A /* UIImage+SCSaveToCameraRoll.m */; };
+		FED89CEA1D16619800A17A7A /* SCRecorderFocusTargetView.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CCC1D16619800A17A7A /* SCRecorderFocusTargetView.m */; };
+		FED89CEB1D16619800A17A7A /* SCRecorderToolsView.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CCE1D16619800A17A7A /* SCRecorderToolsView.m */; };
+		FED89CEF1D16621E00A17A7A /* GLMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CED1D16621E00A17A7A /* GLMainVC.m */; };
+		FED89CF01D16621E00A17A7A /* GLMainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FED89CEE1D16621E00A17A7A /* GLMainVC.xib */; };
+		FED89CF41D16737500A17A7A /* GLFilterImageVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = FED89CF21D16737500A17A7A /* GLFilterImageVC.mm */; };
+		FED89CF51D16737500A17A7A /* GLFilterImageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FED89CF31D16737500A17A7A /* GLFilterImageVC.xib */; };
+		FED89CF81D1673BD00A17A7A /* GLMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CF71D1673BD00A17A7A /* GLMenuView.m */; };
+		FED89CFB1D167D0800A17A7A /* GLMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CFA1D167D0800A17A7A /* GLMenuItem.m */; };
+		FED89CFF1D168D2A00A17A7A /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CFE1D168D2A00A17A7A /* UIView+Frame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -216,6 +217,7 @@
 		EAFADD561CFEAF1B005541B4 /* mustache.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mustache.png; sourceTree = "<group>"; };
 		EAFADD591CFEAF36005541B4 /* haarcascade_mcs_mouth.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_mcs_mouth.xml; sourceTree = "<group>"; };
 		EAFADD5B1CFEAF3E005541B4 /* haarcascade_mcs_eyepair_big.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_mcs_eyepair_big.xml; sourceTree = "<group>"; };
+		FECCE5B31D18401800A3FB91 /* icon_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_menu.png; sourceTree = "<group>"; };
 		FED89C8C1D16619800A17A7A /* SCAudioConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAudioConfiguration.h; sourceTree = "<group>"; };
 		FED89C8D1D16619800A17A7A /* SCAudioConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAudioConfiguration.m; sourceTree = "<group>"; };
 		FED89C8E1D16619800A17A7A /* SCMediaTypeConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCMediaTypeConfiguration.h; sourceTree = "<group>"; };
@@ -281,7 +283,7 @@
 		FED89CED1D16621E00A17A7A /* GLMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLMainVC.m; sourceTree = "<group>"; };
 		FED89CEE1D16621E00A17A7A /* GLMainVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GLMainVC.xib; sourceTree = "<group>"; };
 		FED89CF11D16737500A17A7A /* GLFilterImageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLFilterImageVC.h; sourceTree = "<group>"; };
-		FED89CF21D16737500A17A7A /* GLFilterImageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLFilterImageVC.m; sourceTree = "<group>"; };
+		FED89CF21D16737500A17A7A /* GLFilterImageVC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLFilterImageVC.mm; sourceTree = "<group>"; };
 		FED89CF31D16737500A17A7A /* GLFilterImageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GLFilterImageVC.xib; sourceTree = "<group>"; };
 		FED89CF61D1673BD00A17A7A /* GLMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMenuView.h; sourceTree = "<group>"; };
 		FED89CF71D1673BD00A17A7A /* GLMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLMenuView.m; sourceTree = "<group>"; };
@@ -439,6 +441,7 @@
 		EAD5ACF11CF2A951001F89E8 /* MenuView */ = {
 			isa = PBXGroup;
 			children = (
+				FECCE5B21D18401800A3FB91 /* Image */,
 				FED89CF61D1673BD00A17A7A /* GLMenuView.h */,
 				FED89CF71D1673BD00A17A7A /* GLMenuView.m */,
 				FED89CF91D167D0800A17A7A /* GLMenuItem.h */,
@@ -567,10 +570,18 @@
 				FED89CED1D16621E00A17A7A /* GLMainVC.m */,
 				FED89CEE1D16621E00A17A7A /* GLMainVC.xib */,
 				FED89CF11D16737500A17A7A /* GLFilterImageVC.h */,
-				FED89CF21D16737500A17A7A /* GLFilterImageVC.m */,
+				FED89CF21D16737500A17A7A /* GLFilterImageVC.mm */,
 				FED89CF31D16737500A17A7A /* GLFilterImageVC.xib */,
 			);
 			path = MainView;
+			sourceTree = "<group>";
+		};
+		FECCE5B21D18401800A3FB91 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				FECCE5B31D18401800A3FB91 /* icon_menu.png */,
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 		FED89C8A1D16619800A17A7A /* SCRecorder */ = {
@@ -755,6 +766,7 @@
 				TargetAttributes = {
 					EAD5ACBD1CF2A8E3001F89E8 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = K22PUN73D6;
 					};
 					EAD5ACD61CF2A8E3001F89E8 = {
 						CreatedOnToolsVersion = 7.2;
@@ -788,6 +800,7 @@
 			files = (
 				EAFADD5A1CFEAF36005541B4 /* haarcascade_mcs_mouth.xml in Resources */,
 				EA380D7A1D05622900478A41 /* great.jpg in Resources */,
+				FECCE5B41D18401800A3FB91 /* icon_menu.png in Resources */,
 				EADFAA861CFD65FA007F9307 /* GLConventViewController.xib in Resources */,
 				EADFAA7E1CFC1DAB007F9307 /* haarcascade_frontalface_alt.xml in Resources */,
 				EAD5AD391CF2EC67001F89E8 /* GLShowVC.xib in Resources */,
@@ -878,7 +891,7 @@
 				FED89CD31D16619800A17A7A /* SCContext.m in Sources */,
 				FED89CEA1D16619800A17A7A /* SCRecorderFocusTargetView.m in Sources */,
 				FED89CD81D16619800A17A7A /* SCFilter+VideoComposition.m in Sources */,
-				FED89CF41D16737500A17A7A /* GLFilterImageVC.m in Sources */,
+				FED89CF41D16737500A17A7A /* GLFilterImageVC.mm in Sources */,
 				EA1F2FFA1D040A34002EE4D4 /* UIImage+Threshold.mm in Sources */,
 				EAD5ACC31CF2A8E3001F89E8 /* main.m in Sources */,
 				EACBE8811D0FA50800EB14B6 /* UIImage+Skeleton.mm in Sources */,
@@ -1013,6 +1026,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DImageFilter/Resource/Framework",
@@ -1029,6 +1043,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DImageFilter/Resource/Framework",
