@@ -10,11 +10,16 @@
 
 #import "UIView+Frame.h"
 
+#import "Masonry.h"
 #import "GLMenuView.h"
 #import "UIImage+OpenCV.h"
 
+
 #define ScreenWidth [[UIScreen mainScreen] bounds].size.width
 #define ScreenHeight [[UIScreen mainScreen] bounds].size.height
+#define Padding10   10
+#define Padding20   20
+#define padding30   30
 
 typedef NS_ENUM(NSInteger, OperateType) {
     GrayFilter = 1001,
@@ -30,6 +35,12 @@ typedef NS_ENUM(NSInteger, OperateType) {
     MorphologyGradient = 3005,//梯度
     MorphologyTopHat = 3006,//顶帽
     MorphologyBlackHat = 3007,//黑帽
+    EdgeSobel = 4001,
+    EdgeCanny = 4002,
+    EdgeLaplace = 4003,
+    EdgeScharr = 4004,
+    EdgeRoberts = 4005,
+    EdgePrewitt = 4006,
 };
 
 @interface GLFilterImageVC ()<GLMenuItemDelegate>
@@ -39,6 +50,7 @@ typedef NS_ENUM(NSInteger, OperateType) {
 @property (nonatomic, strong) UIImageView *filterImageView;
 
 @property (nonatomic, strong) GLMenuView *menuView;
+@property (nonatomic, strong) UISlider *slider;
 
 @end
 
@@ -55,9 +67,20 @@ typedef NS_ENUM(NSInteger, OperateType) {
     _menuView.delegate = self;
     [self.view addSubview:self.menuView];
     
-    _filterImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - self.menuView.height)];
+    _filterImageView = [[UIImageView alloc] initWithFrame:CGRectMake(Padding20, Padding20, ScreenWidth - 2*Padding20, ScreenHeight - Padding20 - self.menuView.height)];
     _filterImageView.image = self.originImg;
     [self.view addSubview:_filterImageView];
+    
+//    [self.menuView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.left.right.mas_equalTo(self.view);
+//        make.bottom.mas_equalTo(self.filterImageView.mas_top);
+//    }];
+//    [self.filterImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.bottom.left.right.mas_equalTo(self.view);
+//        make.height.mas_equalTo(100);
+//    }];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -85,6 +108,9 @@ typedef NS_ENUM(NSInteger, OperateType) {
     if ([typeStr hasPrefix:@"300"]) {
         [self morphologyOperate:type];
         return;
+    }
+    if ([typeStr hasPrefix:@"400"]) {
+        [self edgeInfoOperate:type];
     }
     
     UIImage *dstImage;
@@ -157,7 +183,60 @@ typedef NS_ENUM(NSInteger, OperateType) {
     self.filterImageView.image = dstImage;
 }
 
+- (void)edgeInfoOperate:(NSInteger)type{
+    UIImage *dstImage;
+    switch (type) {
+        case EdgeSobel:
+        {
+            dstImage = [self.originImg prewittEdge];
+        }
+            break;
+        case EdgeCanny:
+            dstImage = [self.originImg cannyWithThreshold:25];
+            break;
+        case EdgeLaplace:
+            dstImage = [self.originImg LaplaceWithSize:25];
+            break;
+        case EdgeScharr:
+            dstImage = [self.originImg scharrWithScale:10];
+            break;
+        case EdgeRoberts:
+            dstImage = [self.originImg robertsEdge];
+            break;
+        case EdgePrewitt:
+            dstImage = [self.originImg prewittEdge];
+            break;
+            
+        default:
+            break;
+    }
+    self.filterImageView.image = dstImage;
+}
+
+- (IBAction)sliderValueChange:(id)sender {
+    UISlider *slider = (UISlider *)sender;
+    CGFloat value = slider.value;
+    int size = value*50;
+    
+}
+
+- (void)showSlide{
+    self.slider = [[UISlider alloc] initWithFrame:CGRectMake(10, 0, ScreenWidth - 2*10, 8)];
+    self.slider.backgroundColor = [UIColor lightGrayColor];
+    [self.slider addTarget:self action:@selector(sliderValueChange:) forControlEvents:UIControlEventValueChanged];
+}
+
+#pragma mark --
 - (NSMutableArray *)menuDataSourceInit{
+    NSDictionary *edgeMenu = @{@"title" : @"边缘检测",
+                               @"subMenu" :@[
+                                       @{@"title" : @"sobel算子",@"imageName":@"",@"operateType":@(EdgeSobel)},
+                                       @{@"title" : @"canny算子",@"imageName":@"",@"operateType":@(EdgeCanny)},
+                                       @{@"title" : @"Laplace算子",@"imageName":@"",@"operateType":@(EdgeLaplace)},
+                                       @{@"title" : @"scharr算子",@"imageName":@"",@"operateType":@(EdgeScharr)},
+                                       @{@"title" : @"Roberts算子",@"imageName":@"",@"operateType":@(EdgeRoberts)},
+                                       @{@"title" : @"Prewitt算子",@"imageName":@"",@"operateType":@(EdgePrewitt)}
+                                       ]};
     NSDictionary *greyMenu =  @{@"title" : @"灰度化",
                                 @"subMenu" : @[
                                         @{@"title" : @"分量法R",@"imageName":@"",@"operateType":@(GrayFilter)}
@@ -180,8 +259,9 @@ typedef NS_ENUM(NSInteger, OperateType) {
                                              @{@"title" : @"顶帽",@"imageName":@"",@"operateType":@(MorphologyTopHat)},
                                              @{@"title" : @"黑帽",@"imageName":@"",@"operateType":@(MorphologyBlackHat)}
                                              ]};
+
     
-    NSMutableArray *menuArr = [@[greyMenu, binMenu, morphologyMenu] mutableCopy];
+    NSMutableArray *menuArr = [@[greyMenu, binMenu, morphologyMenu,edgeMenu] mutableCopy];
     
     return menuArr;
 }

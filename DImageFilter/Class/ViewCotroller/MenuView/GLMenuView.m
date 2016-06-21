@@ -8,9 +8,11 @@
 
 #import "GLMenuView.h"
 #import "GLMenuItem.h"
+#import "MenuHrizontal.h"
 
-@interface GLMenuView ()<GLMenuItemDelegate>
+@interface GLMenuView ()<GLMenuItemDelegate,MenuHrizontalDelegate>
 
+@property (nonatomic, strong) MenuHrizontal *menuView;
 @property (nonatomic, strong) UIScrollView *subMenuScrollView;
 
 @end
@@ -26,41 +28,42 @@
     return self;
 }
 
- const int menuWidth = 100;
+const int menuWidth = 100;
 - (void)menuInitWithArr:(NSArray *)arr{
     if (arr.count == 0) {
         return;
     }
     
+    
+    NSMutableArray *menuArr = [NSMutableArray new];
     for (int i = 0; i < arr.count; i++) {
         NSDictionary *menuDic = [arr objectAtIndex:i];
         
-        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.tag = i;
-        btn.frame = CGRectMake(100 + i*menuWidth, CGRectGetHeight(self.frame) - 30, menuWidth, 30);
-        btn.layer.borderWidth = 1.f;
-        btn.layer.borderColor = [UIColor lightGrayColor].CGColor;
-        [btn setTitle:[menuDic objectForKey:@"title"] forState:UIControlStateNormal];
-        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [btn setTitleColor:[UIColor orangeColor] forState:UIControlStateSelected];
-        [btn addTarget:self action:@selector(firstMenuClick:) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:btn];
+        NSDictionary *item = @{NOMALKEY : @"normal",
+                               HEIGHTKEY : @"helight",
+                               TITLEKEY : [menuDic objectForKey:@"title"],
+                               TITLEWIDTH : @(menuWidth)};
+        [menuArr addObject:item];
     }
+    
+    self.menuView = [[MenuHrizontal alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.bounds) - 30, CGRectGetWidth(self.bounds), 30) ButtonItems:menuArr];
+    self.menuView.delegate = self;
+    [self addSubview:self.menuView];
     
     self.subMenuScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds) - 30)];
     self.subMenuScrollView.scrollEnabled = TRUE;
     [self addSubview:self.subMenuScrollView];
     
     if (arr.count >= 1) {
-        [self refreshSubMenuWithIndex:0];
+        [self.menuView clickButtonAtIndex:0];
     }
 }
 
-- (IBAction)firstMenuClick:(id)sender{
-    UIButton *btn = (UIButton *)sender;
-    
-    [self refreshSubMenuWithIndex:btn.tag];
-}
+//- (IBAction)firstMenuClick:(id)sender{
+//    UIButton *btn = (UIButton *)sender;
+//    
+//    [self refreshSubMenuWithIndex:btn.tag];
+//}
 
 - (void)refreshSubMenuWithIndex:(NSInteger)index{
     if (index < 0 || index > ([self.menuArr count] - 1))    return;
@@ -81,6 +84,12 @@
         [self.subMenuScrollView addSubview:item];
     }
     self.subMenuScrollView.contentSize = CGSizeMake(600, CGRectGetHeight(self.subMenuScrollView.bounds));
+    self.subMenuScrollView.contentOffset = CGPointZero;
+}
+
+#pragma mark --MenuHrizontalDelegate
+- (void)didMenuHrizontalClickedButtonAtIndex:(NSInteger)aIndex{
+    [self refreshSubMenuWithIndex:aIndex];
 }
 
 #pragma mark -- GLMenuItemDelegate
