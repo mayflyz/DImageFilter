@@ -25,7 +25,9 @@
     GLMainVC *mainVC = [[GLMainVC alloc] init];
     
     self.window.rootViewController = mainVC;
-    
+//    GLDemoListVC *vc = [[GLDemoListVC alloc] init];
+//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+//    self.window.rootViewController = nav;
     return YES;
 }
 

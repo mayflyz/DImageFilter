@@ -53,14 +53,14 @@
 */
 - (IBAction)dilateEvent:(id)sender {
     self.titleInfo.text = @"膨胀操作";
-    UIImage *image = [self.originImg.image robertsEdge];
+    UIImage *image = [self.originImg.image erosionOperation];
     
     self.dstImg.image = image;
 }
 
 - (IBAction)erodeEvent:(id)sender {
     self.titleInfo.text = @"腐蚀操作";
-    UIImage *image = [self.originImg.image sobelWithScale:3];
+    UIImage *image = [self.originImg.image dilateOperation];
     
     self.dstImg.image = image;
 }

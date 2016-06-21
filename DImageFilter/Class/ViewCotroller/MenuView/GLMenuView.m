@@ -46,6 +46,11 @@
         [btn addTarget:self action:@selector(firstMenuClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:btn];
     }
+    
+    self.subMenuScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds) - 30)];
+    self.subMenuScrollView.scrollEnabled = TRUE;
+    [self addSubview:self.subMenuScrollView];
+    
     if (arr.count >= 1) {
         [self refreshSubMenuWithIndex:0];
     }
@@ -59,6 +64,10 @@
 
 - (void)refreshSubMenuWithIndex:(NSInteger)index{
     if (index < 0 || index > ([self.menuArr count] - 1))    return;
+ 
+    for (UIView *subView in self.subMenuScrollView.subviews) {
+        [subView removeFromSuperview];
+    }
     
     NSDictionary *menuDic = [self.menuArr objectAtIndex:index];
     NSArray *subMenu = [menuDic objectForKey:@"subMenu"];
@@ -66,11 +75,12 @@
         NSDictionary *itemDic = [subMenu objectAtIndex:i];
         NSString *imgName = [itemDic objectForKey:@"imageName"];
         UIImage *menuImg = [UIImage imageNamed:(imgName.length > 0 ? imgName : @"icon_menu")];
-        GLMenuItem *item = [[GLMenuItem alloc] initWithFrame:CGRectMake(i*menuWidth, 0, menuWidth, CGRectGetHeight(self.bounds) - 30) withImage:menuImg title:[itemDic objectForKey:@"title"]];
+        GLMenuItem *item = [[GLMenuItem alloc] initWithFrame:CGRectMake(i*menuWidth, 0, menuWidth, CGRectGetHeight(self.subMenuScrollView.bounds)) withImage:menuImg title:[itemDic objectForKey:@"title"]];
         item.itemInfo = itemDic;
         item.delegate = self;
-        [self addSubview:item];
+        [self.subMenuScrollView addSubview:item];
     }
+    self.subMenuScrollView.contentSize = CGSizeMake(600, CGRectGetHeight(self.subMenuScrollView.bounds));
 }
 
 #pragma mark -- GLMenuItemDelegate

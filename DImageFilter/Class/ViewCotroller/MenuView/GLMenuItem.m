@@ -60,7 +60,7 @@
 #pragma mark -- control init
 - (UIImageView *)menuImgView{
     if (_menuImgView == nil) {
-        _menuImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds)-21)];
+        _menuImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds))];
     }
     
     return _menuImgView;
@@ -72,7 +72,7 @@
         _subLineInfo.textAlignment = NSTextAlignmentCenter;
         _subLineInfo.font = [UIFont systemFontOfSize:15.f];
         _subLineInfo.backgroundColor = [UIColor clearColor];
-        _subLineInfo.textColor = [UIColor whiteColor];
+        _subLineInfo.textColor = [UIColor lightGrayColor];
     }
     
     return _subLineInfo;
