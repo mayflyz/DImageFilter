@@ -22,7 +22,8 @@
 #define padding30   30
 
 typedef NS_ENUM(NSInteger, OperateType) {
-    GrayFilter = 1001,
+    GrayFilter = 1001,  //灰度化
+    Gray = 1002,    //灰度直方图
     BinaryMaxEntropy = 2001,   //最大熵阈值
     BinaryGlobal = 2002,   //全局阈值
     BinaryDetech = 2003,   //迭代法
@@ -41,6 +42,15 @@ typedef NS_ENUM(NSInteger, OperateType) {
     EdgeScharr = 4004,
     EdgeRoberts = 4005,
     EdgePrewitt = 4006,
+    SmoothBoxBlur = 5001,   //方框滤波
+    SmoothBlur = 5002,  //均值滤波
+    SmoothGussianBlur = 5003,  //高斯滤波
+    SmoothMedianBlur = 5004,   //中值滤波
+    SmoothBilatelBlur = 5005,  //双边滤波
+    SkeletonDistanceTransform = 6001,  //
+    SkeletonHilditch = 6002,
+    SkeletonRosenfeld = 6003,
+    SkeletonMorph = 6004,
 };
 
 @interface GLFilterImageVC ()<GLMenuItemDelegate>
@@ -71,6 +81,8 @@ typedef NS_ENUM(NSInteger, OperateType) {
     _filterImageView.image = self.originImg;
     [self.view addSubview:_filterImageView];
     
+    self.navigationController.navigationBarHidden = TRUE;
+    
 //    [self.menuView mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.top.left.right.mas_equalTo(self.view);
 //        make.bottom.mas_equalTo(self.filterImageView.mas_top);
@@ -100,6 +112,10 @@ typedef NS_ENUM(NSInteger, OperateType) {
 - (void)imageFilterWithType:(NSInteger)type{
     
     NSString *typeStr = [@(type) stringValue];
+    if ([typeStr hasPrefix:@"100"]) {
+        [self grayOperate:type];
+    }
+    
     if ([typeStr hasPrefix:@"200"]) {
         [self binaryOperate:type];
         return;
@@ -111,8 +127,22 @@ typedef NS_ENUM(NSInteger, OperateType) {
     }
     if ([typeStr hasPrefix:@"400"]) {
         [self edgeInfoOperate:type];
+        return;
+    }
+    if ([typeStr hasPrefix:@"500"]) {
+        [self smoothingOperate:type];
+        return;
     }
     
+    if ([typeStr hasPrefix:@"600"]) {
+        [self smoothingOperate:type];
+        return;
+    }
+//    未捕获设置原图，灰度图中放置二值化及均衡化处理
+    self.filterImageView.image = self.originImg;
+}
+
+- (void)grayOperate:(NSInteger)type{
     UIImage *dstImage;
     switch (type) {
         case GrayFilter:
@@ -188,7 +218,7 @@ typedef NS_ENUM(NSInteger, OperateType) {
     switch (type) {
         case EdgeSobel:
         {
-            dstImage = [self.originImg prewittEdge];
+            dstImage = [self.originImg sobelWithScale:3];
         }
             break;
         case EdgeCanny:
@@ -211,6 +241,58 @@ typedef NS_ENUM(NSInteger, OperateType) {
             break;
     }
     self.filterImageView.image = dstImage;
+}
+
+- (void)smoothingOperate:(NSInteger)type{
+    UIImage *dstImage;
+    switch (type) {
+        case SmoothBoxBlur:
+        {
+            dstImage = [self.originImg boxBlurFilterWithSize:3];
+        }
+            break;
+        case SmoothBlur:
+            dstImage = [self.originImg blureFilterWithSize:3];
+            break;
+        case SmoothGussianBlur:
+            dstImage = [self.originImg gaussianBlurFilterWithSize:3];
+            break;
+        case SmoothMedianBlur:
+            dstImage = [self.originImg medianFilterWithkSize:3];
+            break;
+        case SmoothBilatelBlur:
+            dstImage = [self.originImg bilateralFilterWithSie:3];
+            break;
+            
+        default:
+            break;
+    }
+    self.filterImageView.image = dstImage;
+}
+
+- (void)skeletonOperate:(NSInteger)type{
+    UIImage *dstImage;
+    switch (type) {
+        case SkeletonDistanceTransform:
+        {
+            dstImage = [self.originImg distanceTransform];
+        }
+            break;
+        case SkeletonHilditch:
+            dstImage = [self.originImg skeletonByHilditch];
+            break;
+        case SkeletonRosenfeld:
+            dstImage = [self.originImg skeletonByRosenfeld];
+            break;
+        case SkeletonMorph:
+            dstImage = [self.originImg skeletonByMorph];
+            break;
+            
+        default:
+            break;
+    }
+    self.filterImageView.image = dstImage;
+    
 }
 
 - (IBAction)sliderValueChange:(id)sender {
@@ -259,9 +341,24 @@ typedef NS_ENUM(NSInteger, OperateType) {
                                              @{@"title" : @"顶帽",@"imageName":@"",@"operateType":@(MorphologyTopHat)},
                                              @{@"title" : @"黑帽",@"imageName":@"",@"operateType":@(MorphologyBlackHat)}
                                              ]};
+    NSDictionary *smoothMenu = @{@"title" : @"滤波",
+                                 @"subMenu" :@[
+                                         @{@"title" : @"方框滤波",@"imageName":@"",@"operateType":@(SmoothBoxBlur)},
+                                         @{@"title" : @"均值滤波",@"imageName":@"",@"operateType":@(SmoothBlur)},
+                                         @{@"title" : @"高斯滤波",@"imageName":@"",@"operateType":@(SmoothGussianBlur)},
+                                         @{@"title" : @"中值滤波",@"imageName":@"",@"operateType":@(SmoothMedianBlur)},
+                                         @{@"title" : @"双边滤波",@"imageName":@"",@"operateType":@(SmoothBilatelBlur)}
+                                         ]};
+    NSDictionary *skeletonMenu = @{@"title" : @"骨架",
+                                   @"subMenu" :@[
+                                           @{@"title" : @"距离转换",@"imageName":@"",@"operateType":@(SkeletonDistanceTransform)},
+                                           @{@"title" : @"hilditch细化",@"imageName":@"",@"operateType":@(SkeletonHilditch)},
+                                           @{@"title" : @"Rosenfeld细化",@"imageName":@"",@"operateType":@(SkeletonRosenfeld)},
+                                           @{@"title" : @"形态学骨架",@"imageName":@"",@"operateType":@(SkeletonMorph)}
+                                           ]};
 
     
-    NSMutableArray *menuArr = [@[greyMenu, binMenu, morphologyMenu,edgeMenu] mutableCopy];
+    NSMutableArray *menuArr = [@[greyMenu, binMenu, morphologyMenu,edgeMenu,smoothMenu, skeletonMenu] mutableCopy];
     
     return menuArr;
 }

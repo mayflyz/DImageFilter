@@ -322,8 +322,11 @@ int  OTSU(unsigned char* pGrayImg , int iWidth , int iHeight)
 
 + (Mat)prewitt:(Mat)src{
     Mat gray,Kernelx,Kernely;
+    gray = src;
+    if (src.channels() == 3 || src.channels() == 4) {
+        cvtColor(src, gray, CV_RGB2GRAY);
+    }
     
-    cvtColor(src, gray, CV_RGB2GRAY);
     
     Kernelx = (Mat_<double>(3,3) << 1, 1, 1, 0, 0, 0, -1, -1, -1);
     Kernely = (Mat_<double>(3,3) << -1, 0, 1, -1, 0, 1, -1, 0, 1);

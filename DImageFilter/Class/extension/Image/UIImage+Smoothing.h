@@ -42,6 +42,7 @@
  *  高斯滤波
  */
 - (UIImage *)gaussianBlurFilter;
+- (UIImage *)gaussianBlurFilterWithSize:(int)size;
 
 /**
  *  中值滤波
@@ -61,5 +62,7 @@
  *  双边滤波
  */
 - (UIImage *)bilateralFilter;
+
+- (UIImage *)bilateralFilterWithSie:(int)size;
 
 @end
