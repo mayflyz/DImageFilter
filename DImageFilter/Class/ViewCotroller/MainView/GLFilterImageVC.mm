@@ -23,12 +23,19 @@
 
 typedef NS_ENUM(NSInteger, OperateType) {
     GrayFilter = 1001,  //灰度化
+    GrayHist = 1002,    //灰度直方图
+    GrayEqual = 1003,   //灰度均衡化
+    GrayHistEqual = 1004,   //直方图均衡化
     Gray = 1002,    //灰度直方图
     BinaryMaxEntropy = 2001,   //最大熵阈值
     BinaryGlobal = 2002,   //全局阈值
     BinaryDetech = 2003,   //迭代法
     BinaryOTSU = 2004,   //迭代法
     BinaryCustom = 2005,   //自定义阈值
+    BinMorphologyErosion = 2101,    //二值腐蚀
+    BinMorphologyDilate = 2102,     //二值膨胀
+    BinMorphologyOpen = 2103,       //二值开操作
+    BinMorphologyClose = 2104,      //二值闭操作
     MorphologyErosion = 3001,  //腐蚀
     MorphologyDilate = 3002,   //膨胀
     MorphologyOpen = 3003, //开操作
@@ -114,10 +121,16 @@ typedef NS_ENUM(NSInteger, OperateType) {
     NSString *typeStr = [@(type) stringValue];
     if ([typeStr hasPrefix:@"100"]) {
         [self grayOperate:type];
+        return;
     }
     
     if ([typeStr hasPrefix:@"200"]) {
         [self binaryOperate:type];
+        return;
+    }
+    
+    if ([typeStr hasPrefix:@"210"]) {
+        [self binaryMorphologyOperate:type];
         return;
     }
     
@@ -135,7 +148,7 @@ typedef NS_ENUM(NSInteger, OperateType) {
     }
     
     if ([typeStr hasPrefix:@"600"]) {
-        [self smoothingOperate:type];
+        [self skeletonOperate:type];
         return;
     }
 //    未捕获设置原图，灰度图中放置二值化及均衡化处理
@@ -149,6 +162,16 @@ typedef NS_ENUM(NSInteger, OperateType) {
         {
             dstImage = [self.originImg grayImage];
         }
+            break;
+        case GrayHist:
+            dstImage = [self.originImg grayHistImg];
+            break;
+        case  GrayEqual:
+            dstImage = [self.originImg equalHistImg];
+            break;
+        case GrayHistEqual:
+            dstImage = [self.originImg histogramEqualization];
+            break;
         default:
             break;
     }
@@ -159,11 +182,6 @@ typedef NS_ENUM(NSInteger, OperateType) {
 - (void)binaryOperate:(NSInteger)type{
     UIImage *dstImage;
     switch (type) {
-        case GrayFilter:
-        {
-            dstImage = [self.originImg grayImage];
-        }
-            break;
         case BinaryDetech:
             dstImage = [self.originImg binaryzationWithWithDetech];
             break;
@@ -175,6 +193,31 @@ typedef NS_ENUM(NSInteger, OperateType) {
             break;
         case BinaryGlobal:
             dstImage = [self.originImg binaryzationWithWithGlobalThrehold];
+            break;
+            
+        default:
+            break;
+    }
+    
+    self.filterImageView.image = dstImage;
+}
+
+- (void)binaryMorphologyOperate:(NSInteger)type{
+    UIImage *dstImage;
+    switch (type) {
+        case BinMorphologyErosion:
+        {
+            dstImage = [[self.originImg binaryzation] erosionOperation];
+        }
+            break;
+        case BinMorphologyDilate:
+            dstImage = [[self.originImg binaryzation] dilateOperation];
+            break;
+        case BinMorphologyOpen:
+            dstImage = [[self.originImg binaryzation] morphologyWithOperation:3 elementSize:10];
+            break;
+        case BinMorphologyClose:
+            dstImage = [[self.originImg binaryzation] morphologyWithOperation:4 elementSize:10];
             break;
             
         default:
@@ -321,7 +364,10 @@ typedef NS_ENUM(NSInteger, OperateType) {
                                        ]};
     NSDictionary *greyMenu =  @{@"title" : @"灰度化",
                                 @"subMenu" : @[
-                                        @{@"title" : @"分量法R",@"imageName":@"",@"operateType":@(GrayFilter)}
+                                        @{@"title" : @"灰度图",@"imageName":@"",@"operateType":@(GrayFilter)},
+                                        @{@"title" : @"直方图",@"imageName":@"",@"operateType":@(GrayHist)},
+                                        @{@"title" : @"均衡化",@"imageName":@"",@"operateType":@(GrayEqual)},
+                                        @{@"title" : @"直方图均衡化",@"imageName":@"",@"operateType":@(GrayHistEqual)}
                                         ]};
     NSDictionary *binMenu = @{@"title" : @"二值化",
                               @"subMenu" :@[
@@ -330,6 +376,13 @@ typedef NS_ENUM(NSInteger, OperateType) {
                                       @{@"title" : @"熵阈值",@"imageName":@"",@"operateType":@(BinaryMaxEntropy)},
                                       @{@"title" : @"全局阈值",@"imageName":@"",@"operateType":@(BinaryGlobal)},
                                       @{@"title" : @"自定义阈值",@"imageName":@"",@"operateType":@(BinaryCustom)}
+                                      ]};
+    NSDictionary *binMorpholoMenu = @{@"title" : @"二值形态学操作",
+                              @"subMenu" :@[
+                                      @{@"title" : @"腐蚀",@"imageName":@"",@"operateType":@(BinMorphologyErosion)},
+                                      @{@"title" : @"膨胀",@"imageName":@"",@"operateType":@(BinMorphologyDilate)},
+                                      @{@"title" : @"开运算",@"imageName":@"",@"operateType":@(BinMorphologyOpen)},
+                                      @{@"title" : @"闭运算",@"imageName":@"",@"operateType":@(BinMorphologyClose)}
                                       ]};
     NSDictionary *morphologyMenu = @{@"title" : @"形态学",
                                      @"subMenu" :@[
@@ -358,7 +411,7 @@ typedef NS_ENUM(NSInteger, OperateType) {
                                            ]};
 
     
-    NSMutableArray *menuArr = [@[greyMenu, binMenu, morphologyMenu,edgeMenu,smoothMenu, skeletonMenu] mutableCopy];
+    NSMutableArray *menuArr = [@[greyMenu, binMenu, binMorpholoMenu, morphologyMenu,edgeMenu,smoothMenu, skeletonMenu] mutableCopy];
     
     return menuArr;
 }

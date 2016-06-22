@@ -83,7 +83,7 @@ const int menuWidth = 100;
         item.delegate = self;
         [self.subMenuScrollView addSubview:item];
     }
-    self.subMenuScrollView.contentSize = CGSizeMake(600, CGRectGetHeight(self.subMenuScrollView.bounds));
+    self.subMenuScrollView.contentSize = CGSizeMake(menuWidth * subMenu.count, CGRectGetHeight(self.subMenuScrollView.bounds));
     self.subMenuScrollView.contentOffset = CGPointZero;
 }
 
