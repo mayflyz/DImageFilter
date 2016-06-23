@@ -116,7 +116,6 @@ typedef NS_ENUM(NSInteger, OperateType) {
 #pragma mark -- CXSliderDelegate
 -(void)cxSliderValueChanged:(CGFloat)value{
     self.sliderView.titleStr = [NSString stringWithFormat:@"%@%.f",self.sliderTitle, value];
-    
     if (self.changeValue != (int)value) {
         self.changeValue = (int)value;
         [self imageFilterWithType:self.type];
@@ -232,6 +231,13 @@ typedef NS_ENUM(NSInteger, OperateType) {
             dstImage = [self.originImg binaryzationWithWithGlobalThrehold];
             break;
             
+        case BinaryCustom:
+            {
+                [self showSlideWitTitle:@"阈值大小："];
+                self.sliderView.maxValue = 255;
+                dstImage = [self.originImg binaryzationWithThresh:[self changeValueWithDefault:125]];
+            }
+            break;
         default:
             break;
     }
@@ -241,27 +247,31 @@ typedef NS_ENUM(NSInteger, OperateType) {
 
 - (void)binaryMorphologyOperate:(NSInteger)type{
     UIImage *dstImage;
+    
+    [self showSlideWitTitle:@"内核算子大小："];
+    self.sliderView.maxValue = 50;
+    int value = [self changeValueWithDefault:2];
     switch (type) {
         case BinMorphologyErosion:
         {
-            dstImage = [[self.originImg binaryzation] erosionOperation];
+            dstImage = [[self.originImg grayImage] erosionType:3 size:value];
         }
             break;
         case BinMorphologyDilate:
-            dstImage = [[self.originImg binaryzation] dilateOperation];
+            dstImage = [[self.originImg grayImage] erosionType:3 size:value];
             break;
         case BinMorphologyOpen:
         {
             [self showSlideWitTitle:@"内核算子大小："];
             
-            dstImage = [[self.originImg binaryzation] morphologyWithOperation:3 elementSize:[self changeValueWithDefault:2]];
+            dstImage = [[self.originImg grayImage] morphologyWithOperation:3 elementSize:value];
         }
             
             break;
         case BinMorphologyClose:
         {
             [self showSlideWitTitle:@"内核算子大小："];
-            dstImage = [[self.originImg binaryzation] morphologyWithOperation:4 elementSize:[self changeValueWithDefault:2]];
+            dstImage = [[self.originImg grayImage] morphologyWithOperation:4 elementSize:value];
         }
             
             break;
