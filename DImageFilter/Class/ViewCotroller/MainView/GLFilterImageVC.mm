@@ -9,17 +9,13 @@
 #import "GLFilterImageVC.h"
 
 #import "UIView+Frame.h"
+#import "GLSliderView.h"
 
 #import "Masonry.h"
 #import "GLMenuView.h"
 #import "UIImage+OpenCV.h"
 
-
-#define ScreenWidth [[UIScreen mainScreen] bounds].size.width
-#define ScreenHeight [[UIScreen mainScreen] bounds].size.height
-#define Padding10   10
-#define Padding20   20
-#define padding30   30
+#import "Macro.h"
 
 typedef NS_ENUM(NSInteger, OperateType) {
     GrayFilter = 1001,  //灰度化
@@ -60,14 +56,18 @@ typedef NS_ENUM(NSInteger, OperateType) {
     SkeletonMorph = 6004,
 };
 
-@interface GLFilterImageVC ()<GLMenuItemDelegate>
+@interface GLFilterImageVC ()<GLMenuItemDelegate,CXSliderDelegate>
+
+@property (nonatomic, assign) OperateType type;
+@property (nonatomic, assign) int changeValue;
+@property (nonatomic, strong) NSString *sliderTitle;
 
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 
 @property (nonatomic, strong) UIImageView *filterImageView;
 
 @property (nonatomic, strong) GLMenuView *menuView;
-@property (nonatomic, strong) UISlider *slider;
+@property (nonatomic, strong) GLSliderView *sliderView;
 
 @end
 
@@ -79,7 +79,6 @@ typedef NS_ENUM(NSInteger, OperateType) {
 //    {"title":, "subMenu":{"title":,"imageName":,@"operateType":}}
     self.title = @"图片处理";
     self.headerView.hidden = TRUE;
-   
     _menuView = [[GLMenuView alloc] initWithFrame:CGRectMake(0, ScreenHeight - 100, ScreenWidth, 100) menuArr:[self menuDataSourceInit]];
     _menuView.delegate = self;
     [self.view addSubview:self.menuView];
@@ -99,12 +98,50 @@ typedef NS_ENUM(NSInteger, OperateType) {
 //        make.height.mas_equalTo(100);
 //    }];
     
+    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showMenuView)];
+    [self.view addGestureRecognizer:recognizer];
     
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)showMenuView{
+    self.menuView.hidden = FALSE;
+    self.sliderView.hidden = TRUE;
+}
+
+#pragma mark -- CXSliderDelegate
+-(void)cxSliderValueChanged:(CGFloat)value{
+    self.sliderView.titleStr = [NSString stringWithFormat:@"%@%.f",self.sliderTitle, value];
+    
+    if (self.changeValue != (int)value) {
+        self.changeValue = (int)value;
+        [self imageFilterWithType:self.type];
+    }
+}
+
+- (void)showSlideWitTitle:(NSString *)title{
+    self.sliderTitle = title ;
+    
+    if (!self.sliderView) {
+        self.sliderView = [[GLSliderView alloc] initWithFrame:CGRectMake(0, ScreenHeight - 100, ScreenWidth, 80)];
+        self.sliderView.delegate = self;
+        [self.view addSubview:self.sliderView];
+    }
+
+    self.sliderView.titleStr = [NSString stringWithFormat:@"%@ 0",self.sliderTitle];
+    self.menuView.hidden = TRUE;
+    self.sliderView.hidden = FALSE;
+    [self.sliderView.sliderView setValueWithValue:0];
+}
+
+- (int)changeValueWithDefault:(int)defaultValue{
+    int value = (self.changeValue == 0 ? defaultValue : self.changeValue);
+    
+    return value;
 }
 
 #pragma mark ---GLMenuItemDelegate
@@ -117,7 +154,7 @@ typedef NS_ENUM(NSInteger, OperateType) {
 }
 
 - (void)imageFilterWithType:(NSInteger)type{
-    
+    self.type = (OperateType)type;
     NSString *typeStr = [@(type) stringValue];
     if ([typeStr hasPrefix:@"100"]) {
         [self grayOperate:type];
@@ -214,10 +251,19 @@ typedef NS_ENUM(NSInteger, OperateType) {
             dstImage = [[self.originImg binaryzation] dilateOperation];
             break;
         case BinMorphologyOpen:
-            dstImage = [[self.originImg binaryzation] morphologyWithOperation:3 elementSize:10];
+        {
+            [self showSlideWitTitle:@"内核算子大小："];
+            
+            dstImage = [[self.originImg binaryzation] morphologyWithOperation:3 elementSize:[self changeValueWithDefault:2]];
+        }
+            
             break;
         case BinMorphologyClose:
-            dstImage = [[self.originImg binaryzation] morphologyWithOperation:4 elementSize:10];
+        {
+            [self showSlideWitTitle:@"内核算子大小："];
+            dstImage = [[self.originImg binaryzation] morphologyWithOperation:4 elementSize:[self changeValueWithDefault:2]];
+        }
+            
             break;
             
         default:
@@ -229,14 +275,21 @@ typedef NS_ENUM(NSInteger, OperateType) {
 
 - (void)morphologyOperate:(NSInteger)type{
     UIImage *dstImage;
+    
+    [self showSlideWitTitle:@"内核算子大小："];
+    self.sliderView.maxValue = 30;
+    int value = [self changeValueWithDefault:1];
     switch (type) {
         case MorphologyErosion:
         {
-            dstImage = [self.originImg erosionType:1 size:1];
+            self.sliderView.maxValue = 30;
+            dstImage = [self.originImg erosionType:1 size:value];
         }
             break;
         case MorphologyDilate:
-            dstImage = [self.originImg dilateOperation];
+        {
+            dstImage = [self.originImg dilationWithType:1 size:value];
+        }
             break;
         case MorphologyOpen:
         case MorphologyClose:
@@ -245,7 +298,7 @@ typedef NS_ENUM(NSInteger, OperateType) {
         case MorphologyBlackHat:
             {
                 int operate = type%10 - 3;
-                dstImage = [self.originImg morphologyWithOperation:operate elementSize:1];
+                dstImage = [self.originImg morphologyWithOperation:operate elementSize:value];
             }
             break;
             
@@ -261,17 +314,27 @@ typedef NS_ENUM(NSInteger, OperateType) {
     switch (type) {
         case EdgeSobel:
         {
-            dstImage = [self.originImg sobelWithScale:3];
+            [self showSlideWitTitle:@"Scale 值"];
+            dstImage = [self.originImg sobelWithScale:[self changeValueWithDefault:3]];
         }
             break;
         case EdgeCanny:
-            dstImage = [self.originImg cannyWithThreshold:25];
+        {
+            [self showSlideWitTitle:@"阈值大小:"];
+            dstImage = [self.originImg cannyWithThreshold:[self changeValueWithDefault:15]];
+        }
             break;
         case EdgeLaplace:
-            dstImage = [self.originImg LaplaceWithSize:25];
+        {
+            [self showSlideWitTitle:@"内核算子大小："];
+            dstImage = [self.originImg LaplaceWithSize:[self changeValueWithDefault:25]];
+        }
             break;
         case EdgeScharr:
-            dstImage = [self.originImg scharrWithScale:10];
+        {
+            [self showSlideWitTitle:@"Scale值"];
+            dstImage = [self.originImg scharrWithScale:[self changeValueWithDefault:10]];
+        }
             break;
         case EdgeRoberts:
             dstImage = [self.originImg robertsEdge];
@@ -288,23 +351,29 @@ typedef NS_ENUM(NSInteger, OperateType) {
 
 - (void)smoothingOperate:(NSInteger)type{
     UIImage *dstImage;
+    
+    [self showSlideWitTitle:@"内核算子大小："];
+    self.sliderView.maxValue = 100;
+    int value = [self changeValueWithDefault:3];
+    
     switch (type) {
         case SmoothBoxBlur:
         {
-            dstImage = [self.originImg boxBlurFilterWithSize:3];
+            dstImage = [self.originImg boxBlurFilterWithSize:value];
         }
             break;
         case SmoothBlur:
-            dstImage = [self.originImg blureFilterWithSize:3];
+            dstImage = [self.originImg blureFilterWithSize:value];
             break;
         case SmoothGussianBlur:
-            dstImage = [self.originImg gaussianBlurFilterWithSize:3];
+            
+            dstImage = [self.originImg gaussianBlurFilterWithSize:value];
             break;
         case SmoothMedianBlur:
-            dstImage = [self.originImg medianFilterWithkSize:3];
+            dstImage = [self.originImg medianFilterWithkSize:value];
             break;
         case SmoothBilatelBlur:
-            dstImage = [self.originImg bilateralFilterWithSie:3];
+            dstImage = [self.originImg bilateralFilterWithSie:value];
             break;
             
         default:
@@ -336,19 +405,6 @@ typedef NS_ENUM(NSInteger, OperateType) {
     }
     self.filterImageView.image = dstImage;
     
-}
-
-- (IBAction)sliderValueChange:(id)sender {
-    UISlider *slider = (UISlider *)sender;
-    CGFloat value = slider.value;
-    int size = value*50;
-    
-}
-
-- (void)showSlide{
-    self.slider = [[UISlider alloc] initWithFrame:CGRectMake(10, 0, ScreenWidth - 2*10, 8)];
-    self.slider.backgroundColor = [UIColor lightGrayColor];
-    [self.slider addTarget:self action:@selector(sliderValueChange:) forControlEvents:UIControlEventValueChanged];
 }
 
 #pragma mark --
