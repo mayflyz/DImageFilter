@@ -20,11 +20,14 @@
 		EA80A8A11D1BB349008216FD /* HUMSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = EA80A8A01D1BB349008216FD /* HUMSlider.m */; };
 		EA80A8A41D1BB399008216FD /* CXSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = EA80A8A31D1BB399008216FD /* CXSlider.m */; };
 		EA80A8A71D1BB41A008216FD /* GLSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA80A8A61D1BB41A008216FD /* GLSliderView.m */; };
-		EA80A8AE1D1BD343008216FD /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = EA80A8AD1D1BD343008216FD /* UIColor+Hex.m */; };
+		EA80A8BB1D1CD056008216FD /* STAlbumManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA80A8BA1D1CD056008216FD /* STAlbumManager.m */; };
+		EA80A8C21D1CD063008216FD /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = EA80A8BF1D1CD063008216FD /* UIColor+Hex.m */; };
+		EA80A8C31D1CD063008216FD /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = EA80A8C11D1CD063008216FD /* UIView+Frame.m */; };
+		EA80A8C61D1CD2FE008216FD /* Toast+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA80A8C51D1CD2FE008216FD /* Toast+UIView.m */; };
+		EA80A8C91D1CDD13008216FD /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = EA80A8C81D1CDD13008216FD /* MBProgressHUD.m */; };
 		EA96F3291D127FE1002567CA /* GLMatSkeleton.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA96F3261D127FE1002567CA /* GLMatSkeleton.mm */; };
 		EA96F32A1D127FE1002567CA /* GLMatTransform.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA96F3281D127FE1002567CA /* GLMatTransform.mm */; };
 		EA96F32D1D128010002567CA /* GLMatEdgeDetection.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA96F32C1D128010002567CA /* GLMatEdgeDetection.mm */; };
-		EA96F3801D1A2F70002567CA /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA96F37F1D1A2F6F002567CA /* opencv2.framework */; };
 		EAC873921D01BBFB00021405 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC873911D01BBFB00021405 /* Accelerate.framework */; };
 		EAC873941D01BC0300021405 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC873931D01BC0300021405 /* AssetsLibrary.framework */; };
 		EAC873961D01BC0B00021405 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC873951D01BC0B00021405 /* AVFoundation.framework */; };
@@ -109,7 +112,6 @@
 		FED89CF51D16737500A17A7A /* GLFilterImageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FED89CF31D16737500A17A7A /* GLFilterImageVC.xib */; };
 		FED89CF81D1673BD00A17A7A /* GLMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CF71D1673BD00A17A7A /* GLMenuView.m */; };
 		FED89CFB1D167D0800A17A7A /* GLMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CFA1D167D0800A17A7A /* GLMenuItem.m */; };
-		FED89CFF1D168D2A00A17A7A /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = FED89CFE1D168D2A00A17A7A /* UIView+Frame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,15 +150,22 @@
 		EA80A8A51D1BB41A008216FD /* GLSliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLSliderView.h; sourceTree = "<group>"; };
 		EA80A8A61D1BB41A008216FD /* GLSliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLSliderView.m; sourceTree = "<group>"; };
 		EA80A8AA1D1BB669008216FD /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
-		EA80A8AC1D1BD343008216FD /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
-		EA80A8AD1D1BD343008216FD /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		EA80A8B91D1CD056008216FD /* STAlbumManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STAlbumManager.h; sourceTree = "<group>"; };
+		EA80A8BA1D1CD056008216FD /* STAlbumManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STAlbumManager.m; sourceTree = "<group>"; };
+		EA80A8BE1D1CD063008216FD /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		EA80A8BF1D1CD063008216FD /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		EA80A8C01D1CD063008216FD /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		EA80A8C11D1CD063008216FD /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		EA80A8C41D1CD2FE008216FD /* Toast+UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Toast+UIView.h"; sourceTree = "<group>"; };
+		EA80A8C51D1CD2FE008216FD /* Toast+UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Toast+UIView.m"; sourceTree = "<group>"; };
+		EA80A8C71D1CDD13008216FD /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		EA80A8C81D1CDD13008216FD /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		EA96F3251D127FE1002567CA /* GLMatSkeleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMatSkeleton.h; sourceTree = "<group>"; };
 		EA96F3261D127FE1002567CA /* GLMatSkeleton.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLMatSkeleton.mm; sourceTree = "<group>"; };
 		EA96F3271D127FE1002567CA /* GLMatTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMatTransform.h; sourceTree = "<group>"; };
 		EA96F3281D127FE1002567CA /* GLMatTransform.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLMatTransform.mm; sourceTree = "<group>"; };
 		EA96F32B1D128010002567CA /* GLMatEdgeDetection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMatEdgeDetection.h; sourceTree = "<group>"; };
 		EA96F32C1D128010002567CA /* GLMatEdgeDetection.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLMatEdgeDetection.mm; sourceTree = "<group>"; };
-		EA96F37F1D1A2F6F002567CA /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		EAC873911D01BBFB00021405 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		EAC873931D01BC0300021405 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		EAC873951D01BC0B00021405 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -305,8 +314,6 @@
 		FED89CF71D1673BD00A17A7A /* GLMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLMenuView.m; sourceTree = "<group>"; };
 		FED89CF91D167D0800A17A7A /* GLMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMenuItem.h; sourceTree = "<group>"; };
 		FED89CFA1D167D0800A17A7A /* GLMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLMenuItem.m; sourceTree = "<group>"; };
-		FED89CFD1D168D2A00A17A7A /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
-		FED89CFE1D168D2A00A17A7A /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,7 +331,6 @@
 				EAC873961D01BC0B00021405 /* AVFoundation.framework in Frameworks */,
 				EAC873941D01BC0300021405 /* AssetsLibrary.framework in Frameworks */,
 				EAC873921D01BBFB00021405 /* Accelerate.framework in Frameworks */,
-				EA96F3801D1A2F70002567CA /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,11 +363,21 @@
 			path = MACRO;
 			sourceTree = "<group>";
 		};
-		EA80A8AB1D1BD343008216FD /* UIColor */ = {
+		EA80A8BC1D1CD063008216FD /* Catergory */ = {
 			isa = PBXGroup;
 			children = (
-				EA80A8AC1D1BD343008216FD /* UIColor+Hex.h */,
-				EA80A8AD1D1BD343008216FD /* UIColor+Hex.m */,
+				EA80A8BD1D1CD063008216FD /* UIColor */,
+				EA80A8C01D1CD063008216FD /* UIView+Frame.h */,
+				EA80A8C11D1CD063008216FD /* UIView+Frame.m */,
+			);
+			path = Catergory;
+			sourceTree = "<group>";
+		};
+		EA80A8BD1D1CD063008216FD /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				EA80A8BE1D1CD063008216FD /* UIColor+Hex.h */,
+				EA80A8BF1D1CD063008216FD /* UIColor+Hex.m */,
 			);
 			path = UIColor;
 			sourceTree = "<group>";
@@ -455,6 +471,7 @@
 		EAD5ACE81CF2A951001F89E8 /* ThirdLib */ = {
 			isa = PBXGroup;
 			children = (
+				EA80A8BC1D1CD063008216FD /* Catergory */,
 				FED89CFC1D168D2A00A17A7A /* Utils */,
 				FED89C8A1D16619800A17A7A /* SCRecorder */,
 				EAD5AD0F1CF2D45D001F89E8 /* Masonry */,
@@ -503,7 +520,6 @@
 			isa = PBXGroup;
 			children = (
 				EAC873A31D01BC4700021405 /* Foundation.framework */,
-				EA96F37F1D1A2F6F002567CA /* opencv2.framework */,
 				EAC873A11D01BC4200021405 /* UIKit.framework */,
 				EAC8739F1D01BC3B00021405 /* QuartzCore.framework */,
 				EAC8739D1D01BC3400021405 /* CoreVideo.framework */,
@@ -769,9 +785,12 @@
 		FED89CFC1D168D2A00A17A7A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				EA80A8AB1D1BD343008216FD /* UIColor */,
-				FED89CFD1D168D2A00A17A7A /* UIView+Frame.h */,
-				FED89CFE1D168D2A00A17A7A /* UIView+Frame.m */,
+				EA80A8C71D1CDD13008216FD /* MBProgressHUD.h */,
+				EA80A8C81D1CDD13008216FD /* MBProgressHUD.m */,
+				EA80A8C41D1CD2FE008216FD /* Toast+UIView.h */,
+				EA80A8C51D1CD2FE008216FD /* Toast+UIView.m */,
+				EA80A8B91D1CD056008216FD /* STAlbumManager.h */,
+				EA80A8BA1D1CD056008216FD /* STAlbumManager.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -898,14 +917,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				FED89CDE1D16619800A17A7A /* SCRecordSession.m in Sources */,
-				EA80A8AE1D1BD343008216FD /* UIColor+Hex.m in Sources */,
+				EA80A8C21D1CD063008216FD /* UIColor+Hex.m in Sources */,
 				EA96F32D1D128010002567CA /* GLMatEdgeDetection.mm in Sources */,
-				FED89CFF1D168D2A00A17A7A /* UIView+Frame.m in Sources */,
 				FED89CE01D16619800A17A7A /* NSURL+SCSaveToCameraRoll.m in Sources */,
 				FED89CFB1D167D0800A17A7A /* GLMenuItem.m in Sources */,
 				EAD5AD2F1CF2D45D001F89E8 /* NSArray+MASAdditions.m in Sources */,
 				FED89CDC1D16619800A17A7A /* SCVideoPlayerView.m in Sources */,
 				EAD5AD9A1CF698D1001F89E8 /* UIImage+FaceRecognizer.mm in Sources */,
+				EA80A8BB1D1CD056008216FD /* STAlbumManager.m in Sources */,
 				EA380D851D069E3A00478A41 /* GLFaceAnimator.mm in Sources */,
 				EA80A8A71D1BB41A008216FD /* GLSliderView.m in Sources */,
 				FED89CEB1D16619800A17A7A /* SCRecorderToolsView.m in Sources */,
@@ -921,7 +940,9 @@
 				EA80A8A11D1BB349008216FD /* HUMSlider.m in Sources */,
 				FED89CD51D16619800A17A7A /* SCImageView.m in Sources */,
 				FED89CE81D16619800A17A7A /* SCWeakSelectorTarget.m in Sources */,
+				EA80A8C31D1CD063008216FD /* UIView+Frame.m in Sources */,
 				EA96F32A1D127FE1002567CA /* GLMatTransform.mm in Sources */,
+				EA80A8C61D1CD2FE008216FD /* Toast+UIView.m in Sources */,
 				FED89CDF1D16619800A17A7A /* SCRecordSessionSegment.m in Sources */,
 				FED89CD01D16619800A17A7A /* SCMediaTypeConfiguration.m in Sources */,
 				EA80A8A41D1BB399008216FD /* CXSlider.m in Sources */,
@@ -941,6 +962,7 @@
 				EA1F2FE91D01DEED002EE4D4 /* GLFaceRecognizer.mm in Sources */,
 				FED89CD41D16619800A17A7A /* SCFilterImageView.m in Sources */,
 				EA1F2FE81D01DEED002EE4D4 /* GLFaceDetector.mm in Sources */,
+				EA80A8C91D1CDD13008216FD /* MBProgressHUD.m in Sources */,
 				EAD5AD2C1CF2D45D001F89E8 /* MASLayoutConstraint.m in Sources */,
 				EA1F2FF41D040923002EE4D4 /* UIImage+MatOperate.mm in Sources */,
 				FED89CE61D16619800A17A7A /* SCSampleBufferHolder.m in Sources */,

@@ -14,8 +14,12 @@
 #import "Masonry.h"
 #import "GLMenuView.h"
 #import "UIImage+OpenCV.h"
+#import "Toast+UIView.h"
+
+#import "STAlbumManager.h"
 
 #import "Macro.h"
+#import "MBProgressHUD.h"
 
 typedef NS_ENUM(NSInteger, OperateType) {
     GrayFilter = 1001,  //灰度化
@@ -86,6 +90,7 @@ typedef NS_ENUM(NSInteger, OperateType) {
     _filterImageView = [[UIImageView alloc] initWithFrame:CGRectMake(Padding20, Padding20, ScreenWidth - 2*Padding20, ScreenHeight - Padding20 - self.menuView.height)];
     _filterImageView.image = self.originImg;
     [self.view addSubview:_filterImageView];
+    _filterImageView.userInteractionEnabled = TRUE;
     
     self.navigationController.navigationBarHidden = TRUE;
     
@@ -101,6 +106,8 @@ typedef NS_ENUM(NSInteger, OperateType) {
     UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showMenuView)];
     [self.view addGestureRecognizer:recognizer];
     
+    UILongPressGestureRecognizer *longRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(saveImageToAlbum)];
+    [self.filterImageView addGestureRecognizer:longRecognizer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -108,9 +115,37 @@ typedef NS_ENUM(NSInteger, OperateType) {
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark -- GestureRecognizer Event
 - (void)showMenuView{
-    self.menuView.hidden = FALSE;
-    self.sliderView.hidden = TRUE;
+    if (self.menuView.hidden) {
+        self.menuView.hidden = FALSE;
+        self.sliderView.hidden = TRUE;
+    }
+}
+
+- (void)showHUD{
+    [MBProgressHUD showHUDAddedTo:self.view animated:TRUE];
+}
+
+- (void)hiddentHUD{
+    [MBProgressHUD hideHUDForView:self.view animated:TRUE];
+}
+
+- (void)saveImageToAlbum{
+    [[STAlbumManager sharedManager] saveImage:self.filterImageView.image toAlbum:@"图像处理" completionHandler:^(UIImage *image, NSError *error) {
+        if(error){
+            if (error.code == ALAssetsLibraryAccessUserDeniedError) {
+                UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"请在iPhone的\"设置-隐私-照片\"选项中,允许该应用访问你的照片。" message:nil delegate:nil  cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                [alertView show];
+            }else if(error.code == ALAssetsLibraryWriteDiskSpaceError){
+                UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"存储空间不足,请在iPhone的\"设置-通用-用量\"选项中设置。" message:nil delegate:nil  cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                [alertView show];
+            }
+        }else {
+            [self.view makeToast:@"图片保存成功"];
+        }
+        
+    }];
 }
 
 #pragma mark -- CXSliderDelegate
@@ -154,37 +189,47 @@ typedef NS_ENUM(NSInteger, OperateType) {
 
 - (void)imageFilterWithType:(NSInteger)type{
     self.type = (OperateType)type;
+    
+    [self showHUD];
+    
     NSString *typeStr = [@(type) stringValue];
     if ([typeStr hasPrefix:@"100"]) {
         [self grayOperate:type];
+        [self hiddentHUD];
         return;
     }
     
     if ([typeStr hasPrefix:@"200"]) {
         [self binaryOperate:type];
+        [self hiddentHUD];
         return;
     }
     
     if ([typeStr hasPrefix:@"210"]) {
         [self binaryMorphologyOperate:type];
+        [self hiddentHUD];
         return;
     }
     
     if ([typeStr hasPrefix:@"300"]) {
         [self morphologyOperate:type];
+        [self hiddentHUD];
         return;
     }
     if ([typeStr hasPrefix:@"400"]) {
         [self edgeInfoOperate:type];
+        [self hiddentHUD];
         return;
     }
     if ([typeStr hasPrefix:@"500"]) {
         [self smoothingOperate:type];
+        [self hiddentHUD];
         return;
     }
     
     if ([typeStr hasPrefix:@"600"]) {
         [self skeletonOperate:type];
+        [self hiddentHUD];
         return;
     }
 //    未捕获设置原图，灰度图中放置二值化及均衡化处理
