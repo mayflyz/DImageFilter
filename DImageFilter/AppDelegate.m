@@ -10,6 +10,7 @@
 #import "GLDemoListVC.h"
 
 #import "GLMainVC.h"
+#import "GLVIndexVC.h"
 
 @interface AppDelegate ()
 
@@ -22,9 +23,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    GLMainVC *mainVC = [[GLMainVC alloc] init];
+//    GLMainVC *mainVC = [[GLMainVC alloc] init];
+//    self.window.rootViewController = mainVC;
     
-    self.window.rootViewController = mainVC;
+    
+    GLVIndexVC *viewController = [[GLVIndexVC alloc] init];
+    self.window.rootViewController = viewController;
+    
 //    GLDemoListVC *vc = [[GLDemoListVC alloc] init];
 //    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
 //    self.window.rootViewController = nav;

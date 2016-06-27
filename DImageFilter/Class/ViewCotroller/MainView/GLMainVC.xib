@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GLMainVC">
@@ -34,7 +34,7 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="G7u-Bk-gOK" firstAttribute="top" secondItem="be5-Bi-i7F" secondAttribute="top" constant="20" id="abn-mL-Skj"/>
                         <constraint firstAttribute="trailing" secondItem="G7u-Bk-gOK" secondAttribute="trailing" constant="8" id="gpi-Cz-DUs"/>
@@ -43,24 +43,24 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GSi-e0-Zk7">
                     <rect key="frame" x="0.0" y="540" width="600" height="60"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRL-TI-4JW">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRL-TI-4JW">
                             <rect key="frame" x="270" y="0.0" width="60" height="60"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="60" id="4Ke-da-m0C"/>
                                 <constraint firstAttribute="width" constant="60" id="E4g-90-oQw"/>
                             </constraints>
-                            <state key="normal" title="拍照"/>
+                            <state key="normal" image="icon_camera2"/>
                             <connections>
                                 <action selector="takePhotoEvent:" destination="-1" eventType="touchUpInside" id="4At-dB-JqU"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Obq-hg-3y8">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Obq-hg-3y8">
                             <rect key="frame" x="20" y="5" width="50" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="50" id="HRJ-QI-ssy"/>
                                 <constraint firstAttribute="height" constant="50" id="OLA-l7-weR"/>
                             </constraints>
-                            <state key="normal" title="Button"/>
+                            <state key="normal" image="icon_Album"/>
                             <connections>
                                 <action selector="albumsEvent:" destination="-1" eventType="touchUpInside" id="KnB-py-HlY"/>
                             </connections>
@@ -92,5 +92,7 @@
     </objects>
     <resources>
         <image name="capture_flip" width="36" height="30"/>
+        <image name="icon_Album" width="48" height="48"/>
+        <image name="icon_camera2" width="54" height="47"/>
     </resources>
 </document>

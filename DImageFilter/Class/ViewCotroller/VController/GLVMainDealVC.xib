@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GLVMainDealVC">
+            <connections>
+                <outlet property="backBtn" destination="m1l-wO-P1J" id="ehc-Jy-Zya"/>
+                <outlet property="bottomView" destination="TLF-DQ-wbu" id="8sm-Ix-ea5"/>
+                <outlet property="saveBtn" destination="UYZ-PH-Jt9" id="EYk-xe-9ZS"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1l-wO-P1J">
+                    <rect key="frame" x="10" y="10" width="60" height="38"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="2P1-Dl-aJd"/>
+                        <constraint firstAttribute="height" constant="38" id="KSX-CG-qQM"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="Y7b-hX-cLZ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="返回" image="icon_back_a"/>
+                    <connections>
+                        <action selector="backBtnClick:" destination="-1" eventType="touchUpInside" id="59I-RF-foT"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYZ-PH-Jt9">
+                    <rect key="frame" x="550" y="10" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="4ZI-lv-XHg"/>
+                        <constraint firstAttribute="width" constant="40" id="Fw5-oF-7zp"/>
+                    </constraints>
+                    <state key="normal" image="icon_save"/>
+                    <connections>
+                        <action selector="saveBtnClick:" destination="-1" eventType="touchUpInside" id="SbF-u3-tBO"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TLF-DQ-wbu">
+                    <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="jD5-5x-oP3"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="TLF-DQ-wbu" secondAttribute="bottom" id="2aK-po-wDD"/>
+                <constraint firstItem="m1l-wO-P1J" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="4Qt-dM-LeB"/>
+                <constraint firstItem="m1l-wO-P1J" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="8zK-7s-EA7"/>
+                <constraint firstItem="TLF-DQ-wbu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="AcU-G9-ZdV"/>
+                <constraint firstAttribute="trailing" secondItem="UYZ-PH-Jt9" secondAttribute="trailing" constant="10" id="Dmh-xf-4la"/>
+                <constraint firstAttribute="trailing" secondItem="TLF-DQ-wbu" secondAttribute="trailing" id="Qxz-fS-TLp"/>
+                <constraint firstItem="m1l-wO-P1J" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="Vok-Wv-qbI"/>
+                <constraint firstItem="UYZ-PH-Jt9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="g1N-Qc-cKj"/>
+                <constraint firstItem="m1l-wO-P1J" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="v7d-cG-1Pw"/>
+            </constraints>
+            <point key="canvasLocation" x="399" y="248"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_back_a" width="25" height="25"/>
+        <image name="icon_save" width="40" height="40"/>
+    </resources>
+</document>

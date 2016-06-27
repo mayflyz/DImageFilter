@@ -2,12 +2,11 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10117"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GLFilterImageVC">
             <connections>
-                <outlet property="headerView" destination="CR2-kW-AdW" id="kJg-Dx-KPJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,20 +15,44 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CR2-kW-AdW">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIG-Aa-CXU">
+                    <rect key="frame" x="532" y="8" width="60" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="44" id="zVn-84-1a7"/>
+                        <constraint firstAttribute="height" constant="30" id="Hlq-vS-olN"/>
+                        <constraint firstAttribute="width" constant="60" id="Zt6-zE-t5m"/>
                     </constraints>
-                </view>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="保存">
+                        <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="savePhoto:" destination="-1" eventType="touchUpInside" id="xMf-V0-hRb"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uNF-Tb-Vtv">
+                    <rect key="frame" x="8" y="8" width="60" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="kGz-PY-JHU"/>
+                        <constraint firstAttribute="height" constant="30" id="qrB-Fd-aKq"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="tintColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="返回">
+                        <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="dismissView:" destination="-1" eventType="touchUpInside" id="Qf7-rF-GyK"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="CR2-kW-AdW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5ej-MS-eCf"/>
-                <constraint firstAttribute="trailing" secondItem="CR2-kW-AdW" secondAttribute="trailing" id="M3G-2V-ET4"/>
-                <constraint firstItem="CR2-kW-AdW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="z2g-UH-U0b"/>
+                <constraint firstAttribute="trailing" secondItem="WIG-Aa-CXU" secondAttribute="trailing" constant="8" id="7Fo-NL-F00"/>
+                <constraint firstItem="WIG-Aa-CXU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="cnP-JX-KG8"/>
+                <constraint firstItem="uNF-Tb-Vtv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="oF9-wW-te4"/>
+                <constraint firstItem="uNF-Tb-Vtv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="rUK-hq-ofK"/>
             </constraints>
+            <point key="canvasLocation" x="594" y="352"/>
         </view>
     </objects>
 </document>

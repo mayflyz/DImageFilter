@@ -87,7 +87,9 @@ typedef NS_ENUM(NSInteger, OperateType) {
     _menuView.delegate = self;
     [self.view addSubview:self.menuView];
     
-    _filterImageView = [[UIImageView alloc] initWithFrame:CGRectMake(Padding20, Padding20, ScreenWidth - 2*Padding20, ScreenHeight - Padding20 - self.menuView.height)];
+    CGFloat width = ScreenWidth - 2*Padding20;
+    _filterImageView = [[UIImageView alloc] initWithFrame:CGRectMake(Padding20, Padding20, width, width)];
+    _filterImageView.center = self.view.center;
     _filterImageView.image = self.originImg;
     [self.view addSubview:_filterImageView];
     _filterImageView.userInteractionEnabled = TRUE;
@@ -106,8 +108,8 @@ typedef NS_ENUM(NSInteger, OperateType) {
     UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showMenuView)];
     [self.view addGestureRecognizer:recognizer];
     
-    UILongPressGestureRecognizer *longRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(saveImageToAlbum)];
-    [self.filterImageView addGestureRecognizer:longRecognizer];
+//    UILongPressGestureRecognizer *longRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(saveImageToAlbum)];
+//    [self.filterImageView addGestureRecognizer:longRecognizer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -115,6 +117,13 @@ typedef NS_ENUM(NSInteger, OperateType) {
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)dismissView:(id)sender {
+    [self dismissViewControllerAnimated:TRUE completion:nil];
+}
+
+- (IBAction)savePhoto:(id)sender {
+    [self saveImageToAlbum];
+}
 #pragma mark -- GestureRecognizer Event
 - (void)showMenuView{
     if (self.menuView.hidden) {
