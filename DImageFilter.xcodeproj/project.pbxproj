@@ -14,6 +14,7 @@
 		EA1F2FF41D040923002EE4D4 /* UIImage+MatOperate.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA1F2FF31D040923002EE4D4 /* UIImage+MatOperate.mm */; };
 		EA1F2FF71D0409AB002EE4D4 /* UIImage+Morphology.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA1F2FF61D0409AB002EE4D4 /* UIImage+Morphology.mm */; };
 		EA1F2FFA1D040A34002EE4D4 /* UIImage+Threshold.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA1F2FF91D040A34002EE4D4 /* UIImage+Threshold.mm */; };
+		EA28CDBC1D2A836000A9A6B1 /* GLSubMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = EA28CDBB1D2A836000A9A6B1 /* GLSubMenu.m */; };
 		EA380D7A1D05622900478A41 /* great.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EA380D791D05622900478A41 /* great.jpg */; };
 		EA380D7C1D0588DB00478A41 /* Histogram_Equalization.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EA380D7B1D0588DB00478A41 /* Histogram_Equalization.jpg */; };
 		EA380D851D069E3A00478A41 /* GLFaceAnimator.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA380D841D069E3A00478A41 /* GLFaceAnimator.mm */; };
@@ -159,6 +160,8 @@
 		EA1F2FF81D040A34002EE4D4 /* UIImage+Threshold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Threshold.h"; sourceTree = "<group>"; };
 		EA1F2FF91D040A34002EE4D4 /* UIImage+Threshold.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+Threshold.mm"; sourceTree = "<group>"; };
 		EA1F2FFB1D040A87002EE4D4 /* UIImage+OpenCV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
+		EA28CDBA1D2A836000A9A6B1 /* GLSubMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLSubMenu.h; sourceTree = "<group>"; };
+		EA28CDBB1D2A836000A9A6B1 /* GLSubMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLSubMenu.m; sourceTree = "<group>"; };
 		EA380D791D05622900478A41 /* great.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = great.jpg; sourceTree = "<group>"; };
 		EA380D7B1D0588DB00478A41 /* Histogram_Equalization.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Histogram_Equalization.jpg; sourceTree = "<group>"; };
 		EA380D831D069E3A00478A41 /* GLFaceAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLFaceAnimator.h; sourceTree = "<group>"; };
@@ -647,6 +650,8 @@
 				FED89CFA1D167D0800A17A7A /* GLMenuItem.m */,
 				EA80A8A51D1BB41A008216FD /* GLSliderView.h */,
 				EA80A8A61D1BB41A008216FD /* GLSliderView.m */,
+				EA28CDBA1D2A836000A9A6B1 /* GLSubMenu.h */,
+				EA28CDBB1D2A836000A9A6B1 /* GLSubMenu.m */,
 			);
 			path = MenuView;
 			sourceTree = "<group>";
@@ -1122,6 +1127,7 @@
 				EA1F2FE91D01DEED002EE4D4 /* GLFaceRecognizer.mm in Sources */,
 				FED89CD41D16619800A17A7A /* SCFilterImageView.m in Sources */,
 				EA80A8FF1D210452008216FD /* UILabel+QHLabelCtg.m in Sources */,
+				EA28CDBC1D2A836000A9A6B1 /* GLSubMenu.m in Sources */,
 				EA1F2FE81D01DEED002EE4D4 /* GLFaceDetector.mm in Sources */,
 				EA80A8C91D1CDD13008216FD /* MBProgressHUD.m in Sources */,
 				EAD5AD2C1CF2D45D001F89E8 /* MASLayoutConstraint.m in Sources */,
