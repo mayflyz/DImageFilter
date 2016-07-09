@@ -18,6 +18,9 @@
 		EA380D7A1D05622900478A41 /* great.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EA380D791D05622900478A41 /* great.jpg */; };
 		EA380D7C1D0588DB00478A41 /* Histogram_Equalization.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EA380D7B1D0588DB00478A41 /* Histogram_Equalization.jpg */; };
 		EA380D851D069E3A00478A41 /* GLFaceAnimator.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA380D841D069E3A00478A41 /* GLFaceAnimator.mm */; };
+		EA73AA091D309D3A00772810 /* ASValuePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA73AA061D309D3A00772810 /* ASValuePopUpView.m */; };
+		EA73AA0A1D309D3A00772810 /* ASValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = EA73AA081D309D3A00772810 /* ASValueTrackingSlider.m */; };
+		EA73AA101D30A63700772810 /* GLVMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA73AA0F1D30A63700772810 /* GLVMenuView.m */; };
 		EA80A8A11D1BB349008216FD /* HUMSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = EA80A8A01D1BB349008216FD /* HUMSlider.m */; };
 		EA80A8A41D1BB399008216FD /* CXSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = EA80A8A31D1BB399008216FD /* CXSlider.m */; };
 		EA80A8A71D1BB41A008216FD /* GLSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA80A8A61D1BB41A008216FD /* GLSliderView.m */; };
@@ -30,7 +33,7 @@
 		EA80A8CF1D20C1D2008216FD /* GLVIndexVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA80A8CE1D20C1D2008216FD /* GLVIndexVC.m */; };
 		EA80A8D31D20F435008216FD /* GLVGrayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA80A8D11D20F435008216FD /* GLVGrayVC.m */; };
 		EA80A8D41D20F435008216FD /* GLVGrayVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA80A8D21D20F435008216FD /* GLVGrayVC.xib */; };
-		EA80A8D91D20FC09008216FD /* GLVMainDealVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA80A8D71D20FC09008216FD /* GLVMainDealVC.m */; };
+		EA80A8D91D20FC09008216FD /* GLVMainDealVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = EA80A8D71D20FC09008216FD /* GLVMainDealVC.mm */; };
 		EA80A8DA1D20FC09008216FD /* GLVMainDealVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA80A8D81D20FC09008216FD /* GLVMainDealVC.xib */; };
 		EA80A8F91D210452008216FD /* QHNavSliderMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = EA80A8DD1D210452008216FD /* QHNavSliderMenu.m */; };
 		EA80A8FA1D210452008216FD /* AlertViewWithBlockOrSEL.m in Sources */ = {isa = PBXBuildFile; fileRef = EA80A8E11D210452008216FD /* AlertViewWithBlockOrSEL.m */; };
@@ -166,6 +169,12 @@
 		EA380D7B1D0588DB00478A41 /* Histogram_Equalization.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Histogram_Equalization.jpg; sourceTree = "<group>"; };
 		EA380D831D069E3A00478A41 /* GLFaceAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLFaceAnimator.h; sourceTree = "<group>"; };
 		EA380D841D069E3A00478A41 /* GLFaceAnimator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLFaceAnimator.mm; sourceTree = "<group>"; };
+		EA73AA051D309D3A00772810 /* ASValuePopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValuePopUpView.h; sourceTree = "<group>"; };
+		EA73AA061D309D3A00772810 /* ASValuePopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValuePopUpView.m; sourceTree = "<group>"; };
+		EA73AA071D309D3A00772810 /* ASValueTrackingSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValueTrackingSlider.h; sourceTree = "<group>"; };
+		EA73AA081D309D3A00772810 /* ASValueTrackingSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValueTrackingSlider.m; sourceTree = "<group>"; };
+		EA73AA0E1D30A63700772810 /* GLVMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLVMenuView.h; sourceTree = "<group>"; };
+		EA73AA0F1D30A63700772810 /* GLVMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLVMenuView.m; sourceTree = "<group>"; };
 		EA80A89F1D1BB349008216FD /* HUMSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUMSlider.h; sourceTree = "<group>"; };
 		EA80A8A01D1BB349008216FD /* HUMSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUMSlider.m; sourceTree = "<group>"; };
 		EA80A8A21D1BB399008216FD /* CXSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXSlider.h; sourceTree = "<group>"; };
@@ -190,7 +199,7 @@
 		EA80A8D11D20F435008216FD /* GLVGrayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLVGrayVC.m; sourceTree = "<group>"; };
 		EA80A8D21D20F435008216FD /* GLVGrayVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GLVGrayVC.xib; sourceTree = "<group>"; };
 		EA80A8D61D20FC09008216FD /* GLVMainDealVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLVMainDealVC.h; sourceTree = "<group>"; };
-		EA80A8D71D20FC09008216FD /* GLVMainDealVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLVMainDealVC.m; sourceTree = "<group>"; };
+		EA80A8D71D20FC09008216FD /* GLVMainDealVC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLVMainDealVC.mm; sourceTree = "<group>"; };
 		EA80A8D81D20FC09008216FD /* GLVMainDealVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GLVMainDealVC.xib; sourceTree = "<group>"; };
 		EA80A8DC1D210452008216FD /* QHNavSliderMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHNavSliderMenu.h; sourceTree = "<group>"; };
 		EA80A8DD1D210452008216FD /* QHNavSliderMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QHNavSliderMenu.m; sourceTree = "<group>"; };
@@ -402,6 +411,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA73AA041D309D3A00772810 /* ASValueTrackingSlider */ = {
+			isa = PBXGroup;
+			children = (
+				EA73AA051D309D3A00772810 /* ASValuePopUpView.h */,
+				EA73AA061D309D3A00772810 /* ASValuePopUpView.m */,
+				EA73AA071D309D3A00772810 /* ASValueTrackingSlider.h */,
+				EA73AA081D309D3A00772810 /* ASValueTrackingSlider.m */,
+			);
+			path = ASValueTrackingSlider;
+			sourceTree = "<group>";
+		};
 		EA80A89E1D1BB33F008216FD /* Slider */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,7 +470,7 @@
 				EA80A8D11D20F435008216FD /* GLVGrayVC.m */,
 				EA80A8D21D20F435008216FD /* GLVGrayVC.xib */,
 				EA80A8D61D20FC09008216FD /* GLVMainDealVC.h */,
-				EA80A8D71D20FC09008216FD /* GLVMainDealVC.m */,
+				EA80A8D71D20FC09008216FD /* GLVMainDealVC.mm */,
 				EA80A8D81D20FC09008216FD /* GLVMainDealVC.xib */,
 			);
 			path = VController;
@@ -459,6 +479,8 @@
 		EA80A8D51D20F8B8008216FD /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				EA73AA0E1D30A63700772810 /* GLVMenuView.h */,
+				EA73AA0F1D30A63700772810 /* GLVMenuView.m */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -616,6 +638,7 @@
 		EAD5ACE81CF2A951001F89E8 /* ThirdLib */ = {
 			isa = PBXGroup;
 			children = (
+				EA73AA041D309D3A00772810 /* ASValueTrackingSlider */,
 				EA80A8DB1D210452008216FD /* QHNavSliderMenuView */,
 				EA80A8BC1D1CD063008216FD /* Catergory */,
 				FED89CFC1D168D2A00A17A7A /* Utils */,
@@ -1081,6 +1104,7 @@
 				EAD5AD2F1CF2D45D001F89E8 /* NSArray+MASAdditions.m in Sources */,
 				FED89CDC1D16619800A17A7A /* SCVideoPlayerView.m in Sources */,
 				EAD5AD9A1CF698D1001F89E8 /* UIImage+FaceRecognizer.mm in Sources */,
+				EA73AA101D30A63700772810 /* GLVMenuView.m in Sources */,
 				EA80A8BB1D1CD056008216FD /* STAlbumManager.m in Sources */,
 				EA380D851D069E3A00478A41 /* GLFaceAnimator.mm in Sources */,
 				EA80A8A71D1BB41A008216FD /* GLSliderView.m in Sources */,
@@ -1113,6 +1137,7 @@
 				FED89CE51D16619800A17A7A /* SCRecorderTools.m in Sources */,
 				EA80A8FD1D210452008216FD /* NullSafe.m in Sources */,
 				EAD5AD311CF2D45D001F89E8 /* View+MASAdditions.m in Sources */,
+				EA73AA091D309D3A00772810 /* ASValuePopUpView.m in Sources */,
 				FED89CDB1D16619800A17A7A /* SCPlayer.m in Sources */,
 				EAD5AD2A1CF2D45D001F89E8 /* MASConstraint.m in Sources */,
 				EAD5ACC61CF2A8E3001F89E8 /* AppDelegate.m in Sources */,
@@ -1131,7 +1156,7 @@
 				EA1F2FE81D01DEED002EE4D4 /* GLFaceDetector.mm in Sources */,
 				EA80A8C91D1CDD13008216FD /* MBProgressHUD.m in Sources */,
 				EAD5AD2C1CF2D45D001F89E8 /* MASLayoutConstraint.m in Sources */,
-				EA80A8D91D20FC09008216FD /* GLVMainDealVC.m in Sources */,
+				EA80A8D91D20FC09008216FD /* GLVMainDealVC.mm in Sources */,
 				EA1F2FF41D040923002EE4D4 /* UIImage+MatOperate.mm in Sources */,
 				FED89CE61D16619800A17A7A /* SCSampleBufferHolder.m in Sources */,
 				EA1F2FF11D0408D2002EE4D4 /* UIImage+Smoothing.mm in Sources */,
@@ -1139,6 +1164,7 @@
 				FED89CE91D16619800A17A7A /* UIImage+SCSaveToCameraRoll.m in Sources */,
 				EAD5AD321CF2D45D001F89E8 /* ViewController+MASAdditions.m in Sources */,
 				FED89CDA1D16619800A17A7A /* SCFilterAnimation.m in Sources */,
+				EA73AA0A1D309D3A00772810 /* ASValueTrackingSlider.m in Sources */,
 				FECCE5C61D196C0500A3FB91 /* GLShowVC.mm in Sources */,
 				FED89CD31D16619800A17A7A /* SCContext.m in Sources */,
 				EA80A8D31D20F435008216FD /* GLVGrayVC.m in Sources */,

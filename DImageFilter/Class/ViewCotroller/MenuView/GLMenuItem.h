@@ -16,6 +16,7 @@
 
 @interface GLMenuItem : UIView
 
+@property (nonatomic, assign) BOOL selected;
 @property (nonatomic, assign) id<GLMenuItemDelegate> delegate;
 
 @property (nonatomic, strong) id itemInfo;

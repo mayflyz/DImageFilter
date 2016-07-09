@@ -37,8 +37,9 @@
     return self;
 }
 
-#pragma mark -- 
+#pragma mark --
 - (void)addGestureEvent{
+    _selected = FALSE;
     UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapRecognizerHandler:)];
     [self addGestureRecognizer:recognizer];
 }
@@ -51,6 +52,16 @@
     self.subLineInfo.text = title;
 }
 
+- (void)setSelected:(BOOL)selected{
+    _selected = selected;
+    
+    if (selected) {
+        self.subLineInfo.textColor = [UIColor blackColor];
+    }else{
+        self.subLineInfo.textColor = [UIColor orangeColor];
+    }
+}
+
 - (void)tapRecognizerHandler:(UIGestureRecognizer *)recognizer{
     if (self.delegate && [self.delegate respondsToSelector:@selector(menuItemSelect:)]) {
         [self.delegate menuItemSelect:self.itemInfo];
@@ -60,7 +71,7 @@
 #pragma mark -- control init
 - (UIImageView *)menuImgView{
     if (_menuImgView == nil) {
-        _menuImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds))];
+        _menuImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds) - 21)];
     }
     
     return _menuImgView;
@@ -70,9 +81,9 @@
     if (_subLineInfo == nil) {
         _subLineInfo = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.bounds) - 21, CGRectGetWidth(self.bounds), 21)];
         _subLineInfo.textAlignment = NSTextAlignmentCenter;
-        _subLineInfo.font = [UIFont systemFontOfSize:15.f];
+        _subLineInfo.font = [UIFont systemFontOfSize:12.f];
         _subLineInfo.backgroundColor = [UIColor clearColor];
-        _subLineInfo.textColor = [UIColor lightGrayColor];
+        _subLineInfo.textColor = [UIColor blackColor];
     }
     
     return _subLineInfo;

@@ -28,7 +28,8 @@
     
     
     GLVIndexVC *viewController = [[GLVIndexVC alloc] init];
-    self.window.rootViewController = viewController;
+    UINavigationController *controller = [[UINavigationController alloc] initWithRootViewController:viewController];
+    self.window.rootViewController = controller;
     
 //    GLDemoListVC *vc = [[GLDemoListVC alloc] init];
 //    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];

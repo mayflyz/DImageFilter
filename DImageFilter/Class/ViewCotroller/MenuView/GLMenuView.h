@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "GLMenuItem.h"
+
 /**
  *  该自定义控件给出通用的简单菜单处理，菜单的样式如下：
  *  ******   ******   ******   ******
@@ -18,11 +20,6 @@
  *  {"title":, "subMenu":{"title":,"imageName":,@"operateType":}}
  */
 
-@protocol GLMenuItemDelegate <NSObject>
-
-- (void)menuItemSelect:(id)menuInfo;
-
-@end
 
 @interface GLMenuView : UIView
 /**

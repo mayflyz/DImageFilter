@@ -8,6 +8,7 @@
 
 #import "GLVIndexVC.h"
 #import "Macro.h"
+#import "GLVMainDealVC.h"
 
 @interface GLVIndexVC ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -63,13 +64,12 @@
 #pragma mark -- UIImagePickerControllerDelegate
 // 用户选中图片之后的回调
 - (void)imagePickerController: (UIImagePickerController *)picker didFinishPickingMediaWithInfo: (NSDictionary *)info{
-    [self dismissViewControllerAnimated:true completion:^{
-        
-    }];
-    
     // 获得编辑过的图片
-    UIImage *image = [info objectForKey: @"UIImagePickerControllerOriginalImage"];
+    UIImage *image = [info objectForKey: @"UIImagePickerControllerOriginalImage"];  //@"UIImagePickerControllerEditedImage"
     
+    [self dismissViewControllerAnimated:true completion:^{
+        [self showImgFilterWithImg:image];
+    }];
 }
 
 - (void) imagePickerControllerDidCancel: (UIImagePickerController *)picker{
@@ -78,6 +78,12 @@
     [self dismissViewControllerAnimated:true completion:^{
         
     }];
+}
+
+- (void)showImgFilterWithImg:(UIImage *)image{
+    GLVMainDealVC *VC = [[GLVMainDealVC alloc] init];
+    VC.srcImg = image;
+    [self.navigationController pushViewController:VC animated:TRUE];
 }
 
 #pragma mark ---
