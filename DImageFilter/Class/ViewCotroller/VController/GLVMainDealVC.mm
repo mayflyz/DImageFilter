@@ -10,9 +10,10 @@
 #import "Macro.h"
 
 #import "MenuHrizontal.h"
+#import "GLVMenuView.h"
 #import "UIImage+OpenCV.h"
 
-@interface GLVMainDealVC ()<MenuHrizontalDelegate>
+@interface GLVMainDealVC ()<MenuHrizontalDelegate, GLVMenuViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *backBtn;
 @property (weak, nonatomic) IBOutlet UIButton *saveBtn;
@@ -21,6 +22,7 @@
 @property (nonatomic, strong) UIImageView *imageView;
 
 @property (nonatomic, strong) MenuHrizontal *menuView;
+@property (nonatomic, strong) GLVMenuView *subMenuView;
 
 @end
 
@@ -31,6 +33,12 @@
     // Do any additional setup after loading the view from its nib.
     self.navigationController.navigationBarHidden = TRUE;
     [self menuInfoInit];
+    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth - 2*Padding20, ScreenWidth - 2*Padding20)];
+    self.imageView.center = CGPointMake(ScreenWidth/2, ScreenHeight/2);
+    [self.view addSubview:self.imageView];
+    self.imageView.image = self.srcImg;
+    
+    self.bottomView.hidden = TRUE;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,7 +70,28 @@
 
 #pragma mark --MenuHrizontalDelegate
 - (void)didMenuHrizontalClickedButtonAtIndex:(NSInteger)aIndex{
-    
+    switch (aIndex) {
+        case 0:
+            [self showGrayMenu];
+            break;
+        case 1:
+            [self showBinaryMenu];
+            break;
+        case 2:
+            [self showMorphologyMenu];
+            break;
+        case 3:
+            [self showEdgeMenu];
+            break;
+        case 4:
+            [self showSmoothingMenu];
+            break;
+        case 5:
+            [self showSkeletonMenu];
+            break;
+        default:
+            break;
+    }
 }
 #pragma mark -- 菜单选择
 - (void)showGrayMenu{
@@ -141,13 +170,14 @@
 
 
 - (void)showMenuViewWithArr:(NSArray *)menuArr{
-    if (self.menuView) {
-        [self.menuView removeFromSuperview];
+    if (self.subMenuView) {
+        [self.subMenuView removeFromSuperview];
     }
-//    self.menuView = [[GLMenuView alloc] initWithFrame:CGRectMake(0, ScreenHeight - 100, ScreenWidth, 100) withMenuItem:menuArr];
-//    self.menuView.delegate = self;
-//    [self.view addSubview:self.menuView];
-//    [self.menuView itemSelectAtIndex:0];
+    
+    self.subMenuView = [[GLVMenuView alloc] initWithFrame:CGRectMake(0, ScreenHeight - 130, ScreenWidth, 100) withMenuItem:menuArr];
+    self.subMenuView.delegate = self;
+    [self.view addSubview:self.subMenuView];
+    [self.subMenuView itemSelectAtIndex:0];
 }
 
 
@@ -392,7 +422,7 @@
 
 #pragma mark --
 - (IBAction)backBtnClick:(id)sender {
-    
+    [self.navigationController popViewControllerAnimated:TRUE];
 }
 
 - (IBAction)saveBtnClick:(id)sender {

@@ -15,6 +15,7 @@
 
 @interface GLVMenuView ()<ASValueTrackingSliderDelegate, GLMenuItemDelegate>{
     int sliderValue;
+    int bottomPosition;
 }
 
 @property (nonatomic, strong) ASValueTrackingSlider *slider;
@@ -51,7 +52,7 @@ const int menuVWidth = 100;
     self.slider.popUpViewAnimatedColors = @[[UIColor purpleColor], [UIColor redColor], [UIColor orangeColor]];
     [self addSubview:self.slider];
     
-    
+    bottomPosition = self.bottom;
     self.menuScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.bounds) - 60, ScreenWidth, 60)];
     [self addSubview:self.menuScrollView];
 }
@@ -120,12 +121,12 @@ const int menuVWidth = 100;
     if (flag) {
         self.slider.hidden = FALSE;
         
-        self.frame = CGRectMake(self.left, ScreenHeight - 100, self.width, 100);
+        self.frame = CGRectMake(self.left, bottomPosition - 100, self.width, 100);
         self.menuScrollView.top = CGRectGetHeight(self.bounds) - 60;
     }else{
         self.slider.hidden = TRUE;
         
-        self.frame = CGRectMake(self.left, ScreenHeight - (Padding10 + 60) , self.width, Padding10 + 60);
+        self.frame = CGRectMake(self.left, bottomPosition - (Padding10 + 60) , self.width, Padding10 + 60);
         self.menuScrollView.top = Padding10;
     }
 }

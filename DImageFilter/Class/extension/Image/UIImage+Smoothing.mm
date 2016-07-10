@@ -72,7 +72,7 @@
      为了结果的正确性着想，最好是把第三个参数Size，第四个参数sigmaX和第五个参数sigmaY全部指定到。
      *  第六个参数，int类型的borderType，用于推断图像外部像素的某种边界模式。注意它有默认值BORDER_DEFAULT。
      */
-    cv::GaussianBlur(self.CVMat, outMat, cv::Size(size, size), 0);
+    cv::GaussianBlur(self.CVMat, outMat, cv::Size(size*2+1, size*2+1), 0);
     
     return [[self class] imageWithCVMat:outMat];
 }
@@ -95,7 +95,7 @@
      *  第二个参数，OutputArray类型的dst，即目标图像，函数的输出参数，需要和源图片有一样的尺寸和类型。我们可以用Mat::Clone，以源图片为模板，来初始化得到如假包换的目标图。
      *  第三个参数，int类型的ksize，孔径的线性尺寸（aperture linear size），注意这个参数必须是大于1的奇数，比如：3，5，7，9 ...
      */
-    cv::medianBlur(self.CVMat, dstMat, size);
+    cv::medianBlur(self.CVMat, dstMat, size*2+1);
     
     return [[self class] imageWithCVMat:dstMat];
 }
