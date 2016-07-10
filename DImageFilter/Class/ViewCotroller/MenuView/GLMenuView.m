@@ -41,8 +41,8 @@ const int menuWidth = 100;
     for (int i = 0; i < arr.count; i++) {
         NSDictionary *menuDic = [arr objectAtIndex:i];
         
-        NSDictionary *item = @{NOMALKEY : @"normal",
-                               HEIGHTKEY : @"helight",
+        NSDictionary *item = @{NOMALKEY : @"color_2",
+                               HEIGHTKEY : @"color_1",
                                TITLEKEY : [menuDic objectForKey:@"title"],
                                TITLEWIDTH : @(menuWidth)};
         [menuArr addObject:item];
