@@ -23,13 +23,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-//    GLMainVC *mainVC = [[GLMainVC alloc] init];
-//    self.window.rootViewController = mainVC;
+    GLMainVC *mainVC = [[GLMainVC alloc] init];
+    self.window.rootViewController = mainVC;
     
     
-    GLVIndexVC *viewController = [[GLVIndexVC alloc] init];
-    UINavigationController *controller = [[UINavigationController alloc] initWithRootViewController:viewController];
-    self.window.rootViewController = controller;
+//    GLVIndexVC *viewController = [[GLVIndexVC alloc] init];
+//    UINavigationController *controller = [[UINavigationController alloc] initWithRootViewController:viewController];
+//    self.window.rootViewController = controller;
     
 //    GLDemoListVC *vc = [[GLDemoListVC alloc] init];
 //    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];

@@ -12,6 +12,8 @@
 
 @interface GLMenuView ()<GLMenuItemDelegate,MenuHrizontalDelegate>
 
+@property (nonatomic, strong) NSArray *itemArr;
+@property (nonatomic, strong) id selectItem;
 @property (nonatomic, strong) MenuHrizontal *menuView;
 @property (nonatomic, strong) UIScrollView *subMenuScrollView;
 
@@ -74,6 +76,7 @@ const int menuWidth = 100;
     
     NSDictionary *menuDic = [self.menuArr objectAtIndex:index];
     NSArray *subMenu = [menuDic objectForKey:@"subMenu"];
+    self.itemArr = subMenu;
     for (int i=0; i<[subMenu count]; i++) {
         NSDictionary *itemDic = [subMenu objectAtIndex:i];
         NSString *imgName = [itemDic objectForKey:@"imageName"];
@@ -85,6 +88,16 @@ const int menuWidth = 100;
     }
     self.subMenuScrollView.contentSize = CGSizeMake(menuWidth * subMenu.count, CGRectGetHeight(self.subMenuScrollView.bounds));
     self.subMenuScrollView.contentOffset = CGPointZero;
+    
+    [self itemSelectAtIndex:0];
+}
+
+- (void)itemSelectAtIndex:(NSInteger)index{
+    if (index < 0 || (index > self.itemArr.count - 1)) {
+        index = 0;
+    }
+    self.selectItem = [self.itemArr objectAtIndex:index];
+    [self menuItemSelect:self.selectItem];
 }
 
 #pragma mark --MenuHrizontalDelegate
@@ -94,6 +107,17 @@ const int menuWidth = 100;
 
 #pragma mark -- GLMenuItemDelegate
 - (void)menuItemSelect:(id)itemInfo{
+    for (UIView *view in self.subMenuScrollView.subviews) {
+        if ([view isKindOfClass:[GLMenuItem class]]) {
+            GLMenuItem *item = (GLMenuItem *)view;
+            if (item.itemInfo == itemInfo) {
+                item.selected = true;
+            }else{
+                item.selected = false;
+            }
+        }
+    }
+    self.selectItem = itemInfo;
     if ([itemInfo isKindOfClass:[NSDictionary class]]) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(menuItemSelect:)]) {
             [self.delegate menuItemSelect:itemInfo];

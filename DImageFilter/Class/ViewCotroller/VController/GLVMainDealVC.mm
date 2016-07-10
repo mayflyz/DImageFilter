@@ -95,20 +95,20 @@
 }
 #pragma mark -- 菜单选择
 - (void)showGrayMenu{
-    NSArray *grayMenu = @[@{@"title" : @"灰度图", @"image" : @"icon_cat_07", @"operateType":@(GrayFilter), @"showSlider" : @"0"},
-                          @{@"title" : @"直方图", @"image" : @"icon_cat_08", @"operateType":@(GrayHist), @"showSlider" : @"0"},
-                          @{@"title" : @"均衡化", @"image" : @"icon_cat_09", @"operateType":@(GrayEqual), @"showSlider" : @"0"},
-                          @{@"title" : @"直方图均衡化", @"image" : @"icon_cat_10", @"operateType":@(GrayHistEqual), @"showSlider" : @"0"}
+    NSArray *grayMenu = @[@{@"title" : @"灰度图", @"image" : @"icon_easy", @"operateType":@(GrayFilter), @"showSlider" : @"0"},
+                          @{@"title" : @"直方图", @"image" : @"icon_easy", @"operateType":@(GrayHist), @"showSlider" : @"0"},
+                          @{@"title" : @"均衡化", @"image" : @"icon_easy", @"operateType":@(GrayEqual), @"showSlider" : @"0"},
+                          @{@"title" : @"直方图均衡化", @"image" : @"icon_easy", @"operateType":@(GrayHistEqual), @"showSlider" : @"0"}
                           ];
     [self showMenuViewWithArr:grayMenu];
 }
 
 - (void)showBinaryMenu{
-    NSArray *binMenu = @[@{@"title" : @"迭代法", @"image" : @"icon_cat_01", @"operateType":@(BinaryDetech), @"showSlider" : @"0"},
-                         @{@"title" : @"OTSU法", @"image" : @"icon_cat_02", @"operateType":@(BinaryOTSU), @"showSlider" : @"0"},
-                         @{@"title" : @"熵阈值", @"image" : @"icon_cat_03", @"operateType":@(BinaryMaxEntropy), @"showSlider" : @"0"},
-                         @{@"title" : @"全局阈值", @"image" : @"icon_cat_04", @"operateType":@(BinaryGlobal), @"showSlider" : @"0"},
-                         @{@"title" : @"自定义阈值", @"image" : @"icon_cat_05", @"operateType":@(BinaryCustom)}
+    NSArray *binMenu = @[@{@"title" : @"迭代法", @"image" : @"icon_easy", @"operateType":@(BinaryDetech), @"showSlider" : @"0"},
+                         @{@"title" : @"OTSU法", @"image" : @"icon_easy", @"operateType":@(BinaryOTSU), @"showSlider" : @"0"},
+                         @{@"title" : @"熵阈值", @"image" : @"icon_easy", @"operateType":@(BinaryMaxEntropy), @"showSlider" : @"0"},
+                         @{@"title" : @"全局阈值", @"image" : @"icon_easy", @"operateType":@(BinaryGlobal), @"showSlider" : @"0"},
+                         @{@"title" : @"自定义阈值", @"image" : @"icon_easy", @"operateType":@(BinaryCustom)}
                          ];
     [self showMenuViewWithArr:binMenu];
 }
@@ -117,13 +117,13 @@
  *  形态学菜单
  */
 - (void)showMorphologyMenu{
-    NSArray *morphology = @[@{@"title" : @"腐蚀", @"image" : @"icon_cat_11", @"operateType":@(MorphologyErosion)},
-                            @{@"title" : @"膨胀", @"image" : @"icon_cat_12", @"operateType":@(MorphologyDilate)},
-                            @{@"title" : @"开运算", @"image" : @"icon_cat_13", @"operateType":@(MorphologyOpen)},
-                            @{@"title" : @"闭运算", @"image" : @"icon_cat_14", @"operateType":@(MorphologyClose)},
-                            @{@"title" : @"形态学梯度", @"image" : @"icon_cat_15", @"operateType":@(MorphologyGradient)},
-                            @{@"title" : @"顶帽", @"image" : @"icon_cat_16", @"operateType":@(MorphologyTopHat)},
-                            @{@"title" : @"黑帽", @"image" : @"icon_cat_17", @"operateType":@(MorphologyBlackHat)}
+    NSArray *morphology = @[@{@"title" : @"腐蚀", @"image" : @"icon_easy", @"operateType":@(MorphologyErosion)},
+                            @{@"title" : @"膨胀", @"image" : @"icon_easy", @"operateType":@(MorphologyDilate)},
+                            @{@"title" : @"开运算", @"image" : @"icon_easy", @"operateType":@(MorphologyOpen)},
+                            @{@"title" : @"闭运算", @"image" : @"icon_easy", @"operateType":@(MorphologyClose)},
+                            @{@"title" : @"形态学梯度", @"image" : @"icon_easy", @"operateType":@(MorphologyGradient)},
+                            @{@"title" : @"顶帽", @"image" : @"icon_easy", @"operateType":@(MorphologyTopHat)},
+                            @{@"title" : @"黑帽", @"image" : @"icon_easy", @"operateType":@(MorphologyBlackHat)}
                             ];
     [self showMenuViewWithArr:morphology];
 }
@@ -132,12 +132,12 @@
  *  边缘检测菜单
  */
 - (void)showEdgeMenu{
-    NSArray *edgeMenu = @[@{@"title" : @"sobel算子", @"image" : @"icon_cat_18", @"operateType":@(EdgeSobel)},
-                          @{@"title" : @"canny算子", @"image" : @"icon_cat_19", @"operateType":@(EdgeCanny)},
-                          @{@"title" : @"Laplace算子", @"image" : @"icon_cat_01", @"operateType":@(EdgeLaplace)},
-                          @{@"title" : @"scharr算子", @"image" : @"icon_cat_02", @"operateType":@(EdgeScharr)},
-                          @{@"title" : @"Roberts算子", @"image" : @"icon_cat_03", @"operateType":@(EdgeRoberts)},
-                          @{@"title" : @"Prewitt算子", @"image" : @"icon_cat_04", @"operateType":@(EdgePrewitt)}
+    NSArray *edgeMenu = @[@{@"title" : @"sobel算子", @"image" : @"icon_hard", @"operateType":@(EdgeSobel)},
+                          @{@"title" : @"canny算子", @"image" : @"icon_hard", @"operateType":@(EdgeCanny)},
+                          @{@"title" : @"Laplace算子", @"image" : @"icon_hard", @"operateType":@(EdgeLaplace)},
+                          @{@"title" : @"scharr算子", @"image" : @"icon_hard", @"operateType":@(EdgeScharr)},
+                          @{@"title" : @"Roberts算子", @"image" : @"icon_hard", @"operateType":@(EdgeRoberts)},
+                          @{@"title" : @"Prewitt算子", @"image" : @"icon_hard", @"operateType":@(EdgePrewitt)}
                           ];
     
     [self showMenuViewWithArr:edgeMenu];
@@ -147,11 +147,11 @@
  *  滤波菜单
  */
 - (void)showSmoothingMenu{
-    NSArray *smoothingMenu = @[@{@"title" : @"方框滤波", @"image" : @"icon_cat_05", @"operateType":@(SmoothBoxBlur)},
-                               @{@"title" : @"均值滤波", @"image" : @"icon_cat_06", @"operateType":@(SmoothBlur)},
-                               @{@"title" : @"高斯滤波", @"image" : @"icon_cat_07", @"operateType":@(SmoothGussianBlur)},
-                               @{@"title" : @"中值滤波", @"image" : @"icon_cat_08", @"operateType":@(SmoothMedianBlur)},
-                               @{@"title" : @"双边滤波", @"image" : @"icon_cat_09", @"operateType":@(SmoothBilatelBlur)}
+    NSArray *smoothingMenu = @[@{@"title" : @"方框滤波", @"image" : @"icon_hard", @"operateType":@(SmoothBoxBlur)},
+                               @{@"title" : @"均值滤波", @"image" : @"icon_hard", @"operateType":@(SmoothBlur)},
+                               @{@"title" : @"高斯滤波", @"image" : @"icon_hard", @"operateType":@(SmoothGussianBlur)},
+                               @{@"title" : @"中值滤波", @"image" : @"icon_hard", @"operateType":@(SmoothMedianBlur)},
+                               @{@"title" : @"双边滤波", @"image" : @"icon_hard", @"operateType":@(SmoothBilatelBlur)}
                                ];
     [self showMenuViewWithArr:smoothingMenu];
 }
@@ -160,10 +160,10 @@
  *  骨架菜单
  */
 - (void)showSkeletonMenu{
-    NSArray *sketetonMenu = @[@{@"title" : @"距离转换", @"image" : @"icon_cat_10", @"operateType":@(SkeletonDistanceTransform), @"showSlider" : @"0"},
-                              @{@"title" : @"hilditch细化", @"image" : @"icon_cat_11", @"operateType":@(SkeletonHilditch), @"showSlider" : @"0"},
-                              @{@"title" : @"Rosenfeld细化", @"image" : @"icon_cat_12", @"operateType":@(SkeletonRosenfeld), @"showSlider" : @"0"},
-                              @{@"title" : @"形态学骨架", @"image" : @"icon_cat_13", @"operateType":@(SkeletonMorph), @"showSlider" : @"0"}
+    NSArray *sketetonMenu = @[@{@"title" : @"距离转换", @"image" : @"icon_hard", @"operateType":@(SkeletonDistanceTransform), @"showSlider" : @"0"},
+                              @{@"title" : @"hilditch细化", @"image" : @"icon_hard", @"operateType":@(SkeletonHilditch), @"showSlider" : @"0"},
+                              @{@"title" : @"Rosenfeld细化", @"image" : @"icon_hard", @"operateType":@(SkeletonRosenfeld), @"showSlider" : @"0"},
+                              @{@"title" : @"形态学骨架", @"image" : @"icon_hard", @"operateType":@(SkeletonMorph), @"showSlider" : @"0"}
                               ];
     [self showMenuViewWithArr:sketetonMenu];
 }

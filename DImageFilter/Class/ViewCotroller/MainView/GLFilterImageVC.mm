@@ -50,7 +50,7 @@
     
     CGFloat width = ScreenWidth - 2*Padding20;
     _filterImageView = [[UIImageView alloc] initWithFrame:CGRectMake(Padding20, Padding20, width, width)];
-    _filterImageView.center = self.view.center;
+    _filterImageView.center = CGPointMake(ScreenWidth/2, ScreenHeight/2);
     _filterImageView.image = self.originImg;
     [self.view addSubview:_filterImageView];
     _filterImageView.userInteractionEnabled = TRUE;
@@ -69,6 +69,7 @@
     UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showMenuView)];
     [self.view addGestureRecognizer:recognizer];
     
+    [self.menuView itemSelectAtIndex:0];
 //    UILongPressGestureRecognizer *longRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(saveImageToAlbum)];
 //    [self.filterImageView addGestureRecognizer:longRecognizer];
 }
@@ -436,59 +437,59 @@
 - (NSMutableArray *)menuDataSourceInit{
     NSDictionary *edgeMenu = @{@"title" : @"边缘检测",
                                @"subMenu" :@[
-                                       @{@"title" : @"sobel算子",@"imageName":@"",@"operateType":@(EdgeSobel)},
-                                       @{@"title" : @"canny算子",@"imageName":@"",@"operateType":@(EdgeCanny)},
-                                       @{@"title" : @"Laplace算子",@"imageName":@"",@"operateType":@(EdgeLaplace)},
-                                       @{@"title" : @"scharr算子",@"imageName":@"",@"operateType":@(EdgeScharr)},
-                                       @{@"title" : @"Roberts算子",@"imageName":@"",@"operateType":@(EdgeRoberts)},
-                                       @{@"title" : @"Prewitt算子",@"imageName":@"",@"operateType":@(EdgePrewitt)}
+                                       @{@"title" : @"sobel算子",@"imageName":@"pegman_01",@"operateType":@(EdgeSobel)},
+                                       @{@"title" : @"canny算子",@"imageName":@"pegman_02",@"operateType":@(EdgeCanny)},
+                                       @{@"title" : @"Laplace算子",@"imageName":@"pegman_03",@"operateType":@(EdgeLaplace)},
+                                       @{@"title" : @"scharr算子",@"imageName":@"pegman_04",@"operateType":@(EdgeScharr)},
+                                       @{@"title" : @"Roberts算子",@"imageName":@"pegman_05",@"operateType":@(EdgeRoberts)},
+                                       @{@"title" : @"Prewitt算子",@"imageName":@"pegman_06",@"operateType":@(EdgePrewitt)}
                                        ]};
     NSDictionary *greyMenu =  @{@"title" : @"灰度化",
                                 @"subMenu" : @[
-                                        @{@"title" : @"灰度图",@"imageName":@"",@"operateType":@(GrayFilter)},
-                                        @{@"title" : @"直方图",@"imageName":@"",@"operateType":@(GrayHist)},
-                                        @{@"title" : @"均衡化",@"imageName":@"",@"operateType":@(GrayEqual)},
-                                        @{@"title" : @"直方图均衡化",@"imageName":@"",@"operateType":@(GrayHistEqual)}
+                                        @{@"title" : @"灰度图",@"imageName":@"pegman_07",@"operateType":@(GrayFilter)},
+                                        @{@"title" : @"直方图",@"imageName":@"pegman_08",@"operateType":@(GrayHist)},
+                                        @{@"title" : @"均衡化",@"imageName":@"pegman_09",@"operateType":@(GrayEqual)},
+                                        @{@"title" : @"直方图均衡化",@"imageName":@"pegman_10",@"operateType":@(GrayHistEqual)}
                                         ]};
     NSDictionary *binMenu = @{@"title" : @"二值化",
                               @"subMenu" :@[
-                                      @{@"title" : @"迭代法",@"imageName":@"",@"operateType":@(BinaryDetech)},
-                                      @{@"title" : @"OTSU法",@"imageName":@"",@"operateType":@(BinaryOTSU)},
-                                      @{@"title" : @"熵阈值",@"imageName":@"",@"operateType":@(BinaryMaxEntropy)},
-                                      @{@"title" : @"全局阈值",@"imageName":@"",@"operateType":@(BinaryGlobal)},
-                                      @{@"title" : @"自定义阈值",@"imageName":@"",@"operateType":@(BinaryCustom)}
+                                      @{@"title" : @"迭代法",@"imageName":@"pegman_11",@"operateType":@(BinaryDetech)},
+                                      @{@"title" : @"OTSU法",@"imageName":@"pegman_12",@"operateType":@(BinaryOTSU)},
+                                      @{@"title" : @"熵阈值",@"imageName":@"pegman_13",@"operateType":@(BinaryMaxEntropy)},
+                                      @{@"title" : @"全局阈值",@"imageName":@"pegman_14",@"operateType":@(BinaryGlobal)},
+                                      @{@"title" : @"自定义阈值",@"imageName":@"pegman_15",@"operateType":@(BinaryCustom)}
                                       ]};
     NSDictionary *binMorpholoMenu = @{@"title" : @"二值形态学操作",
                               @"subMenu" :@[
-                                      @{@"title" : @"腐蚀",@"imageName":@"",@"operateType":@(BinMorphologyErosion)},
-                                      @{@"title" : @"膨胀",@"imageName":@"",@"operateType":@(BinMorphologyDilate)},
-                                      @{@"title" : @"开运算",@"imageName":@"",@"operateType":@(BinMorphologyOpen)},
-                                      @{@"title" : @"闭运算",@"imageName":@"",@"operateType":@(BinMorphologyClose)}
+                                      @{@"title" : @"腐蚀",@"imageName":@"pegman_16",@"operateType":@(BinMorphologyErosion)},
+                                      @{@"title" : @"膨胀",@"imageName":@"pegman_01",@"operateType":@(BinMorphologyDilate)},
+                                      @{@"title" : @"开运算",@"imageName":@"pegman_02",@"operateType":@(BinMorphologyOpen)},
+                                      @{@"title" : @"闭运算",@"imageName":@"pegman_03",@"operateType":@(BinMorphologyClose)}
                                       ]};
     NSDictionary *morphologyMenu = @{@"title" : @"形态学",
                                      @"subMenu" :@[
-                                             @{@"title" : @"腐蚀",@"imageName":@"",@"operateType":@(MorphologyErosion)},
-                                             @{@"title" : @"膨胀",@"imageName":@"",@"operateType":@(MorphologyDilate)},
-                                             @{@"title" : @"开运算",@"imageName":@"",@"operateType":@(MorphologyOpen)},
-                                             @{@"title" : @"闭运算",@"imageName":@"",@"operateType":@(MorphologyClose)},
-                                             @{@"title" : @"形态学梯度",@"imageName":@"",@"operateType":@(MorphologyGradient)},
-                                             @{@"title" : @"顶帽",@"imageName":@"",@"operateType":@(MorphologyTopHat)},
-                                             @{@"title" : @"黑帽",@"imageName":@"",@"operateType":@(MorphologyBlackHat)}
+                                             @{@"title" : @"腐蚀",@"imageName":@"pegman_04",@"operateType":@(MorphologyErosion)},
+                                             @{@"title" : @"膨胀",@"imageName":@"pegman_05",@"operateType":@(MorphologyDilate)},
+                                             @{@"title" : @"开运算",@"imageName":@"pegman_06",@"operateType":@(MorphologyOpen)},
+                                             @{@"title" : @"闭运算",@"imageName":@"pegman_07",@"operateType":@(MorphologyClose)},
+                                             @{@"title" : @"形态学梯度",@"imageName":@"pegman_08",@"operateType":@(MorphologyGradient)},
+                                             @{@"title" : @"顶帽",@"imageName":@"pegman_09",@"operateType":@(MorphologyTopHat)},
+                                             @{@"title" : @"黑帽",@"imageName":@"pegman_10",@"operateType":@(MorphologyBlackHat)}
                                              ]};
     NSDictionary *smoothMenu = @{@"title" : @"滤波",
                                  @"subMenu" :@[
-                                         @{@"title" : @"方框滤波",@"imageName":@"",@"operateType":@(SmoothBoxBlur)},
-                                         @{@"title" : @"均值滤波",@"imageName":@"",@"operateType":@(SmoothBlur)},
-                                         @{@"title" : @"高斯滤波",@"imageName":@"",@"operateType":@(SmoothGussianBlur)},
-                                         @{@"title" : @"中值滤波",@"imageName":@"",@"operateType":@(SmoothMedianBlur)},
-                                         @{@"title" : @"双边滤波",@"imageName":@"",@"operateType":@(SmoothBilatelBlur)}
+                                         @{@"title" : @"方框滤波",@"imageName":@"pegman_11",@"operateType":@(SmoothBoxBlur)},
+                                         @{@"title" : @"均值滤波",@"imageName":@"pegman_12",@"operateType":@(SmoothBlur)},
+                                         @{@"title" : @"高斯滤波",@"imageName":@"pegman_13",@"operateType":@(SmoothGussianBlur)},
+                                         @{@"title" : @"中值滤波",@"imageName":@"pegman_14",@"operateType":@(SmoothMedianBlur)},
+                                         @{@"title" : @"双边滤波",@"imageName":@"pegman_15",@"operateType":@(SmoothBilatelBlur)}
                                          ]};
     NSDictionary *skeletonMenu = @{@"title" : @"骨架",
                                    @"subMenu" :@[
-                                           @{@"title" : @"距离转换",@"imageName":@"",@"operateType":@(SkeletonDistanceTransform)},
-                                           @{@"title" : @"hilditch细化",@"imageName":@"",@"operateType":@(SkeletonHilditch)},
-                                           @{@"title" : @"Rosenfeld细化",@"imageName":@"",@"operateType":@(SkeletonRosenfeld)},
-                                           @{@"title" : @"形态学骨架",@"imageName":@"",@"operateType":@(SkeletonMorph)}
+                                           @{@"title" : @"距离转换",@"imageName":@"pegman_16",@"operateType":@(SkeletonDistanceTransform)},
+                                           @{@"title" : @"hilditch细化",@"imageName":@"pegman_15",@"operateType":@(SkeletonHilditch)},
+                                           @{@"title" : @"Rosenfeld细化",@"imageName":@"pegman_14",@"operateType":@(SkeletonRosenfeld)},
+                                           @{@"title" : @"形态学骨架",@"imageName":@"pegman_13",@"operateType":@(SkeletonMorph)}
                                            ]};
 
     

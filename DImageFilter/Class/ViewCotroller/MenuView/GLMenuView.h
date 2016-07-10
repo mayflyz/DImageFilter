@@ -31,4 +31,5 @@
 
 - (instancetype)initWithFrame:(CGRect)frame menuArr:(NSMutableArray *)menuArr;
 
+- (void)itemSelectAtIndex:(NSInteger)index;
 @end

@@ -71,7 +71,7 @@
 #pragma mark -- control init
 - (UIImageView *)menuImgView{
     if (_menuImgView == nil) {
-        _menuImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds) - 21)];
+        _menuImgView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 5, CGRectGetWidth(self.bounds) - 20, CGRectGetHeight(self.bounds) - 10 - 21)];
     }
     
     return _menuImgView;
