@@ -56,9 +56,11 @@
     _selected = selected;
     
     if (selected) {
-        self.subLineInfo.textColor = [UIColor blackColor];
+        self.subLineInfo.textColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor brownColor];
     }else{
-        self.subLineInfo.textColor = [UIColor orangeColor];
+        self.subLineInfo.textColor = [UIColor lightGrayColor];
+        self.backgroundColor = [UIColor whiteColor];
     }
 }
 

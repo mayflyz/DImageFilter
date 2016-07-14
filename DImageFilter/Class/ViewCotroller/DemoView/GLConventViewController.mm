@@ -13,28 +13,43 @@
 #import "UIImage+FaceRecognizer.h"
 #import <opencv2/highgui/cap_ios.h>
 #import "GLFaceDetector.h"
+#import "GLMatEdgeDetection.h"
 
-@interface GLConventViewController ()<CvVideoCameraDelegate>
+typedef NS_ENUM(NSInteger, DetectorType) {
+    DetectorTypeNone,
+    DetectorTypeGray,
+    DetectorTypeEdge
+};
+
+@interface GLConventViewController ()<CvVideoCameraDelegate>{
+    AVCaptureDevicePosition position;
+}
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (nonnull, strong) CvVideoCamera *videoCamera;
 
 @property (nonatomic, strong) GLFaceDetector *faceDetector;
 @property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
+@property (nonatomic, assign) DetectorType type;
+
 @end
 
 @implementation GLConventViewController
+- (instancetype)init{
+    if (self = [super init]) {
+        _type = DetectorTypeNone;
+        position = AVCaptureDevicePositionFront;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     //Load image with face
-    UIImage* image = [UIImage imageNamed:@"lena.jpg"];
-    // Show resulting image
-    self.imageView.image = [image faceDetect];
     
     self.videoCamera = [[CvVideoCamera alloc] initWithParentView:self.imageView];
-    self.videoCamera.defaultAVCaptureDevicePosition = AVCaptureDevicePositionFront;
+    self.videoCamera.defaultAVCaptureDevicePosition = position;
     self.videoCamera.defaultAVCaptureSessionPreset = AVCaptureSessionPreset352x288;
     self.videoCamera.defaultAVCaptureVideoOrientation = AVCaptureVideoOrientationPortrait;
     self.videoCamera.delegate = self;
@@ -49,7 +64,19 @@
     [self.view addGestureRecognizer:_tapGestureRecognizer];
     self.view.userInteractionEnabled = YES;
 
-   
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self.faceDetector startCapture];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+    [self.videoCamera stop];
+    [self.faceDetector stopCapture];
 }
 
 #pragma mark - Protocol CvVideoCameraDelegate
@@ -58,33 +85,58 @@
 - (void)processImage:(cv::Mat&)image;
 {
     // Do some OpenCV stuff with the image
-    cv::Mat image_copy;
-    cv::cvtColor(image, image_copy, CV_BGRA2BGR);
-    
-    // invert image
-    bitwise_not(image_copy, image_copy);
-    cvtColor(image_copy, image, CV_BGR2BGRA);
+    if (self.type == DetectorTypeGray) {
+        Mat dst;
+        cvtColor(image,dst,CV_RGB2GRAY);
+        dst.copyTo(image);
+    }else if(self.type == DetectorTypeEdge){
+        Mat dst = [GLMatEdgeDetection binaryzation:image];
+        dst.copyTo(image);
+    }else{
+        
+    }
     
 }
 #endif
+- (IBAction)switchCamera:(id)sender {
+    [self.videoCamera stop];
+    if (position == AVCaptureDevicePositionFront) {
+        position = AVCaptureDevicePositionBack;
+    }else{
+        position = AVCaptureDevicePositionFront;
+    }
+    self.videoCamera.defaultAVCaptureDevicePosition = position;
+    [self.videoCamera start];
+}
 
+- (IBAction)dismissView:(id)sender {
+    [self.navigationController popViewControllerAnimated:TRUE];
+}
+
+- (IBAction)grayDealEvent:(id)sender {
+    if (_type != DetectorTypeGray) {
+        _type = DetectorTypeGray;
+    }else{
+        _type = DetectorTypeNone;
+        [self.faceDetector startCapture];
+    }
+}
+
+- (IBAction)edgeDealEvent:(id)sender {
+    if (_type != DetectorTypeEdge) {
+        _type = DetectorTypeEdge;
+        [self.videoCamera start];
+        [self.faceDetector stopCapture];
+    }else{
+        _type = DetectorTypeNone;
+        [self.videoCamera stop];
+        [self.faceDetector startCapture];
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-- (IBAction)btn1Event:(id)sender {
-    [self.videoCamera start];
-    
-}
-
-- (IBAction)btn2Event:(id)sender {
-    [self.faceDetector startCapture];
-}
-
-- (IBAction)btn3Event:(id)sender {
-    [self.videoCamera stop];
-    [self.faceDetector stopCapture];
 }
 
 - (NSURL *)faceModelFileURL {
@@ -112,15 +164,6 @@
             NSLog(@"tapped on no face");
         }
     }
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([segue.identifier isEqual:@"RecognizeFace"]) {
-//        NSAssert([sender isKindOfClass:[UIImage class]],@"RecognizeFace segue MUST be sent with an image");
-//        FJFaceRecognitionViewController *frvc = segue.destinationViewController;
-//        frvc.inputImage = sender;
-//        
-//    }
 }
 
 @end

@@ -15,6 +15,7 @@
 #import "GLMenuView.h"
 #import "UIImage+OpenCV.h"
 #import "Toast+UIView.h"
+#import "GLConventViewController.h"
 
 #import "STAlbumManager.h"
 
@@ -57,21 +58,10 @@
     
     self.navigationController.navigationBarHidden = TRUE;
     
-//    [self.menuView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.left.right.mas_equalTo(self.view);
-//        make.bottom.mas_equalTo(self.filterImageView.mas_top);
-//    }];
-//    [self.filterImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.bottom.left.right.mas_equalTo(self.view);
-//        make.height.mas_equalTo(100);
-//    }];
-    
     UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showMenuView)];
     [self.view addGestureRecognizer:recognizer];
     
     [self.menuView itemSelectAtIndex:0];
-//    UILongPressGestureRecognizer *longRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(saveImageToAlbum)];
-//    [self.filterImageView addGestureRecognizer:longRecognizer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,6 +76,12 @@
 - (IBAction)savePhoto:(id)sender {
     [self saveImageToAlbum];
 }
+
+- (IBAction)recognizerBtnEvent:(id)sender {
+    GLConventViewController *VC = [[GLConventViewController alloc] init];
+    [self.navigationController pushViewController:VC animated:TRUE];
+}
+
 #pragma mark -- GestureRecognizer Event
 - (void)showMenuView{
     if (self.menuView.hidden) {

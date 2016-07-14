@@ -296,9 +296,9 @@
 		EAFADD591CFEAF36005541B4 /* haarcascade_mcs_mouth.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_mcs_mouth.xml; sourceTree = "<group>"; };
 		EAFADD5B1CFEAF3E005541B4 /* haarcascade_mcs_eyepair_big.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_mcs_eyepair_big.xml; sourceTree = "<group>"; };
 		FECCE5B31D18401800A3FB91 /* icon_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_menu.png; sourceTree = "<group>"; };
-		FECCE5B61D196C0500A3FB91 /* GLConventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLConventViewController.h; sourceTree = "<group>"; };
-		FECCE5B71D196C0500A3FB91 /* GLConventViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLConventViewController.mm; sourceTree = "<group>"; };
-		FECCE5B81D196C0500A3FB91 /* GLConventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GLConventViewController.xib; sourceTree = "<group>"; };
+		FECCE5B61D196C0500A3FB91 /* GLConventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLConventViewController.h; path = ../DemoView/GLConventViewController.h; sourceTree = "<group>"; };
+		FECCE5B71D196C0500A3FB91 /* GLConventViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GLConventViewController.mm; path = ../DemoView/GLConventViewController.mm; sourceTree = "<group>"; };
+		FECCE5B81D196C0500A3FB91 /* GLConventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GLConventViewController.xib; path = ../DemoView/GLConventViewController.xib; sourceTree = "<group>"; };
 		FECCE5B91D196C0500A3FB91 /* GLDemoListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLDemoListVC.h; sourceTree = "<group>"; };
 		FECCE5BA1D196C0500A3FB91 /* GLDemoListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLDemoListVC.m; sourceTree = "<group>"; };
 		FECCE5BB1D196C0500A3FB91 /* GLMorphologyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMorphologyVC.h; sourceTree = "<group>"; };
@@ -795,6 +795,9 @@
 		FE3DCF261D0958E800A8C41F /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				FECCE5B61D196C0500A3FB91 /* GLConventViewController.h */,
+				FECCE5B71D196C0500A3FB91 /* GLConventViewController.mm */,
+				FECCE5B81D196C0500A3FB91 /* GLConventViewController.xib */,
 				FED89CEC1D16621E00A17A7A /* GLMainVC.h */,
 				FED89CED1D16621E00A17A7A /* GLMainVC.m */,
 				FED89CEE1D16621E00A17A7A /* GLMainVC.xib */,
@@ -816,9 +819,6 @@
 		FECCE5B51D196C0500A3FB91 /* DemoView */ = {
 			isa = PBXGroup;
 			children = (
-				FECCE5B61D196C0500A3FB91 /* GLConventViewController.h */,
-				FECCE5B71D196C0500A3FB91 /* GLConventViewController.mm */,
-				FECCE5B81D196C0500A3FB91 /* GLConventViewController.xib */,
 				FECCE5B91D196C0500A3FB91 /* GLDemoListVC.h */,
 				FECCE5BA1D196C0500A3FB91 /* GLDemoListVC.m */,
 				FECCE5BB1D196C0500A3FB91 /* GLMorphologyVC.h */,
