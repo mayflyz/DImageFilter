@@ -16,6 +16,7 @@
 #import "UIImage+OpenCV.h"
 #import "Toast+UIView.h"
 #import "GLConventViewController.h"
+#import "BaseOperatorVC.h"
 
 #import "STAlbumManager.h"
 
@@ -73,8 +74,15 @@
     [self dismissViewControllerAnimated:TRUE completion:nil];
 }
 
+- (IBAction)transformEvent:(id)sender {
+    BaseOperatorVC *VC = [[BaseOperatorVC alloc] init];
+    VC.originImg = self.originImg;
+    [self.navigationController pushViewController:VC animated:TRUE];
+}
+
 - (IBAction)savePhoto:(id)sender {
     [self saveImageToAlbum];
+    [self.view makeToast:@"保存图片成功"];
 }
 
 - (IBAction)recognizerBtnEvent:(id)sender {
@@ -489,7 +497,7 @@
                                            ]};
 
     
-    NSMutableArray *menuArr = [@[greyMenu, binMenu, binMorpholoMenu, morphologyMenu,edgeMenu,smoothMenu, skeletonMenu] mutableCopy];
+    NSMutableArray *menuArr = [@[greyMenu, binMenu, morphologyMenu,edgeMenu,smoothMenu, skeletonMenu] mutableCopy];
     
     return menuArr;
 }

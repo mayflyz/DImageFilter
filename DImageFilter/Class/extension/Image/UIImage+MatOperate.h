@@ -25,5 +25,6 @@
 + (UIImage *)imageWIthIplImage:(const IplImage *)plImage;
 
 -(id)initWithCVMat:(const cv::Mat&)cvMat;
+- (UIImage *)spicedsaltWithNum:(int)num;
 
 @end

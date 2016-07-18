@@ -55,17 +55,50 @@
                         <action selector="recognizerBtnEvent:" destination="-1" eventType="touchUpInside" id="Nty-1m-IV9"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ud-Ic-06v">
+                    <rect key="frame" x="76" y="16" width="69" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="2cn-1c-XZm"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="69" id="Vv7-Kc-wan"/>
+                        <constraint firstAttribute="width" constant="46" id="iT8-97-vOu"/>
+                        <constraint firstAttribute="width" constant="69" id="s07-bt-DIh"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="w68-KU-6pe"/>
+                    </constraints>
+                    <state key="normal" title="transform">
+                        <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Vv7-Kc-wan"/>
+                            <exclude reference="iT8-97-vOu"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="transformEvent:" destination="-1" eventType="touchUpInside" id="XtZ-fP-EuH"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="6ud-Ic-06v" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="2ag-eI-fZ9"/>
+                <constraint firstItem="6ud-Ic-06v" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="ASs-X6-so8"/>
+                <constraint firstItem="6ud-Ic-06v" firstAttribute="leading" secondItem="uNF-Tb-Vtv" secondAttribute="trailing" constant="2" id="CPq-XC-ZPm"/>
                 <constraint firstItem="WIG-Aa-CXU" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="Daa-Um-tAB"/>
+                <constraint firstItem="6ud-Ic-06v" firstAttribute="leading" secondItem="uNF-Tb-Vtv" secondAttribute="trailing" constant="8" symbolic="YES" id="Gjc-BP-RC9"/>
+                <constraint firstItem="6ud-Ic-06v" firstAttribute="leading" secondItem="uNF-Tb-Vtv" secondAttribute="trailing" constant="8" id="H68-4Y-LVh"/>
                 <constraint firstItem="uNF-Tb-Vtv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="NL1-Kp-lGr"/>
                 <constraint firstItem="WIG-Aa-CXU" firstAttribute="leading" secondItem="Ls8-B5-uM7" secondAttribute="trailing" constant="17" id="ZhT-ba-ky1"/>
                 <constraint firstItem="Ls8-B5-uM7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="cJb-Gk-J7v"/>
                 <constraint firstItem="WIG-Aa-CXU" firstAttribute="baseline" secondItem="Ls8-B5-uM7" secondAttribute="baseline" id="dmJ-Xi-73L"/>
                 <constraint firstItem="uNF-Tb-Vtv" firstAttribute="baseline" secondItem="Ls8-B5-uM7" secondAttribute="baseline" id="fL4-Sl-yJ1"/>
             </constraints>
-            <point key="canvasLocation" x="684" y="294"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="CPq-XC-ZPm"/>
+                    <exclude reference="H68-4Y-LVh"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="843" y="299"/>
         </view>
     </objects>
 </document>

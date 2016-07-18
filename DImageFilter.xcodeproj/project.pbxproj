@@ -92,6 +92,8 @@
 		EAFADD581CFEAF1B005541B4 /* mustache.png in Resources */ = {isa = PBXBuildFile; fileRef = EAFADD561CFEAF1B005541B4 /* mustache.png */; };
 		EAFADD5A1CFEAF36005541B4 /* haarcascade_mcs_mouth.xml in Resources */ = {isa = PBXBuildFile; fileRef = EAFADD591CFEAF36005541B4 /* haarcascade_mcs_mouth.xml */; };
 		EAFADD5C1CFEAF3E005541B4 /* haarcascade_mcs_eyepair_big.xml in Resources */ = {isa = PBXBuildFile; fileRef = EAFADD5B1CFEAF3E005541B4 /* haarcascade_mcs_eyepair_big.xml */; };
+		FEA5C0BD1D39FF87000C72FF /* BaseOperatorVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = FEA5C0BB1D39FF87000C72FF /* BaseOperatorVC.mm */; };
+		FEA5C0BE1D39FF87000C72FF /* BaseOperatorVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEA5C0BC1D39FF87000C72FF /* BaseOperatorVC.xib */; };
 		FECCE5B41D18401800A3FB91 /* icon_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = FECCE5B31D18401800A3FB91 /* icon_menu.png */; };
 		FECCE5C11D196C0500A3FB91 /* GLConventViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = FECCE5B71D196C0500A3FB91 /* GLConventViewController.mm */; };
 		FECCE5C21D196C0500A3FB91 /* GLConventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FECCE5B81D196C0500A3FB91 /* GLConventViewController.xib */; };
@@ -295,6 +297,9 @@
 		EAFADD561CFEAF1B005541B4 /* mustache.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mustache.png; sourceTree = "<group>"; };
 		EAFADD591CFEAF36005541B4 /* haarcascade_mcs_mouth.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_mcs_mouth.xml; sourceTree = "<group>"; };
 		EAFADD5B1CFEAF3E005541B4 /* haarcascade_mcs_eyepair_big.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_mcs_eyepair_big.xml; sourceTree = "<group>"; };
+		FEA5C0BA1D39FF87000C72FF /* BaseOperatorVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseOperatorVC.h; sourceTree = "<group>"; };
+		FEA5C0BB1D39FF87000C72FF /* BaseOperatorVC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BaseOperatorVC.mm; sourceTree = "<group>"; };
+		FEA5C0BC1D39FF87000C72FF /* BaseOperatorVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseOperatorVC.xib; sourceTree = "<group>"; };
 		FECCE5B31D18401800A3FB91 /* icon_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_menu.png; sourceTree = "<group>"; };
 		FECCE5B61D196C0500A3FB91 /* GLConventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLConventViewController.h; path = ../DemoView/GLConventViewController.h; sourceTree = "<group>"; };
 		FECCE5B71D196C0500A3FB91 /* GLConventViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GLConventViewController.mm; path = ../DemoView/GLConventViewController.mm; sourceTree = "<group>"; };
@@ -804,6 +809,9 @@
 				FED89CF11D16737500A17A7A /* GLFilterImageVC.h */,
 				FED89CF21D16737500A17A7A /* GLFilterImageVC.mm */,
 				FED89CF31D16737500A17A7A /* GLFilterImageVC.xib */,
+				FEA5C0BA1D39FF87000C72FF /* BaseOperatorVC.h */,
+				FEA5C0BB1D39FF87000C72FF /* BaseOperatorVC.mm */,
+				FEA5C0BC1D39FF87000C72FF /* BaseOperatorVC.xib */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -1058,6 +1066,7 @@
 				EA80A8DA1D20FC09008216FD /* GLVMainDealVC.xib in Resources */,
 				EA380D7C1D0588DB00478A41 /* Histogram_Equalization.jpg in Resources */,
 				EA1F2FEB1D04016D002EE4D4 /* jhtx.jpg in Resources */,
+				FEA5C0BE1D39FF87000C72FF /* BaseOperatorVC.xib in Resources */,
 				EAD5ACD11CF2A8E3001F89E8 /* LaunchScreen.storyboard in Resources */,
 				EADFAA7F1CFC1DAB007F9307 /* haarcascade_frontalface_alt2.xml in Resources */,
 				FED89CF01D16621E00A17A7A /* GLMainVC.xib in Resources */,
@@ -1112,6 +1121,7 @@
 				FED89CEB1D16619800A17A7A /* SCRecorderToolsView.m in Sources */,
 				FED89CD71D16619800A17A7A /* SCFilter+UIImage.m in Sources */,
 				EAD5AD2E1CF2D45D001F89E8 /* MASViewConstraint.m in Sources */,
+				FEA5C0BD1D39FF87000C72FF /* BaseOperatorVC.mm in Sources */,
 				EA80A9021D210452008216FD /* QHUtilAss.m in Sources */,
 				FECCE5C41D196C0500A3FB91 /* GLMorphologyVC.mm in Sources */,
 				EA80A8FB1D210452008216FD /* NSObject+DataSecurity.m in Sources */,

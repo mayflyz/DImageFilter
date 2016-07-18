@@ -14,16 +14,17 @@
  *  改变突变对比度与亮度
  */
 + (Mat)adjustMat:(Mat)srcMat contrast:(float)alpha Bright:(float)beta{
-    Mat dstMat = Mat(srcMat.size(), srcMat.type());
+    Mat dstMat = Mat::zeros(srcMat.size(), srcMat.type());
     
-    int rows = srcMat.rows, cols = srcMat.cols;
-    for (int x=0; x < rows; x++) {
-        for (int y=0; y < cols; y++) {
-            for (int z = 0; z < 3; z++) {
-                dstMat.at<Vec3b>(y,x)[z] = saturate_cast<uchar>(alpha * (srcMat.at<Vec3b>(y,x)[z]) + beta);
-            }
-        }
-    }
+    srcMat.convertTo(dstMat, -1, alpha, beta);
+//    int rows = srcMat.rows, cols = srcMat.cols;
+//    for (int x=0; x < rows; x++) {
+//        for (int y=0; y < cols; y++) {
+//            for (int z = 0; z < 3; z++) {
+//                dstMat.at<Vec3b>(y,x)[z] = saturate_cast<uchar>(alpha * (srcMat.at<Vec3b>(y,x)[z]) + beta);
+//            }
+//        }
+//    }
     
     return dstMat;
 }
